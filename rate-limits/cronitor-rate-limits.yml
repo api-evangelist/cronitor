@@ -1,0 +1,51 @@
+---
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Cronitor
+providerId: cronitor
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Rate Limiting
+description: >-
+  Cronitor enforces rate limits on both the Management (REST) API and the
+  Telemetry API. The Telemetry API limits requests to 5 per second per endpoint
+  with bursts up to 10, and 50 per second per IP with bursts up to 250. The
+  Management API returns 429 responses when limits are exceeded; specific
+  thresholds for the Management API are not publicly disclosed. The Business
+  plan advertises unlimited API requests.
+sources:
+  - https://cronitor.io/docs/telemetry-api
+  - https://cronitor.io/docs/api
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+  - name: Telemetry API Per-Endpoint
+    scope: key
+    metric: requests_per_second
+    limit: 5
+    timeFrame: second
+  - name: Telemetry API Per-Endpoint Burst
+    scope: key
+    metric: requests_burst
+    limit: 10
+    timeFrame: second
+  - name: Telemetry API Per-IP
+    scope: ip
+    metric: requests_per_second
+    limit: 50
+    timeFrame: second
+  - name: Telemetry API Per-IP Burst
+    scope: ip
+    metric: requests_burst
+    limit: 250
+    timeFrame: second
+  - name: Management API
+    scope: key
+    metric: requests_per_minute
+    limit: -1
+    timeFrame: minute

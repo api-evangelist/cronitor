@@ -1,0 +1,104 @@
+---
+aid: cronitor
+name: Cronitor
+description: >-
+  Cronitor is a cron job and scheduled task monitoring platform that provides
+  developers with instant alerts when jobs fail, run too long, or don't run at
+  all. The platform offers a REST API for creating and managing monitors,
+  recording job telemetry events, and configuring alert policies across teams.
+  Cronitor supports job monitoring, heartbeat monitoring, website uptime checks,
+  and Real User Monitoring (RUM), all accessible via a versioned HTTP API using
+  Basic Auth with scoped API keys. SDKs are available for Python, Node.js, Ruby,
+  PHP, Java, Go, and other languages through the cronitorio GitHub organization.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Monitoring
+  - Cron Jobs
+  - Scheduled Tasks
+  - Alerting
+  - Uptime
+  - Telemetry
+  - Status Pages
+url: https://raw.githubusercontent.com/api-evangelist/cronitor/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: cronitor:monitors-api
+    name: Cronitor Monitors API
+    description: >-
+      The Monitors API allows creating, updating, retrieving, deleting, cloning,
+      and pausing monitors for cron jobs, heartbeats, uptime checks, and sites.
+      Monitors are configured with schedules, assertions, and alert preferences
+      via JSON or YAML payloads authenticated with HTTP Basic Auth using an API key.
+    humanURL: https://cronitor.io/docs/monitors-api
+    baseURL: https://cronitor.io/api/monitors
+    tags:
+      - Monitors
+      - Cron Jobs
+      - Alerting
+      - Configuration
+    properties:
+      - type: Documentation
+        url: https://cronitor.io/docs/monitors-api
+  - aid: cronitor:telemetry-api
+    name: Cronitor Telemetry API
+    description: >-
+      The Telemetry API is the core integration mechanism for recording job
+      execution events (run, complete, fail, ok) to Cronitor monitors. Events
+      are sent via GET, POST, or HEAD requests to the cronitor.link domain with
+      the API key embedded in the URL path, enabling lightweight pings from any
+      environment.
+    humanURL: https://cronitor.io/docs/telemetry-api
+    baseURL: https://cronitor.link
+    tags:
+      - Telemetry
+      - Events
+      - Job Monitoring
+      - Heartbeat
+    properties:
+      - type: Documentation
+        url: https://cronitor.io/docs/telemetry-api
+  - aid: cronitor:sites-api
+    name: Cronitor Sites API
+    description: >-
+      The Sites API enables management of Real User Monitoring (RUM) sites within
+      Cronitor, allowing teams to track performance and availability data from
+      real end-user browser sessions alongside synthetic and uptime monitors.
+    humanURL: https://cronitor.io/docs/sites-api
+    baseURL: https://cronitor.io/api
+    tags:
+      - Sites
+      - Real User Monitoring
+      - RUM
+      - Performance
+    properties:
+      - type: Documentation
+        url: https://cronitor.io/docs/sites-api
+common:
+  - type: Website
+    url: https://cronitor.io
+  - type: Documentation
+    url: https://cronitor.io/docs
+  - type: GitHubOrganization
+    url: https://github.com/cronitorio
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/cronitor
+  - type: Blog
+    url: https://cronitor.io/cronicle
+  - type: Pricing
+    url: https://cronitor.io/pricing
+  - type: StatusPage
+    url: https://status.cronitor.io
+  - type: X
+    url: https://x.com/cronitorio
+  - type: Plans
+    url: plans/cronitor-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cronitor-rate-limits.yml
+  - type: FinOps
+    url: finops/cronitor-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

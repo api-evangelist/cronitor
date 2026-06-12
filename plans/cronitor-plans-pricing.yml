@@ -1,0 +1,268 @@
+---
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Cronitor
+providerId: cronitor
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Monitoring
+  - Cron Jobs
+  - Scheduled Tasks
+  - Uptime
+description: >-
+  Cronitor offers three pricing tiers: a free Hacker plan for individual
+  developers, a pay-as-you-go Business plan billed per monitor and user, and an
+  Enterprise plan starting at $6,000/year with custom limits and dedicated
+  support. A 14-day free trial is available for paid plans.
+sources:
+  - https://cronitor.io/pricing
+plans:
+  - id: cronitor-hacker
+    name: Hacker
+    type: free
+    description: >-
+      Free plan for individual developers. Includes 5 monitors, 1 dashboard
+      user, 1 basic status page, email and Slack alerts, and a 5-minute minimum
+      check frequency.
+    entries:
+      - label: Monitors Included
+        name: monitors
+        type: quota
+        metric: monitors
+        limit: 5
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Dashboard Users
+        name: dashboard_users
+        type: quota
+        metric: users
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Status Page Subscribers
+        name: status_page_subscribers
+        type: quota
+        metric: subscribers
+        limit: 50
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Minimum Check Frequency
+        name: check_frequency_minutes
+        type: boolean
+        metric: minutes
+        limit: 5
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Basic Status Pages
+        name: status_pages
+        type: quota
+        metric: pages
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+  - id: cronitor-business
+    name: Business
+    type: freemium
+    description: >-
+      Pay-as-you-go plan at $2/month per monitor and $5/month per additional
+      user. Includes unlimited API requests, 12-month data retention, SMS alerts,
+      10 alert integrations, branded and private status pages as add-ons, and a
+      30-second minimum check frequency.
+    entries:
+      - label: Monitor Price
+        name: monitor_price
+        type: metered
+        metric: monitors
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '2.00'
+        userMultiplied: false
+      - label: Additional User Price
+        name: additional_user_price
+        type: metered
+        metric: users
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '5.00'
+        userMultiplied: true
+      - label: Status Page Subscribers
+        name: status_page_subscribers
+        type: quota
+        metric: subscribers
+        limit: 500
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Additional 1,000 Subscribers
+        name: additional_subscribers
+        type: metered
+        metric: subscribers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1000
+        price: '25.00'
+        userMultiplied: false
+      - label: Data Retention
+        name: data_retention
+        type: boolean
+        metric: months
+        limit: 12
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Alert Integrations
+        name: alert_integrations
+        type: quota
+        metric: integrations
+        limit: 10
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Minimum Check Frequency
+        name: check_frequency_seconds
+        type: boolean
+        metric: seconds
+        limit: 30
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Branded Status Page
+        name: branded_status_page
+        type: metered
+        metric: pages
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '25.00'
+        userMultiplied: false
+      - label: Private Status Page
+        name: private_status_page
+        type: metered
+        metric: pages
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '50.00'
+        userMultiplied: false
+      - label: SAML SSO
+        name: saml_sso
+        type: metered
+        metric: users
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '5.00'
+        userMultiplied: true
+      - label: Synthetic Browser Checks (1,000)
+        name: synthetic_browser_checks
+        type: metered
+        metric: checks
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1000
+        price: '1.00'
+        userMultiplied: false
+      - label: Real User Monitoring (100k events)
+        name: rum_events
+        type: metered
+        metric: events
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 100000
+        price: '10.00'
+        userMultiplied: false
+  - id: cronitor-enterprise
+    name: Enterprise
+    type: enterprise
+    description: >-
+      Enterprise plan starting at $6,000/year with custom monitor limits,
+      custom features and integrations, a dedicated engineer, priority support,
+      unlimited status pages and users, flexible invoice billing, and a
+      5-second minimum check frequency.
+    entries:
+      - label: Base Price
+        name: base_price
+        type: quota
+        metric: year
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '6000.00'
+        userMultiplied: false
+      - label: Monitors
+        name: monitors
+        type: quota
+        metric: monitors
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Dashboard Users
+        name: dashboard_users
+        type: quota
+        metric: users
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Status Pages
+        name: status_pages
+        type: quota
+        metric: pages
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Minimum Check Frequency
+        name: check_frequency_seconds
+        type: boolean
+        metric: seconds
+        limit: 5
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
