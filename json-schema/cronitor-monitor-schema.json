@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cronitor/json-schema/cronitor-monitor-schema.json",
+  "title": "Cronitor Monitor",
+  "description": "A Cronitor monitor object representing a cron job, heartbeat, uptime check, or site check.",
+  "type": "object",
+  "required": ["key", "type"],
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique monitor identifier.",
+      "example": "daily-backup-job"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable display name.",
+      "example": "Daily Backup Job"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["job", "check", "heartbeat", "site"],
+      "description": "Monitor type."
+    },
+    "schedule": {
+      "type": "string",
+      "description": "Cron, interval, or time expression.",
+      "example": "0 2 * * *"
+    },
+    "schedules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Multiple schedule expressions."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone string.",
+      "example": "America/New_York"
+    },
+    "assertions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of assertion expressions.",
+      "example": ["response_time < 2000", "status_code = 200"]
+    },
+    "notify": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Notification list keys or direct integration strings.",
+      "example": ["devops-team", "email:oncall@example.com"]
+    },
+    "realert_interval": {
+      "type": "string",
+      "description": "Follow-up alert timing string.",
+      "example": "1 hour"
+    },
+    "grace_seconds": {
+      "type": "integer",
+      "description": "Pre-alert delay window in seconds.",
+      "minimum": 0,
+      "example": 60
+    },
+    "failure_tolerance": {
+      "type": "integer",
+      "description": "Consecutive failures tolerated before alerting.",
+      "minimum": 0,
+      "example": 0
+    },
+    "consecutive_alert_threshold": {
+      "type": "integer",
+      "description": "Number of failures required before an alert fires.",
+      "minimum": 1,
+      "example": 1
+    },
+    "paused": {
+      "type": "boolean",
+      "description": "Whether the monitor is currently paused.",
+      "example": false
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to check for check/site monitors.",
+      "example": "https://example.com/health"
+    },
+    "method": {
+      "type": "string",
+      "enum": ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "PATCH"],
+      "description": "HTTP method for check monitors.",
+      "example": "GET"
+    },
+    "body": {
+      "type": "string",
+      "description": "HTTP request body for check monitors."
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "HTTP headers for check monitors."
+    },
+    "timeout_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 15,
+      "description": "Request timeout in seconds for check monitors.",
+      "example": 10
+    },
+    "follow_redirects": {
+      "type": "boolean",
+      "description": "Whether to follow HTTP redirects.",
+      "example": true
+    },
+    "verify_ssl": {
+      "type": "boolean",
+      "description": "Whether to verify SSL certificates.",
+      "example": true
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tags for grouping and filtering monitors.",
+      "example": ["production", "backend"]
+    },
+    "group": {
+      "type": "string",
+      "description": "Group key this monitor belongs to.",
+      "example": "backend-jobs"
+    },
+    "env": {
+      "type": "string",
+      "description": "Environment identifier.",
+      "example": "production"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "description": "ISO 8601 creation timestamp."
+    },
+    "latest_event": {
+      "type": "object",
+      "readOnly": true,
+      "description": "Most recent telemetry event.",
+      "properties": {
+        "stamp": {
+          "type": "integer",
+          "description": "Unix timestamp of the last event."
+        },
+        "state": {
+          "type": "string",
+          "enum": ["run", "complete", "fail", "ok"],
+          "description": "State of the last event."
+        }
+      }
+    },
+    "latest_issue": {
+      "type": ["object", "null"],
+      "readOnly": true,
+      "description": "Most recent issue object, or null."
+    }
+  },
+  "additionalProperties": false
+}

@@ -42,6 +42,8 @@ apis:
     properties:
       - type: Documentation
         url: https://cronitor.io/docs/monitors-api
+      - type: OpenAPI
+        url: openapi/cronitor-monitors-api-openapi.yml
   - aid: cronitor:telemetry-api
     name: Cronitor Telemetry API
     description: >-
@@ -60,6 +62,8 @@ apis:
     properties:
       - type: Documentation
         url: https://cronitor.io/docs/telemetry-api
+      - type: OpenAPI
+        url: openapi/cronitor-telemetry-api-openapi.yml
   - aid: cronitor:sites-api
     name: Cronitor Sites API
     description: >-
@@ -76,6 +80,8 @@ apis:
     properties:
       - type: Documentation
         url: https://cronitor.io/docs/sites-api
+      - type: OpenAPI
+        url: openapi/cronitor-groups-notifications-api-openapi.yml
 common:
   - type: Website
     url: https://cronitor.io
@@ -99,6 +105,18 @@ common:
     url: rate-limits/cronitor-rate-limits.yml
   - type: FinOps
     url: finops/cronitor-finops.yml
+  - type: Vocabulary
+    url: vocabulary/cronitor-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/cronitor-context.jsonld
+  - type: JSONSchema
+    url: json-schema/cronitor-monitor-schema.json
+  - type: JSONSchema
+    url: json-schema/cronitor-telemetry-event-schema.json
+  - type: JSONSchema
+    url: json-schema/cronitor-notification-list-schema.json
+  - type: Blogs
+    url: blogs/blogs.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

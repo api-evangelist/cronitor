@@ -1,0 +1,223 @@
+openapi: 3.0.3
+info:
+  title: Cronitor Telemetry API
+  description: >-
+    The Telemetry API is the core integration mechanism for recording job
+    execution events (run, complete, fail, ok) to Cronitor monitors. Events
+    are sent via GET, POST, or HEAD requests to the cronitor.link domain with
+    the API key embedded in the URL path, enabling lightweight pings from any
+    environment. Supports email integration and rate-limited event delivery.
+  version: v1
+  contact:
+    name: Cronitor Support
+    url: https://cronitor.io/docs/telemetry-api
+  license:
+    name: Proprietary
+    url: https://cronitor.io
+servers:
+  - url: https://cronitor.link
+    description: Cronitor Telemetry server
+
+paths:
+  /p/{apiKey}/{monitorKey}:
+    parameters:
+      - name: apiKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Cronitor API key with monitor:telemetry permission.
+      - name: monitorKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique monitor key to send the event to.
+
+    get:
+      operationId: sendTelemetryEventGet
+      summary: Send a telemetry event (GET)
+      description: >-
+        Records a job execution event. Use query parameters to specify the state
+        and optional metadata.
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [run, complete, fail, ok]
+          description: Job execution state.
+        - name: env
+          in: query
+          schema:
+            type: string
+          description: Environment identifier (e.g. staging, production).
+        - name: host
+          in: query
+          schema:
+            type: string
+          description: Server hostname.
+        - name: message
+          in: query
+          schema:
+            type: string
+            maxLength: 2000
+          description: URL-encoded status message.
+        - name: metric
+          in: query
+          schema:
+            type: string
+          description: >-
+            Metric value in format count:N, duration:N (seconds), or
+            error_count:N.
+          example: duration:45.2
+        - name: series
+          in: query
+          schema:
+            type: string
+          description: Unique ID for correlating related events.
+        - name: status_code
+          in: query
+          schema:
+            type: integer
+          description: Job exit code.
+      responses:
+        '200':
+          description: Event recorded.
+        '429':
+          description: >-
+            Rate limit exceeded. Per-endpoint limit is 5 req/s (burst 10);
+            per-IP limit is 50 req/s (burst 250).
+
+    post:
+      operationId: sendTelemetryEventPost
+      summary: Send a telemetry event (POST)
+      description: >-
+        Records a job execution event via POST. The request body is discarded;
+        use query parameters for all event data.
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [run, complete, fail, ok]
+        - name: env
+          in: query
+          schema:
+            type: string
+        - name: host
+          in: query
+          schema:
+            type: string
+        - name: message
+          in: query
+          schema:
+            type: string
+            maxLength: 2000
+        - name: metric
+          in: query
+          schema:
+            type: string
+        - name: series
+          in: query
+          schema:
+            type: string
+        - name: status_code
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Body is accepted but discarded.
+      responses:
+        '200':
+          description: Event recorded.
+        '429':
+          description: Rate limit exceeded.
+
+    head:
+      operationId: sendTelemetryEventHead
+      summary: Send a telemetry event (HEAD)
+      description: >-
+        Records a job execution event via HEAD request. Useful for minimal-
+        overhead pings.
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [run, complete, fail, ok]
+        - name: env
+          in: query
+          schema:
+            type: string
+        - name: message
+          in: query
+          schema:
+            type: string
+            maxLength: 2000
+        - name: metric
+          in: query
+          schema:
+            type: string
+        - name: series
+          in: query
+          schema:
+            type: string
+        - name: status_code
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Event recorded.
+        '429':
+          description: Rate limit exceeded.
+
+  /{monitorKey}:
+    parameters:
+      - name: monitorKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Monitor key for anonymous telemetry events.
+
+    get:
+      operationId: sendAnonymousTelemetryEvent
+      summary: Send an anonymous telemetry event
+      description: >-
+        Records an event without an API key for monitors that allow anonymous
+        telemetry.
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [run, complete, fail, ok]
+        - name: message
+          in: query
+          schema:
+            type: string
+            maxLength: 2000
+        - name: metric
+          in: query
+          schema:
+            type: string
+        - name: series
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Event recorded.
+        '429':
+          description: Rate limit exceeded.

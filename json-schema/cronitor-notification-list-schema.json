@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/cronitor/json-schema/cronitor-notification-list-schema.json",
+  "title": "Cronitor Notification List",
+  "description": "A Cronitor notification list (alert routing template) defining destinations for monitor alerts.",
+  "type": "object",
+  "required": ["name", "notifications"],
+  "properties": {
+    "key": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Unique identifier for the notification list.",
+      "example": "devops-team"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name.",
+      "example": "DevOps Team"
+    },
+    "notifications": {
+      "type": "object",
+      "description": "Alert destination targets.",
+      "properties": {
+        "emails": {
+          "type": "array",
+          "items": { "type": "string", "format": "email" },
+          "description": "Email addresses.",
+          "example": ["oncall@example.com"]
+        },
+        "phones": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Phone numbers for SMS alerts.",
+          "example": ["+15551234567"]
+        },
+        "slack": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Slack webhook URLs or channel identifiers."
+        },
+        "pagerduty": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "PagerDuty integration keys."
+        },
+        "opsgenie": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "OpsGenie integration keys."
+        },
+        "victorops": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "VictorOps routing keys."
+        },
+        "microsoft-teams": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Microsoft Teams webhook URLs."
+        },
+        "discord": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Discord webhook URLs."
+        },
+        "telegram": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Telegram chat IDs or bot tokens."
+        },
+        "gchat": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Google Chat webhook URLs."
+        },
+        "larksuite": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Lark Suite webhook URLs."
+        },
+        "webhooks": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" },
+          "description": "Generic webhook URLs.",
+          "example": ["https://example.com/webhooks/cronitor"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "environments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" }
+        }
+      },
+      "description": "Environment filters for this notification list."
+    },
+    "monitors": {
+      "type": "integer",
+      "readOnly": true,
+      "description": "Count of monitors using this notification list."
+    },
+    "monitor_details": {
+      "type": "array",
+      "readOnly": true,
+      "description": "Array of associated monitor objects."
+    },
+    "status": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Current status of the notification list."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "description": "ISO 8601 creation timestamp."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+{
+  "_description": "Example: Create a cron job monitor via POST /api/monitors",
+  "request": {
+    "method": "POST",
+    "url": "https://cronitor.io/api/monitors",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Basic <base64(api_key:)>"
+    },
+    "body": {
+      "key": "daily-database-backup",
+      "name": "Daily Database Backup",
+      "type": "job",
+      "schedule": "0 2 * * *",
+      "timezone": "America/New_York",
+      "grace_seconds": 300,
+      "failure_tolerance": 0,
+      "notify": ["devops-team"],
+      "realert_interval": "1 hour",
+      "tags": ["production", "database", "backup"],
+      "assertions": ["metric.duration < 3600"]
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "key": "daily-database-backup",
+      "name": "Daily Database Backup",
+      "type": "job",
+      "schedule": "0 2 * * *",
+      "timezone": "America/New_York",
+      "grace_seconds": 300,
+      "failure_tolerance": 0,
+      "notify": ["devops-team"],
+      "realert_interval": "1 hour",
+      "tags": ["production", "database", "backup"],
+      "assertions": ["metric.duration < 3600"],
+      "paused": false,
+      "created": "2026-06-12T00:00:00Z",
+      "latest_event": null,
+      "latest_issue": null
+    }
+  }
+}

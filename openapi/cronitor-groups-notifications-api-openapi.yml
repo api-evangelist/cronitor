@@ -1,0 +1,479 @@
+openapi: 3.0.3
+info:
+  title: Cronitor Groups and Notifications API
+  description: >-
+    The Groups API manages logical groupings of monitors for bulk operations
+    and reporting. The Notifications API manages notification lists (alert
+    routing) that specify where alerts are sent when monitors fire. Both APIs
+    use HTTP Basic Auth with a Cronitor API key.
+  version: v1
+  contact:
+    name: Cronitor Support
+    url: https://cronitor.io/docs/groups-api
+  license:
+    name: Proprietary
+    url: https://cronitor.io
+servers:
+  - url: https://cronitor.io
+    description: Cronitor production server
+
+security:
+  - basicAuth: []
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Use your Cronitor API key as the username; leave the password blank.
+
+  schemas:
+    Group:
+      type: object
+      required:
+        - name
+      properties:
+        key:
+          type: string
+          description: Unique group identifier.
+          example: backend-jobs
+        name:
+          type: string
+          description: Display name.
+          example: Backend Jobs
+        monitors:
+          type: array
+          items:
+            type: string
+          description: Array of member monitor keys.
+          example: ["daily-backup", "weekly-report"]
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          description: ISO 8601 creation timestamp.
+        latest_event:
+          type: object
+          readOnly: true
+          properties:
+            stamp:
+              type: integer
+            state:
+              type: string
+        latest_issue:
+          type: object
+          nullable: true
+          readOnly: true
+
+    GroupListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        count:
+          type: integer
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+
+    NotificationList:
+      type: object
+      required:
+        - name
+        - notifications
+      properties:
+        key:
+          type: string
+          readOnly: true
+          description: Unique identifier for the notification list.
+          example: devops-team
+        name:
+          type: string
+          description: Display name.
+          example: DevOps Team
+        notifications:
+          type: object
+          description: Alert destination targets.
+          properties:
+            emails:
+              type: array
+              items:
+                type: string
+                format: email
+            phones:
+              type: array
+              items:
+                type: string
+            slack:
+              type: array
+              items:
+                type: string
+            pagerduty:
+              type: array
+              items:
+                type: string
+            opsgenie:
+              type: array
+              items:
+                type: string
+            victorops:
+              type: array
+              items:
+                type: string
+            microsoft-teams:
+              type: array
+              items:
+                type: string
+            discord:
+              type: array
+              items:
+                type: string
+            telegram:
+              type: array
+              items:
+                type: string
+            gchat:
+              type: array
+              items:
+                type: string
+            larksuite:
+              type: array
+              items:
+                type: string
+            webhooks:
+              type: array
+              items:
+                type: string
+                format: uri
+        environments:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+        monitors:
+          type: integer
+          readOnly: true
+          description: Count of associated monitors.
+        monitor_details:
+          type: array
+          readOnly: true
+          description: Array of associated monitor objects.
+        status:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+
+    NotificationListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_template_count:
+          type: integer
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotificationList'
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+
+paths:
+  /api/groups:
+    get:
+      operationId: listGroups
+      summary: List groups
+      description: Returns a paginated list of monitor groups.
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 50
+        - name: env
+          in: query
+          schema:
+            type: string
+        - name: withStatus
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: List of groups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupListResponse'
+        '403':
+          description: Forbidden.
+
+    post:
+      operationId: createGroup
+      summary: Create a group
+      description: Creates a new monitor group.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+      responses:
+        '201':
+          description: Group created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden.
+
+  /api/groups/{key}:
+    parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Group key.
+
+    get:
+      operationId: getGroup
+      summary: Get a group
+      description: Retrieves a single group by key.
+      parameters:
+        - name: env
+          in: query
+          schema:
+            type: string
+        - name: withStatus
+          in: query
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Group object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+
+    put:
+      operationId: updateGroup
+      summary: Update a group
+      description: Updates the name or member monitors of a group. The monitors array replaces the existing member list entirely.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                monitors:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Updated group object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '400':
+          description: Validation error.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+
+    delete:
+      operationId: deleteGroup
+      summary: Delete a group
+      description: Deletes a group.
+      responses:
+        '204':
+          description: Group deleted.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+
+  /api/groups/{key}/pause/{hours}:
+    parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: hours
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Hours to pause all monitors in the group; 0 to resume.
+
+    get:
+      operationId: pauseGroupMonitors
+      summary: Pause or resume all monitors in a group
+      description: Pauses all monitors in the group for the specified number of hours.
+      responses:
+        '200':
+          description: Updated group object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+
+  /api/notifications:
+    get:
+      operationId: listNotificationLists
+      summary: List notification lists
+      description: Returns a paginated list of notification lists.
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of notification lists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationListResponse'
+        '403':
+          description: Forbidden.
+
+    post:
+      operationId: createNotificationList
+      summary: Create a notification list
+      description: Creates a new notification list.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationList'
+      responses:
+        '201':
+          description: Notification list created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationList'
+        '400':
+          description: Validation error.
+        '403':
+          description: Forbidden.
+
+  /api/notifications/{key}:
+    parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Notification list key.
+
+    get:
+      operationId: getNotificationList
+      summary: Get a notification list
+      description: Retrieves a single notification list by key.
+      responses:
+        '200':
+          description: Notification list object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationList'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not found.
+
+    put:
+      operationId: updateNotificationList
+      summary: Update a notification list
+      description: Updates an existing notification list.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationList'
+      responses:
+        '200':
+          description: Updated notification list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationList'
+        '400':
+          description: Validation error.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not found.
+
+    delete:
+      operationId: deleteNotificationList
+      summary: Delete a notification list
+      description: Deletes a notification list. Cannot delete the "default" list.
+      responses:
+        '204':
+          description: Notification list deleted.
+        '400':
+          description: Cannot delete the default notification list.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not found.

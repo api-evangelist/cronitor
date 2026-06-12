@@ -1,0 +1,59 @@
+{
+  "_description": "Example: List monitors via GET /api/monitors",
+  "request": {
+    "method": "GET",
+    "url": "https://cronitor.io/api/monitors?type=job&tag=production&page=1&pageSize=50",
+    "headers": {
+      "Authorization": "Basic <base64(api_key:)>"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "page": 1,
+      "page_size": 50,
+      "count": 2,
+      "monitors": [
+        {
+          "key": "daily-database-backup",
+          "name": "Daily Database Backup",
+          "type": "job",
+          "schedule": "0 2 * * *",
+          "timezone": "America/New_York",
+          "grace_seconds": 300,
+          "failure_tolerance": 0,
+          "notify": ["devops-team"],
+          "tags": ["production", "database", "backup"],
+          "paused": false,
+          "created": "2026-06-01T10:00:00Z",
+          "latest_event": {
+            "stamp": 1749686400,
+            "state": "complete"
+          },
+          "latest_issue": null
+        },
+        {
+          "key": "weekly-report-generator",
+          "name": "Weekly Report Generator",
+          "type": "job",
+          "schedule": "0 9 * * 1",
+          "timezone": "UTC",
+          "grace_seconds": 600,
+          "failure_tolerance": 0,
+          "notify": ["devops-team", "reporting-team"],
+          "tags": ["production", "reporting"],
+          "paused": false,
+          "created": "2026-05-15T08:00:00Z",
+          "latest_event": {
+            "stamp": 1749081600,
+            "state": "complete"
+          },
+          "latest_issue": null
+        }
+      ]
+    }
+  }
+}

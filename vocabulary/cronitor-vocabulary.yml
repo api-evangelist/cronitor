@@ -1,0 +1,135 @@
+---
+vocabulary:
+  provider: Cronitor
+  description: Domain terms used in the Cronitor cron job and scheduled task monitoring platform APIs.
+  terms:
+
+    - term: monitor
+      definition: >-
+        A configured watch unit in Cronitor that tracks the execution of a cron
+        job, heartbeat, uptime check, or site. Monitors define schedules,
+        assertions, and alert policies.
+      types:
+        - job
+        - check
+        - heartbeat
+        - site
+
+    - term: job
+      definition: >-
+        A monitor type representing a scheduled background task or script
+        (e.g. a cron job) that is expected to run and complete within a given
+        schedule. Cronitor alerts when the job misses, runs too long, or fails.
+
+    - term: check
+      definition: >-
+        A monitor type that actively sends HTTP requests to a URL and validates
+        the response against assertions (status code, response time, body
+        content, SSL certificate). Also called an uptime check.
+
+    - term: heartbeat
+      definition: >-
+        A monitor type that expects periodic pings from a service; if pings
+        stop arriving within the schedule window, Cronitor fires an alert.
+
+    - term: site
+      definition: >-
+        A monitor type for Real User Monitoring (RUM) websites that collects
+        performance and availability data from real end-user browser sessions.
+
+    - term: telemetry
+      definition: >-
+        The lightweight event reporting mechanism used to communicate job
+        execution states (run, complete, fail, ok) to Cronitor via GET, POST,
+        or HEAD HTTP requests to the cronitor.link domain.
+
+    - term: telemetry event
+      definition: >-
+        A single state report sent to a monitor via the Telemetry API,
+        consisting of a required state and optional metadata such as env, host,
+        message, metric, series, and status_code.
+
+    - term: state
+      definition: >-
+        The execution status reported in a telemetry event. Valid values are
+        "run" (job started), "complete" (job finished successfully), "fail"
+        (job errored), and "ok" (manual reset to passing state).
+
+    - term: assertion
+      definition: >-
+        A validation expression attached to a monitor that must pass for the
+        monitor to remain in a healthy state. Examples include
+        "response_time < 2000", "status_code = 200", and "metric.duration < 3600".
+
+    - term: schedule
+      definition: >-
+        A cron expression, interval (e.g. "every 5 minutes"), or time-of-day
+        expression defining when a monitor expects to receive telemetry events
+        or when a check is run.
+
+    - term: grace_seconds
+      definition: >-
+        A buffer window (in seconds) applied after a scheduled run time before
+        Cronitor considers the job late and fires an alert. Allows for small
+        delays in job start times.
+
+    - term: failure_tolerance
+      definition: >-
+        The number of consecutive failures Cronitor allows before triggering
+        an alert. Setting this to 0 means the first failure alerts immediately.
+
+    - term: notification list
+      definition: >-
+        A named collection of alert destinations (emails, phone numbers, Slack,
+        PagerDuty, webhooks, etc.) that can be attached to one or more monitors
+        to route alerts. Also referred to as a template.
+
+    - term: group
+      definition: >-
+        A logical collection of monitors that can be paused, resumed, or viewed
+        together. Groups are referenced by a key and contain an array of member
+        monitor keys.
+
+    - term: issue
+      definition: >-
+        A tracked incident in Cronitor representing an ongoing or resolved
+        problem with one or more monitors. Issues have severity levels, states,
+        and can be published to status pages.
+
+    - term: environment
+      definition: >-
+        A scoped context (e.g. "production", "staging") that can be applied to
+        monitors, telemetry events, and notification lists to segment monitoring
+        data and route alerts appropriately.
+
+    - term: metric
+      definition: >-
+        A quantitative measurement sent with a telemetry event using the
+        format "count:N", "duration:N" (in seconds), or "error_count:N".
+        Metrics can be used in assertions.
+
+    - term: series
+      definition: >-
+        A unique identifier sent with telemetry events to correlate the run,
+        complete, and fail events belonging to a single logical job execution.
+
+    - term: status page
+      definition: >-
+        A public or private page hosted by Cronitor that displays the current
+        health and incident history of selected monitors and components.
+
+    - term: realert_interval
+      definition: >-
+        The frequency at which Cronitor re-sends alert notifications while a
+        monitor remains in a failing state (e.g. "1 hour", "6 hours").
+
+    - term: paused
+      definition: >-
+        A boolean flag on a monitor that temporarily disables alerting. While
+        paused, Cronitor records telemetry events but does not fire alerts.
+
+    - term: API key
+      definition: >-
+        A Cronitor authentication credential used as the username in HTTP Basic
+        Auth. API keys have scoped permissions (monitor:read, monitor:write,
+        monitor:telemetry) to control access to the various API endpoints.

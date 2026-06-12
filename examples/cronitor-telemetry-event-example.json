@@ -1,0 +1,60 @@
+{
+  "_description": "Examples: Sending telemetry events to the Cronitor Telemetry API",
+  "examples": [
+    {
+      "label": "Job start event (GET)",
+      "request": {
+        "method": "GET",
+        "url": "https://cronitor.link/p/YOUR_API_KEY/daily-database-backup?state=run&host=app-server-01&env=production"
+      },
+      "response": {
+        "status": 200,
+        "body": ""
+      }
+    },
+    {
+      "label": "Job complete event with duration metric",
+      "request": {
+        "method": "GET",
+        "url": "https://cronitor.link/p/YOUR_API_KEY/daily-database-backup?state=complete&duration=1823&message=Processed+1423+records&host=app-server-01&env=production&metric=duration%3A1823"
+      },
+      "response": {
+        "status": 200,
+        "body": ""
+      }
+    },
+    {
+      "label": "Job failure event",
+      "request": {
+        "method": "GET",
+        "url": "https://cronitor.link/p/YOUR_API_KEY/daily-database-backup?state=fail&message=Database+connection+refused&status_code=1&host=app-server-01&env=production"
+      },
+      "response": {
+        "status": 200,
+        "body": ""
+      }
+    },
+    {
+      "label": "Manual reset to passing state",
+      "request": {
+        "method": "GET",
+        "url": "https://cronitor.link/p/YOUR_API_KEY/daily-database-backup?state=ok&message=Manually+resolved"
+      },
+      "response": {
+        "status": 200,
+        "body": ""
+      }
+    },
+    {
+      "label": "Anonymous heartbeat ping",
+      "request": {
+        "method": "GET",
+        "url": "https://cronitor.link/daily-database-backup?state=complete"
+      },
+      "response": {
+        "status": 200,
+        "body": ""
+      }
+    }
+  ]
+}

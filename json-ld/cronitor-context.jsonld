@@ -1,0 +1,169 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "cronitor": "https://cronitor.io/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Monitor": "cronitor:Monitor",
+    "TelemetryEvent": "cronitor:TelemetryEvent",
+    "NotificationList": "cronitor:NotificationList",
+    "Group": "cronitor:Group",
+    "Issue": "cronitor:Issue",
+    "Assertion": "cronitor:Assertion",
+
+    "key": {
+      "@id": "cronitor:key",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "cronitor:monitorType",
+      "@type": "xsd:string"
+    },
+    "schedule": {
+      "@id": "cronitor:schedule",
+      "@type": "xsd:string"
+    },
+    "schedules": {
+      "@id": "cronitor:schedules",
+      "@container": "@list"
+    },
+    "timezone": {
+      "@id": "cronitor:timezone",
+      "@type": "xsd:string"
+    },
+    "assertions": {
+      "@id": "cronitor:assertions",
+      "@container": "@list"
+    },
+    "notify": {
+      "@id": "cronitor:notify",
+      "@container": "@list"
+    },
+    "realert_interval": {
+      "@id": "cronitor:realertInterval",
+      "@type": "xsd:string"
+    },
+    "grace_seconds": {
+      "@id": "cronitor:graceSeconds",
+      "@type": "xsd:integer"
+    },
+    "failure_tolerance": {
+      "@id": "cronitor:failureTolerance",
+      "@type": "xsd:integer"
+    },
+    "consecutive_alert_threshold": {
+      "@id": "cronitor:consecutiveAlertThreshold",
+      "@type": "xsd:integer"
+    },
+    "paused": {
+      "@id": "cronitor:paused",
+      "@type": "xsd:boolean"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "method": {
+      "@id": "cronitor:httpMethod",
+      "@type": "xsd:string"
+    },
+    "timeout_seconds": {
+      "@id": "cronitor:timeoutSeconds",
+      "@type": "xsd:integer"
+    },
+    "follow_redirects": {
+      "@id": "cronitor:followRedirects",
+      "@type": "xsd:boolean"
+    },
+    "verify_ssl": {
+      "@id": "cronitor:verifySSL",
+      "@type": "xsd:boolean"
+    },
+    "tags": {
+      "@id": "schema:keywords",
+      "@container": "@list"
+    },
+    "group": {
+      "@id": "cronitor:group",
+      "@type": "xsd:string"
+    },
+    "env": {
+      "@id": "cronitor:environment",
+      "@type": "xsd:string"
+    },
+    "created": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "latest_event": {
+      "@id": "cronitor:latestEvent",
+      "@type": "cronitor:TelemetryEvent"
+    },
+    "latest_issue": {
+      "@id": "cronitor:latestIssue",
+      "@type": "cronitor:Issue"
+    },
+
+    "state": {
+      "@id": "cronitor:state",
+      "@type": "xsd:string"
+    },
+    "stamp": {
+      "@id": "cronitor:timestamp",
+      "@type": "xsd:integer"
+    },
+    "message": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "metric": {
+      "@id": "cronitor:metric",
+      "@type": "xsd:string"
+    },
+    "series": {
+      "@id": "cronitor:series",
+      "@type": "xsd:string"
+    },
+    "host": {
+      "@id": "cronitor:host",
+      "@type": "xsd:string"
+    },
+    "status_code": {
+      "@id": "cronitor:statusCode",
+      "@type": "xsd:integer"
+    },
+
+    "notifications": {
+      "@id": "cronitor:notificationChannels"
+    },
+    "monitors": {
+      "@id": "cronitor:monitors",
+      "@container": "@list"
+    },
+    "severity": {
+      "@id": "cronitor:severity",
+      "@type": "xsd:string"
+    },
+    "started": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "ended": {
+      "@id": "schema:endDate",
+      "@type": "xsd:dateTime"
+    },
+    "duration": {
+      "@id": "schema:duration",
+      "@type": "xsd:integer"
+    }
+  }
+}
