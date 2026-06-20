@@ -11,7 +11,7 @@ description: >-
   Basic Auth with scoped API keys. SDKs are available for Python, Node.js, Ruby,
   PHP, Java, Go, and other languages through the cronitorio GitHub organization.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Monitoring
   - Cron Jobs
