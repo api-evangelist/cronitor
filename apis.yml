@@ -83,6 +83,10 @@ apis:
       - type: OpenAPI
         url: openapi/cronitor-groups-notifications-api-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/cronitor-domain-security.yml
+  - type: Authentication
+    url: authentication/cronitor-authentication.yml
   - type: Website
     url: https://cronitor.io
   - type: Documentation

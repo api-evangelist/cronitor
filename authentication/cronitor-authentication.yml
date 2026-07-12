@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cronitor-groups-notifications-api-openapi.yml, openapi/cronitor-monitors-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: Use your Cronitor API key as the username; leave the password blank.
+  sources:
+  - openapi/cronitor-groups-notifications-api-openapi.yml
+  - openapi/cronitor-monitors-api-openapi.yml
