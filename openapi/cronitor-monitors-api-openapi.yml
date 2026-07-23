@@ -1,38 +1,344 @@
 openapi: 3.0.3
 info:
-  title: Cronitor Monitors API
-  description: >-
-    The Monitors API allows creating, updating, retrieving, deleting, cloning,
-    and pausing monitors for cron jobs, heartbeats, uptime checks, and sites.
-    Monitors are configured with schedules, assertions, and alert preferences
-    via JSON or YAML payloads authenticated with HTTP Basic Auth using an API key.
+  title: Cronitor Groups and Notifications Cronitor Telemetry API Monitors API
+  description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
   version: v1
   contact:
     name: Cronitor Support
-    url: https://cronitor.io/docs/monitors-api
+    url: https://cronitor.io/docs/groups-api
   license:
     name: Proprietary
     url: https://cronitor.io
 servers:
-  - url: https://cronitor.io
-    description: Cronitor production server
-
+- url: https://cronitor.io
+  description: Cronitor production server
 security:
-  - basicAuth: []
-
+- basicAuth: []
+tags:
+- name: Monitors
+paths:
+  /api/monitors:
+    get:
+      operationId: listMonitors
+      summary: List monitors
+      description: Returns a paginated list of monitors, with optional filtering.
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - job
+          - check
+          - heartbeat
+          - site
+      - name: group
+        in: query
+        schema:
+          type: string
+      - name: tag
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: env
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          default: 50
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created
+          - name
+          - -created
+          - -name
+      - name: withEvents
+        in: query
+        schema:
+          type: boolean
+      - name: withInvocations
+        in: query
+        schema:
+          type: boolean
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - yaml
+      responses:
+        '200':
+          description: Successful list response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorListResponse'
+        '403':
+          description: Forbidden – invalid or missing API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - Monitors
+    post:
+      operationId: createMonitor
+      summary: Create a monitor
+      description: Creates a single monitor.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Monitor'
+          application/yaml:
+            schema:
+              $ref: '#/components/schemas/BulkMonitorRequest'
+      responses:
+        '201':
+          description: Monitor created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - Monitors
+    put:
+      operationId: bulkUpsertMonitors
+      summary: Bulk create or update monitors
+      description: Creates or updates multiple monitors in a single request. Accepts JSON or YAML.
+      parameters:
+      - name: async
+        in: query
+        schema:
+          type: boolean
+        description: If true, returns 202 Accepted immediately and processes asynchronously.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkMonitorRequest'
+          application/yaml:
+            schema:
+              $ref: '#/components/schemas/BulkMonitorRequest'
+      responses:
+        '200':
+          description: Monitors upserted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorListResponse'
+        '202':
+          description: Accepted for async processing.
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - Monitors
+    delete:
+      operationId: bulkDeleteMonitors
+      summary: Bulk delete monitors
+      description: Deletes multiple monitors specified in the request body.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                monitors:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of monitor keys to delete.
+      responses:
+        '200':
+          description: Monitors deleted.
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - Monitors
+  /api/monitors/{monitorKey}:
+    parameters:
+    - name: monitorKey
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique monitor key.
+    get:
+      operationId: getMonitor
+      summary: Get a monitor
+      description: Retrieves a single monitor by key.
+      parameters:
+      - name: withEvents
+        in: query
+        schema:
+          type: boolean
+      - name: withInvocations
+        in: query
+        schema:
+          type: boolean
+      - name: env
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Monitor object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Monitor not found.
+      tags:
+      - Monitors
+    delete:
+      operationId: deleteMonitor
+      summary: Delete a monitor
+      description: Deletes a single monitor by key.
+      responses:
+        '204':
+          description: Monitor deleted.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Monitor not found.
+      tags:
+      - Monitors
+  /api/monitors/{monitorKey}/pause/{hours}:
+    parameters:
+    - name: monitorKey
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: hours
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Number of hours to pause; use 0 to resume. Omit for indefinite pause.
+    get:
+      operationId: pauseMonitor
+      summary: Pause or resume a monitor
+      description: Pauses a monitor for the specified number of hours, or resumes it if hours is 0.
+      responses:
+        '200':
+          description: Updated monitor object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Monitor not found.
+      tags:
+      - Monitors
+  /api/monitors/clone:
+    post:
+      operationId: cloneMonitor
+      summary: Clone a monitor
+      description: Duplicates an existing monitor.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloneRequest'
+      responses:
+        '201':
+          description: Cloned monitor object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+        '400':
+          description: Validation error.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Source monitor not found.
+      tags:
+      - Monitors
 components:
-  securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic
-      description: Use your Cronitor API key as the username; leave the password blank.
-
   schemas:
+    MonitorListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 50
+        count:
+          type: integer
+          example: 12
+        monitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Monitor'
     Monitor:
       type: object
       required:
-        - key
-        - type
+      - key
+      - type
       properties:
         key:
           type: string
@@ -44,12 +350,16 @@ components:
           example: Daily Backup Job
         type:
           type: string
-          enum: [job, check, heartbeat, site]
+          enum:
+          - job
+          - check
+          - heartbeat
+          - site
           description: Monitor type.
         schedule:
           type: string
           description: Cron, interval, or time expression.
-          example: "0 2 * * *"
+          example: 0 2 * * *
         schedules:
           type: array
           items:
@@ -69,7 +379,9 @@ components:
           items:
             type: string
           description: Notification list keys or direct integration strings.
-          example: ["devops-team", "email:oncall@example.com"]
+          example:
+          - devops-team
+          - email:oncall@example.com
         realert_interval:
           type: string
           description: Follow-up alert timing (e.g. "1 hour").
@@ -97,7 +409,14 @@ components:
           example: https://example.com/health
         method:
           type: string
-          enum: [GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH]
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - HEAD
+          - OPTIONS
+          - PATCH
           description: HTTP method for check monitors.
         body:
           type: string
@@ -149,24 +468,28 @@ components:
           nullable: true
           readOnly: true
           description: Most recent issue object, or null.
-
-    MonitorListResponse:
+    CloneRequest:
+      type: object
+      required:
+      - monitor_key
+      properties:
+        monitor_key:
+          type: string
+          description: Key of the monitor to clone.
+        name:
+          type: string
+          description: Name for the cloned monitor.
+    Error:
       type: object
       properties:
-        page:
-          type: integer
-          example: 1
-        page_size:
-          type: integer
-          example: 50
-        count:
-          type: integer
-          example: 12
-        monitors:
+        error:
+          type: string
+          description: Error message.
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/Monitor'
-
+            type: string
+          description: List of validation errors.
     BulkMonitorRequest:
       type: object
       description: Bulk monitor create/update payload.
@@ -183,344 +506,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Monitor'
-
-    CloneRequest:
-      type: object
-      required:
-        - monitor_key
-      properties:
-        monitor_key:
-          type: string
-          description: Key of the monitor to clone.
-        name:
-          type: string
-          description: Name for the cloned monitor.
-
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message.
-        errors:
-          type: array
-          items:
-            type: string
-          description: List of validation errors.
-
-paths:
-  /api/monitors:
-    get:
-      operationId: listMonitors
-      summary: List monitors
-      description: Returns a paginated list of monitors, with optional filtering.
-      parameters:
-        - name: type
-          in: query
-          schema:
-            type: string
-            enum: [job, check, heartbeat, site]
-        - name: group
-          in: query
-          schema:
-            type: string
-        - name: tag
-          in: query
-          schema:
-            type: string
-        - name: state
-          in: query
-          schema:
-            type: string
-        - name: env
-          in: query
-          schema:
-            type: string
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: page
-          in: query
-          schema:
-            type: integer
-            default: 1
-        - name: pageSize
-          in: query
-          schema:
-            type: integer
-            default: 50
-        - name: sort
-          in: query
-          schema:
-            type: string
-            enum: [created, name, -created, -name]
-        - name: withEvents
-          in: query
-          schema:
-            type: boolean
-        - name: withInvocations
-          in: query
-          schema:
-            type: boolean
-        - name: format
-          in: query
-          schema:
-            type: string
-            enum: [yaml]
-      responses:
-        '200':
-          description: Successful list response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MonitorListResponse'
-        '403':
-          description: Forbidden – invalid or missing API key.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-    post:
-      operationId: createMonitor
-      summary: Create a monitor
-      description: Creates a single monitor.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Monitor'
-          application/yaml:
-            schema:
-              $ref: '#/components/schemas/BulkMonitorRequest'
-      responses:
-        '201':
-          description: Monitor created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Monitor'
-        '400':
-          description: Validation error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '403':
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-    put:
-      operationId: bulkUpsertMonitors
-      summary: Bulk create or update monitors
-      description: Creates or updates multiple monitors in a single request. Accepts JSON or YAML.
-      parameters:
-        - name: async
-          in: query
-          schema:
-            type: boolean
-          description: If true, returns 202 Accepted immediately and processes asynchronously.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BulkMonitorRequest'
-          application/yaml:
-            schema:
-              $ref: '#/components/schemas/BulkMonitorRequest'
-      responses:
-        '200':
-          description: Monitors upserted.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MonitorListResponse'
-        '202':
-          description: Accepted for async processing.
-        '400':
-          description: Validation error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '403':
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-    delete:
-      operationId: bulkDeleteMonitors
-      summary: Bulk delete monitors
-      description: Deletes multiple monitors specified in the request body.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                monitors:
-                  type: array
-                  items:
-                    type: string
-                  description: Array of monitor keys to delete.
-      responses:
-        '200':
-          description: Monitors deleted.
-        '400':
-          description: Validation error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '403':
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /api/monitors/{monitorKey}:
-    parameters:
-      - name: monitorKey
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Unique monitor key.
-
-    get:
-      operationId: getMonitor
-      summary: Get a monitor
-      description: Retrieves a single monitor by key.
-      parameters:
-        - name: withEvents
-          in: query
-          schema:
-            type: boolean
-        - name: withInvocations
-          in: query
-          schema:
-            type: boolean
-        - name: env
-          in: query
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Monitor object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Monitor'
-        '403':
-          description: Forbidden.
-        '404':
-          description: Monitor not found.
-
-    delete:
-      operationId: deleteMonitor
-      summary: Delete a monitor
-      description: Deletes a single monitor by key.
-      responses:
-        '204':
-          description: Monitor deleted.
-        '403':
-          description: Forbidden.
-        '404':
-          description: Monitor not found.
-
-  /api/monitors/{monitorKey}/pause/{hours}:
-    parameters:
-      - name: monitorKey
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: hours
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Number of hours to pause; use 0 to resume. Omit for indefinite pause.
-
-    get:
-      operationId: pauseMonitor
-      summary: Pause or resume a monitor
-      description: Pauses a monitor for the specified number of hours, or resumes it if hours is 0.
-      responses:
-        '200':
-          description: Updated monitor object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Monitor'
-        '403':
-          description: Forbidden.
-        '404':
-          description: Monitor not found.
-
-  /api/monitors/clone:
-    post:
-      operationId: cloneMonitor
-      summary: Clone a monitor
-      description: Duplicates an existing monitor.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CloneRequest'
-      responses:
-        '201':
-          description: Cloned monitor object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Monitor'
-        '400':
-          description: Validation error.
-        '403':
-          description: Forbidden.
-        '404':
-          description: Source monitor not found.
-
-  /api/search:
-    get:
-      operationId: searchMonitors
-      summary: Advanced monitor search
-      description: Search monitors using scoped query syntax.
-      parameters:
-        - name: q
-          in: query
-          required: true
-          schema:
-            type: string
-          description: Scoped search query.
-        - name: page
-          in: query
-          schema:
-            type: integer
-            default: 1
-        - name: pageSize
-          in: query
-          schema:
-            type: integer
-            default: 50
-      responses:
-        '200':
-          description: Search results.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MonitorListResponse'
-        '403':
-          description: Forbidden.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Use your Cronitor API key as the username; leave the password blank.

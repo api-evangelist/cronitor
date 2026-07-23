@@ -1,0 +1,261 @@
+openapi: 3.0.3
+info:
+  title: Cronitor and Notifications Cronitor Telemetry API Groups API
+  description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
+  version: v1
+  contact:
+    name: Cronitor Support
+    url: https://cronitor.io/docs/groups-api
+  license:
+    name: Proprietary
+    url: https://cronitor.io
+servers:
+- url: https://cronitor.io
+  description: Cronitor production server
+security:
+- basicAuth: []
+tags:
+- name: Groups
+paths:
+  /api/groups:
+    get:
+      operationId: listGroups
+      summary: List groups
+      description: Returns a paginated list of monitor groups.
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          default: 50
+      - name: env
+        in: query
+        schema:
+          type: string
+      - name: withStatus
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: List of groups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupListResponse'
+        '403':
+          description: Forbidden.
+      tags:
+      - Groups
+    post:
+      operationId: createGroup
+      summary: Create a group
+      description: Creates a new monitor group.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+      responses:
+        '201':
+          description: Group created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden.
+      tags:
+      - Groups
+  /api/groups/{key}:
+    parameters:
+    - name: key
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Group key.
+    get:
+      operationId: getGroup
+      summary: Get a group
+      description: Retrieves a single group by key.
+      parameters:
+      - name: env
+        in: query
+        schema:
+          type: string
+      - name: withStatus
+        in: query
+        schema:
+          type: boolean
+      - name: sort
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Group object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+      tags:
+      - Groups
+    put:
+      operationId: updateGroup
+      summary: Update a group
+      description: Updates the name or member monitors of a group. The monitors array replaces the existing member list entirely.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                monitors:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Updated group object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '400':
+          description: Validation error.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+      tags:
+      - Groups
+    delete:
+      operationId: deleteGroup
+      summary: Delete a group
+      description: Deletes a group.
+      responses:
+        '204':
+          description: Group deleted.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+      tags:
+      - Groups
+  /api/groups/{key}/pause/{hours}:
+    parameters:
+    - name: key
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: hours
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Hours to pause all monitors in the group; 0 to resume.
+    get:
+      operationId: pauseGroupMonitors
+      summary: Pause or resume all monitors in a group
+      description: Pauses all monitors in the group for the specified number of hours.
+      responses:
+        '200':
+          description: Updated group object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '403':
+          description: Forbidden.
+        '404':
+          description: Group not found.
+      tags:
+      - Groups
+components:
+  schemas:
+    Group:
+      type: object
+      required:
+      - name
+      properties:
+        key:
+          type: string
+          description: Unique group identifier.
+          example: backend-jobs
+        name:
+          type: string
+          description: Display name.
+          example: Backend Jobs
+        monitors:
+          type: array
+          items:
+            type: string
+          description: Array of member monitor keys.
+          example:
+          - daily-backup
+          - weekly-report
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          description: ISO 8601 creation timestamp.
+        latest_event:
+          type: object
+          readOnly: true
+          properties:
+            stamp:
+              type: integer
+            state:
+              type: string
+        latest_issue:
+          type: object
+          nullable: true
+          readOnly: true
+    GroupListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        count:
+          type: integer
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Use your Cronitor API key as the username; leave the password blank.

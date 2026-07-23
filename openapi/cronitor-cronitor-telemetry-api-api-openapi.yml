@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Cronitor Groups and Notifications Cronitor Telemetry API API
+  description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
+  version: v1
+  contact:
+    name: Cronitor Support
+    url: https://cronitor.io/docs/groups-api
+  license:
+    name: Proprietary
+    url: https://cronitor.io
+servers:
+- url: https://cronitor.io
+  description: Cronitor production server
+security:
+- basicAuth: []
+tags:
+- name: Cronitor Telemetry API
+paths:
+  /{monitorKey}:
+    parameters:
+    - name: monitorKey
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Monitor key for anonymous telemetry events.
+    get:
+      operationId: sendAnonymousTelemetryEvent
+      summary: Send an anonymous telemetry event
+      description: Records an event without an API key for monitors that allow anonymous telemetry.
+      parameters:
+      - name: state
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - run
+          - complete
+          - fail
+          - ok
+      - name: message
+        in: query
+        schema:
+          type: string
+          maxLength: 2000
+      - name: metric
+        in: query
+        schema:
+          type: string
+      - name: series
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Event recorded.
+        '429':
+          description: Rate limit exceeded.
+      tags:
+      - Cronitor Telemetry API
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Use your Cronitor API key as the username; leave the password blank.

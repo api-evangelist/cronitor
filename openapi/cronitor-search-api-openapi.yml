@@ -1,0 +1,209 @@
+openapi: 3.0.3
+info:
+  title: Cronitor Groups and Notifications Cronitor Telemetry API Search API
+  description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
+  version: v1
+  contact:
+    name: Cronitor Support
+    url: https://cronitor.io/docs/groups-api
+  license:
+    name: Proprietary
+    url: https://cronitor.io
+servers:
+- url: https://cronitor.io
+  description: Cronitor production server
+security:
+- basicAuth: []
+tags:
+- name: Search
+paths:
+  /api/search:
+    get:
+      operationId: searchMonitors
+      summary: Advanced monitor search
+      description: Search monitors using scoped query syntax.
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Scoped search query.
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          default: 50
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorListResponse'
+        '403':
+          description: Forbidden.
+      tags:
+      - Search
+components:
+  schemas:
+    MonitorListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 50
+        count:
+          type: integer
+          example: 12
+        monitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Monitor'
+    Monitor:
+      type: object
+      required:
+      - key
+      - type
+      properties:
+        key:
+          type: string
+          description: Unique monitor identifier.
+          example: my-daily-backup
+        name:
+          type: string
+          description: Human-readable display name.
+          example: Daily Backup Job
+        type:
+          type: string
+          enum:
+          - job
+          - check
+          - heartbeat
+          - site
+          description: Monitor type.
+        schedule:
+          type: string
+          description: Cron, interval, or time expression.
+          example: 0 2 * * *
+        schedules:
+          type: array
+          items:
+            type: string
+          description: Multiple schedule expressions.
+        timezone:
+          type: string
+          description: IANA timezone string; defaults to account timezone.
+          example: America/New_York
+        assertions:
+          type: array
+          items:
+            type: string
+          description: Assertions validating metrics, response codes, body content, JSON fields, headers, or SSL certificates.
+        notify:
+          type: array
+          items:
+            type: string
+          description: Notification list keys or direct integration strings.
+          example:
+          - devops-team
+          - email:oncall@example.com
+        realert_interval:
+          type: string
+          description: Follow-up alert timing (e.g. "1 hour").
+          example: 1 hour
+        grace_seconds:
+          type: integer
+          description: Pre-alert delay window in seconds.
+          example: 60
+        failure_tolerance:
+          type: integer
+          description: Consecutive failures tolerated before alerting.
+          example: 0
+        consecutive_alert_threshold:
+          type: integer
+          description: Failures before an alert fires.
+          example: 1
+        paused:
+          type: boolean
+          description: Whether the monitor is currently paused.
+          example: false
+        url:
+          type: string
+          format: uri
+          description: URL to check (for check/site monitors).
+          example: https://example.com/health
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - HEAD
+          - OPTIONS
+          - PATCH
+          description: HTTP method for check monitors.
+        body:
+          type: string
+          description: HTTP request body for check monitors.
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: HTTP headers for check monitors.
+        timeout_seconds:
+          type: integer
+          minimum: 1
+          maximum: 15
+          description: Request timeout for check monitors.
+        follow_redirects:
+          type: boolean
+          description: Whether to follow HTTP redirects.
+        verify_ssl:
+          type: boolean
+          description: Whether to verify SSL certificates.
+        tags:
+          type: array
+          items:
+            type: string
+          description: Tags for grouping and filtering monitors.
+        group:
+          type: string
+          description: Group key this monitor belongs to.
+        env:
+          type: string
+          description: Environment identifier.
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          description: ISO 8601 creation timestamp.
+        latest_event:
+          type: object
+          readOnly: true
+          properties:
+            stamp:
+              type: integer
+              description: Unix timestamp of the last event.
+            state:
+              type: string
+              description: State of the last event.
+        latest_issue:
+          type: object
+          nullable: true
+          readOnly: true
+          description: Most recent issue object, or null.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Use your Cronitor API key as the username; leave the password blank.
