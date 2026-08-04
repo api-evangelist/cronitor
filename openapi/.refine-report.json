@@ -1,0 +1,24 @@
+{
+  "provider": "cronitor",
+  "sources": [
+    "cronitor-cronitor-telemetry-api-api-openapi.yml",
+    "cronitor-groups-api-openapi.yml",
+    "cronitor-monitors-api-openapi.yml",
+    "cronitor-notifications-api-openapi.yml",
+    "cronitor-p-api-openapi.yml",
+    "cronitor-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "cronitor-cronitor-telemetry-api-api-openapi.yml",
+    "cronitor-groups-api-openapi.yml",
+    "cronitor-monitors-api-openapi.yml",
+    "cronitor-notifications-api-openapi.yml",
+    "cronitor-p-api-openapi.yml",
+    "cronitor-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
