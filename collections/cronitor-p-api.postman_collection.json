@@ -1,0 +1,828 @@
+{
+  "item": [
+    {
+      "id": "af478366-a445-4f2f-9507-aedb3347b3fd",
+      "name": "P",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89b0aa98-84f4-4bb2-b293-6ca952026872",
+          "name": "Send a telemetry event (GET)",
+          "request": {
+            "name": "Send a telemetry event (GET)",
+            "description": {
+              "content": "Records a job execution event. Use query parameters to specify the state and optional metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "p",
+                ":apiKey",
+                ":monitorKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) Job execution state."
+                },
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>",
+                  "description": "Environment identifier (e.g. staging, production)."
+                },
+                {
+                  "disabled": false,
+                  "key": "host",
+                  "value": "<string>",
+                  "description": "Server hostname."
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>",
+                  "description": "URL-encoded status message."
+                },
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>",
+                  "description": "Metric value in format count:N, duration:N (seconds), or error_count:N."
+                },
+                {
+                  "disabled": false,
+                  "key": "series",
+                  "value": "<string>",
+                  "description": "Unique ID for correlating related events."
+                },
+                {
+                  "disabled": false,
+                  "key": "status_code",
+                  "value": "<integer>",
+                  "description": "Job exit code."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) Unique monitor key to send the event to."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f6e6110-231f-4105-a043-d996bd9460b4",
+              "name": "Event recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p",
+                    ":apiKey",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "host",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "duration:45.2"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_code",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key to send the event to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8495cf28-b9f1-4323-877a-ab09c4643908",
+              "name": "Rate limit exceeded. Per-endpoint limit is 5 req/s (burst 10); per-IP limit is 50 req/s (burst 250).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p",
+                    ":apiKey",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "host",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "duration:45.2"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_code",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key to send the event to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b885db3-1d50-4573-a61b-f124f7bbce79",
+          "name": "Send a telemetry event (POST)",
+          "request": {
+            "name": "Send a telemetry event (POST)",
+            "description": {
+              "content": "Records a job execution event via POST. The request body is discarded; use query parameters for all event data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "p",
+                ":apiKey",
+                ":monitorKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "host",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "series",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_code",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) Unique monitor key to send the event to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28dcc449-0672-423e-b795-93322822d381",
+              "name": "Event recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p",
+                    ":apiKey",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "host",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_code",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key to send the event to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2df57889-022d-48b2-b699-0b6abc3edaa3",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p",
+                    ":apiKey",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "host",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_code",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key to send the event to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6846739a-d7ea-45f1-b183-aed65d5b6b39",
+          "name": "Send a telemetry event (HEAD)",
+          "request": {
+            "name": "Send a telemetry event (HEAD)",
+            "description": {
+              "content": "Records a job execution event via HEAD request. Useful for minimal- overhead pings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "p",
+                ":apiKey",
+                ":monitorKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "series",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_code",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) Unique monitor key to send the event to."
+                }
+              ]
+            },
+            "method": "HEAD",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fd0263a-5a61-4838-b334-cbb699fe1540",
+              "name": "Event recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p",
+                    ":apiKey",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_code",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key to send the event to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b08cccf-4aa2-4d3e-963c-6d5594e81426",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p",
+                    ":apiKey",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_code",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Cronitor API key with monitor:telemetry permission."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key to send the event to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cronitor.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f05ead27-fe47-486d-aa2b-d4be6588d6e6",
+    "name": "Cronitor Groups and Notifications Cronitor Telemetry API P API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.\n\nContact Support:\n Name: Cronitor Support",
+      "type": "text/plain"
+    }
+  }
+}

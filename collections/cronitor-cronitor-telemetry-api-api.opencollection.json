@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cronitor Groups and Notifications Cronitor Telemetry API API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cronitor Telemetry API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send an anonymous telemetry event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/:monitorKey",
+            "params": [
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path",
+                "description": "Monitor key for anonymous telemetry events."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "series",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Records an event without an API key for monitors that allow anonymous telemetry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

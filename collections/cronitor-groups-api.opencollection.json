@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cronitor and Notifications Cronitor Telemetry API Groups API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/groups",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withStatus",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of monitor groups."
+        },
+        {
+          "info": {
+            "name": "Create a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cronitor.io/api/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new monitor group."
+        },
+        {
+          "info": {
+            "name": "Get a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/groups/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Group key."
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withStatus",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a single group by key."
+        },
+        {
+          "info": {
+            "name": "Update a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://cronitor.io/api/groups/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Group key."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the name or member monitors of a group. The monitors array replaces the existing member list entirely."
+        },
+        {
+          "info": {
+            "name": "Delete a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cronitor.io/api/groups/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Group key."
+              }
+            ]
+          },
+          "docs": "Deletes a group."
+        },
+        {
+          "info": {
+            "name": "Pause or resume all monitors in a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/groups/:key/pause/:hours",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hours",
+                "value": "",
+                "type": "path",
+                "description": "Hours to pause all monitors in the group; 0 to resume."
+              }
+            ]
+          },
+          "docs": "Pauses all monitors in the group for the specified number of hours."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

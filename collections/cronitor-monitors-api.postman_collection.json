@@ -1,0 +1,1933 @@
+{
+  "item": [
+    {
+      "id": "372d145a-ae60-4497-93d6-43bbaf883da5",
+      "name": "Monitors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85c905ff-6643-4339-975c-2ba7f7f9e20a",
+          "name": "List monitors",
+          "request": {
+            "name": "List monitors",
+            "description": {
+              "content": "Returns a paginated list of monitors, with optional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "withEvents",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "withInvocations",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "809222d8-1272-4a35-8eb2-fa96dcb76351",
+              "name": "Successful list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withInvocations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"page\": 1,\n  \"page_size\": 50,\n  \"count\": 12,\n  \"monitors\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"check\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"PUT\",\n      \"body\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"timeout_seconds\": 5,\n      \"follow_redirects\": false,\n      \"verify_ssl\": false,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"group\": \"string\",\n      \"env\": \"string\",\n      \"created\": \"1986-07-15T05:25:26.777Z\",\n      \"latest_event\": {\n        \"stamp\": 430,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"check\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"GET\",\n      \"body\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"timeout_seconds\": 5,\n      \"follow_redirects\": false,\n      \"verify_ssl\": true,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"group\": \"string\",\n      \"env\": \"string\",\n      \"created\": \"1977-08-14T20:16:03.579Z\",\n      \"latest_event\": {\n        \"stamp\": 1034,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aec5601b-e896-432d-b432-05e16239a5a0",
+              "name": "Forbidden – invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withInvocations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fee054e-6dc3-4957-a8eb-56dddd841b59",
+          "name": "Create a monitor",
+          "request": {
+            "name": "Create a monitor",
+            "description": {
+              "content": "Creates a single monitor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"schedule\": \"<string>\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"<string>\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"realert_interval\": \"<string>\",\n  \"grace_seconds\": \"<integer>\",\n  \"failure_tolerance\": \"<integer>\",\n  \"consecutive_alert_threshold\": \"<integer>\",\n  \"paused\": \"<boolean>\",\n  \"url\": \"<uri>\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8207660f-87b2-448f-80ef-10c67998af25",
+              "name": "Monitor created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\",\n  \"created\": \"2025-07-12T21:34:45.774Z\",\n  \"latest_event\": {\n    \"stamp\": 5399,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b04a347-ba99-4ab4-a398-abbf0fe8d5c0",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "101384bd-1ab9-484e-afe1-299f738ea5fa",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ea3e1a9-9ffb-40f1-a839-9897fbd2aaa7",
+          "name": "Bulk create or update monitors",
+          "request": {
+            "name": "Bulk create or update monitors",
+            "description": {
+              "content": "Creates or updates multiple monitors in a single request. Accepts JSON or YAML.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "async",
+                  "value": "<boolean>",
+                  "description": "If true, returns 202 Accepted immediately and processes asynchronously."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobs\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"<string>\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"realert_interval\": \"<string>\",\n      \"grace_seconds\": \"<integer>\",\n      \"failure_tolerance\": \"<integer>\",\n      \"consecutive_alert_threshold\": \"<integer>\",\n      \"paused\": \"<boolean>\",\n      \"url\": \"<uri>\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"<string>\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"realert_interval\": \"<string>\",\n      \"grace_seconds\": \"<integer>\",\n      \"failure_tolerance\": \"<integer>\",\n      \"consecutive_alert_threshold\": \"<integer>\",\n      \"paused\": \"<boolean>\",\n      \"url\": \"<uri>\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"<string>\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"realert_interval\": \"<string>\",\n      \"grace_seconds\": \"<integer>\",\n      \"failure_tolerance\": \"<integer>\",\n      \"consecutive_alert_threshold\": \"<integer>\",\n      \"paused\": \"<boolean>\",\n      \"url\": \"<uri>\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"<string>\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"realert_interval\": \"<string>\",\n      \"grace_seconds\": \"<integer>\",\n      \"failure_tolerance\": \"<integer>\",\n      \"consecutive_alert_threshold\": \"<integer>\",\n      \"paused\": \"<boolean>\",\n      \"url\": \"<uri>\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"heartbeats\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"<string>\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"realert_interval\": \"<string>\",\n      \"grace_seconds\": \"<integer>\",\n      \"failure_tolerance\": \"<integer>\",\n      \"consecutive_alert_threshold\": \"<integer>\",\n      \"paused\": \"<boolean>\",\n      \"url\": \"<uri>\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"<string>\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"realert_interval\": \"<string>\",\n      \"grace_seconds\": \"<integer>\",\n      \"failure_tolerance\": \"<integer>\",\n      \"consecutive_alert_threshold\": \"<integer>\",\n      \"paused\": \"<boolean>\",\n      \"url\": \"<uri>\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6270b8fc-bd03-4586-85d5-5d7b6e0dfd5e",
+              "name": "Monitors upserted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobs\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"heartbeats\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"page\": 1,\n  \"page_size\": 50,\n  \"count\": 12,\n  \"monitors\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\",\n      \"created\": \"2004-07-02T07:42:41.983Z\",\n      \"latest_event\": {\n        \"stamp\": 8589,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\",\n      \"created\": \"2002-10-26T02:34:18.161Z\",\n      \"latest_event\": {\n        \"stamp\": 2062,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "356e8919-0aaf-473e-ab82-4edc8280f472",
+              "name": "Accepted for async processing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobs\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"heartbeats\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7c9c5ec-52d3-4021-bd99-bbad2184b96c",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobs\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"heartbeats\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d755de3-5f2c-4312-9395-6622a51e227d",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobs\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ],\n  \"heartbeats\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"<string>\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"<string>\",\n      \"body\": \"<string>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      },\n      \"timeout_seconds\": \"<integer>\",\n      \"follow_redirects\": \"<boolean>\",\n      \"verify_ssl\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"group\": \"<string>\",\n      \"env\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdd22660-2533-4103-aeb7-08ebdd39215c",
+          "name": "Bulk delete monitors",
+          "request": {
+            "name": "Bulk delete monitors",
+            "description": {
+              "content": "Deletes multiple monitors specified in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce93bb2a-27c2-4aa8-9591-c0b7a68addde",
+              "name": "Monitors deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cda1c43b-7019-4cea-a64c-2bc12aad42dc",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a67bd9f-aae6-43e4-afc6-3d7d686b6e89",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81d44187-ea95-4bae-8f43-d12bf556dc49",
+          "name": "Get a monitor",
+          "request": {
+            "name": "Get a monitor",
+            "description": {
+              "content": "Retrieves a single monitor by key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors",
+                ":monitorKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "withEvents",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "withInvocations",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) Unique monitor key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9334628-7602-4a99-a39a-a3f7a39c4140",
+              "name": "Monitor object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withInvocations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\",\n  \"created\": \"2025-07-12T21:34:45.774Z\",\n  \"latest_event\": {\n    \"stamp\": 5399,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b137f64-169b-4a63-ae87-bcc485b29555",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withInvocations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccd33cfd-06a2-415e-91be-dba6d1ed3479",
+              "name": "Monitor not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withInvocations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26be84ae-f962-4d7f-b95f-7d603428f7ba",
+          "name": "Delete a monitor",
+          "request": {
+            "name": "Delete a monitor",
+            "description": {
+              "content": "Deletes a single monitor by key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors",
+                ":monitorKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) Unique monitor key."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bb36a79-2422-403d-8c67-a3ba51e3cbf6",
+              "name": "Monitor deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9180745-3fdd-4edb-aaf5-656d45d7b942",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0014974-0210-408b-9172-5ea17d664bb3",
+              "name": "Monitor not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Unique monitor key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e6f4d54-6cbc-4d33-b45b-ee6ef5a5696c",
+          "name": "Pause or resume a monitor",
+          "request": {
+            "name": "Pause or resume a monitor",
+            "description": {
+              "content": "Pauses a monitor for the specified number of hours, or resumes it if hours is 0.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors",
+                ":monitorKey",
+                "pause",
+                ":hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hours",
+                  "description": "(Required) Number of hours to pause; use 0 to resume. Omit for indefinite pause."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bcc4f47-5885-4c65-a002-c487f265e4c4",
+              "name": "Updated monitor object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey",
+                    "pause",
+                    ":hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hours",
+                      "description": "(Required) Number of hours to pause; use 0 to resume. Omit for indefinite pause."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\",\n  \"created\": \"2025-07-12T21:34:45.774Z\",\n  \"latest_event\": {\n    \"stamp\": 5399,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e23325d-33b2-432e-bd9e-d16f8d99287c",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey",
+                    "pause",
+                    ":hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hours",
+                      "description": "(Required) Number of hours to pause; use 0 to resume. Omit for indefinite pause."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bae9a3be-d2b8-44f5-be33-07a5f2a81c8b",
+              "name": "Monitor not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    ":monitorKey",
+                    "pause",
+                    ":hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hours",
+                      "description": "(Required) Number of hours to pause; use 0 to resume. Omit for indefinite pause."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "791a717b-67fc-4a38-89cc-b468fca3b173",
+          "name": "Clone a monitor",
+          "request": {
+            "name": "Clone a monitor",
+            "description": {
+              "content": "Duplicates an existing monitor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "monitors",
+                "clone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monitor_key\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "682f0087-1dc2-4ab9-b084-21a473061589",
+              "name": "Cloned monitor object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    "clone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor_key\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"my-daily-backup\",\n  \"type\": \"<string>\",\n  \"name\": \"Daily Backup Job\",\n  \"schedule\": \"0 2 * * *\",\n  \"schedules\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timezone\": \"America/New_York\",\n  \"assertions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notify\": [\n    \"devops-team\",\n    \"email:oncall@example.com\"\n  ],\n  \"realert_interval\": \"1 hour\",\n  \"grace_seconds\": 60,\n  \"failure_tolerance\": 0,\n  \"consecutive_alert_threshold\": 1,\n  \"paused\": false,\n  \"url\": \"https://example.com/health\",\n  \"method\": \"<string>\",\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"timeout_seconds\": \"<integer>\",\n  \"follow_redirects\": \"<boolean>\",\n  \"verify_ssl\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"group\": \"<string>\",\n  \"env\": \"<string>\",\n  \"created\": \"2025-07-12T21:34:45.774Z\",\n  \"latest_event\": {\n    \"stamp\": 5399,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af6a355f-c480-40b5-845e-e36ea1279975",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    "clone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor_key\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3d619c6-cd4d-477d-b1a2-a31bd4b451d1",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    "clone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor_key\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d626215b-310a-4d97-8109-704e567df105",
+              "name": "Source monitor not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "monitors",
+                    "clone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor_key\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cronitor.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "197c5d79-f256-4ef1-af24-18c684547bc7",
+    "name": "Cronitor Groups and Notifications Cronitor Telemetry API Monitors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.\n\nContact Support:\n Name: Cronitor Support",
+      "type": "text/plain"
+    }
+  }
+}

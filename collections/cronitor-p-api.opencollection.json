@@ -1,0 +1,211 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cronitor Groups and Notifications Cronitor Telemetry API P API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "P",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a telemetry event (GET)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/p/:apiKey/:monitorKey",
+            "params": [
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Cronitor API key with monitor:telemetry permission."
+              },
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path",
+                "description": "Unique monitor key to send the event to."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Job execution state."
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query",
+                "description": "Environment identifier (e.g. staging, production)."
+              },
+              {
+                "name": "host",
+                "value": "",
+                "type": "query",
+                "description": "Server hostname."
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query",
+                "description": "URL-encoded status message."
+              },
+              {
+                "name": "metric",
+                "value": "duration:45.2",
+                "type": "query",
+                "description": "Metric value in format count:N, duration:N (seconds), or error_count:N."
+              },
+              {
+                "name": "series",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID for correlating related events."
+              },
+              {
+                "name": "status_code",
+                "value": "",
+                "type": "query",
+                "description": "Job exit code."
+              }
+            ]
+          },
+          "docs": "Records a job execution event. Use query parameters to specify the state and optional metadata."
+        },
+        {
+          "info": {
+            "name": "Send a telemetry event (POST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cronitor.io/p/:apiKey/:monitorKey",
+            "params": [
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Cronitor API key with monitor:telemetry permission."
+              },
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path",
+                "description": "Unique monitor key to send the event to."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "host",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "series",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status_code",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records a job execution event via POST. The request body is discarded; use query parameters for all event data."
+        },
+        {
+          "info": {
+            "name": "Send a telemetry event (HEAD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://cronitor.io/p/:apiKey/:monitorKey",
+            "params": [
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Cronitor API key with monitor:telemetry permission."
+              },
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path",
+                "description": "Unique monitor key to send the event to."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "series",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status_code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Records a job execution event via HEAD request. Useful for minimal- overhead pings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

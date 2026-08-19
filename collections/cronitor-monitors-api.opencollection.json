@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cronitor Groups and Notifications Cronitor Telemetry API Monitors API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Monitors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List monitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/monitors",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withEvents",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withInvocations",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of monitors, with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Create a monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cronitor.io/api/monitors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a single monitor."
+        },
+        {
+          "info": {
+            "name": "Bulk create or update monitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://cronitor.io/api/monitors",
+            "params": [
+              {
+                "name": "async",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns 202 Accepted immediately and processes asynchronously."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates multiple monitors in a single request. Accepts JSON or YAML."
+        },
+        {
+          "info": {
+            "name": "Bulk delete monitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cronitor.io/api/monitors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes multiple monitors specified in the request body."
+        },
+        {
+          "info": {
+            "name": "Get a monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/monitors/:monitorKey",
+            "params": [
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path",
+                "description": "Unique monitor key."
+              },
+              {
+                "name": "withEvents",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withInvocations",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a single monitor by key."
+        },
+        {
+          "info": {
+            "name": "Delete a monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cronitor.io/api/monitors/:monitorKey",
+            "params": [
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path",
+                "description": "Unique monitor key."
+              }
+            ]
+          },
+          "docs": "Deletes a single monitor by key."
+        },
+        {
+          "info": {
+            "name": "Pause or resume a monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/monitors/:monitorKey/pause/:hours",
+            "params": [
+              {
+                "name": "monitorKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hours",
+                "value": "",
+                "type": "path",
+                "description": "Number of hours to pause; use 0 to resume. Omit for indefinite pause."
+              }
+            ]
+          },
+          "docs": "Pauses a monitor for the specified number of hours, or resumes it if hours is 0."
+        },
+        {
+          "info": {
+            "name": "Clone a monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cronitor.io/api/monitors/clone",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Duplicates an existing monitor."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

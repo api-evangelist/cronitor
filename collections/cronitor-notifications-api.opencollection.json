@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cronitor Groups and Cronitor Telemetry API Notifications API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notification lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/notifications",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of notification lists."
+        },
+        {
+          "info": {
+            "name": "Create a notification list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cronitor.io/api/notifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new notification list."
+        },
+        {
+          "info": {
+            "name": "Get a notification list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cronitor.io/api/notifications/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Notification list key."
+              }
+            ]
+          },
+          "docs": "Retrieves a single notification list by key."
+        },
+        {
+          "info": {
+            "name": "Update a notification list",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://cronitor.io/api/notifications/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Notification list key."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing notification list."
+        },
+        {
+          "info": {
+            "name": "Delete a notification list",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cronitor.io/api/notifications/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Notification list key."
+              }
+            ]
+          },
+          "docs": "Deletes a notification list. Cannot delete the \"default\" list."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

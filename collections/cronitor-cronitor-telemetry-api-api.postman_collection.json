@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "6987acb9-352a-4e4d-b28b-772b2924915b",
+      "name": "Cronitor Telemetry API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef31cc2a-8ffd-42a2-ba1c-d20cd3708016",
+          "name": "Send an anonymous telemetry event",
+          "request": {
+            "name": "Send an anonymous telemetry event",
+            "description": {
+              "content": "Records an event without an API key for monitors that allow anonymous telemetry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":monitorKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "series",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorKey",
+                  "description": "(Required) Monitor key for anonymous telemetry events."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cff91fd-79d5-4fa6-8ea8-bd31880ca07d",
+              "name": "Event recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Monitor key for anonymous telemetry events."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e11537af-9bc8-4edf-b138-a2fa500e92d2",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":monitorKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "series",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorKey",
+                      "description": "(Required) Monitor key for anonymous telemetry events."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cronitor.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e50bc8bd-f32b-42eb-8c08-61a2354fa8de",
+    "name": "Cronitor Groups and Notifications Cronitor Telemetry API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.\n\nContact Support:\n Name: Cronitor Support",
+      "type": "text/plain"
+    }
+  }
+}
