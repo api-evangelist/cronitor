@@ -77,6 +77,8 @@ apis:
   humanURL: https://cronitor.io/docs/monitors-api
   baseURL: https://cronitor.io/api/monitors
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -91,6 +93,8 @@ apis:
   humanURL: https://cronitor.io/docs/monitors-api
   baseURL: https://cronitor.io/api/monitors
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
