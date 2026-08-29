@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Cronitor and Notifications Cronitor Telemetry API Groups API
+  title: Cronitor and Notifications Groups API
   description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
   version: v1
   contact:
@@ -229,9 +229,19 @@ components:
             state:
               type: string
         latest_issue:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           readOnly: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
     GroupListResponse:
       type: object
       properties:
@@ -245,15 +255,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Group'
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
   securitySchemes:
     basicAuth:
       type: http

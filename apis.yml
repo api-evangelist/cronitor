@@ -50,24 +50,6 @@ created: '2026-06-12'
 modified: '2026-06-12'
 specificationVersion: '0.23'
 apis:
-- aid: cronitor:monitors-api
-  name: Cronitor Monitors API
-  description: >-
-    The Monitors API allows creating, updating, retrieving, deleting, cloning, and pausing monitors for
-    cron jobs, heartbeats, uptime checks, and sites. Monitors are configured with schedules, assertions,
-    and alert preferences via JSON or YAML payloads authenticated with HTTP Basic Auth using an API key.
-  humanURL: https://cronitor.io/docs/monitors-api
-  baseURL: https://cronitor.io/api/monitors
-  tags:
-  - Monitors
-  - Cron Jobs
-  - Alerting
-  - Configuration
-  properties:
-  - type: Documentation
-    url: https://cronitor.io/docs/monitors-api
-  - type: OpenAPI
-    url: openapi/cronitor-monitors-api-openapi.yml
 - aid: cronitor:cronitor-cronitor-telemetry-api-api
   name: Cronitor Cronitor Telemetry API API
   description: >-
@@ -125,20 +107,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cronitor-p-api-openapi.yml
-  - type: Documentation
-    url: https://cronitor.io/docs/telemetry-api
-  - type: Documentation
-    url: https://cronitor.io/docs/sites-api
-- aid: cronitor:cronitor-search-api
-  name: Cronitor Search API
-  description: The Search API from Cronitor — 1 operation(s) for search.
-  humanURL: https://cronitor.io/docs/monitors-api
-  baseURL: https://cronitor.io/api/monitors
-  tags:
-  - Search
-  properties:
-  - type: OpenAPI
-    url: openapi/cronitor-search-api-openapi.yml
   - type: Documentation
     url: https://cronitor.io/docs/telemetry-api
   - type: Documentation

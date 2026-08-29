@@ -1,24 +1,48 @@
 {
   "provider": "cronitor",
   "sources": [
-    "cronitor-cronitor-telemetry-api-api-openapi.yml",
-    "cronitor-groups-api-openapi.yml",
-    "cronitor-monitors-api-openapi.yml",
-    "cronitor-notifications-api-openapi.yml",
-    "cronitor-p-api-openapi.yml",
-    "cronitor-search-api-openapi.yml"
+    "_original/cronitor-groups-notifications-api-openapi.yml",
+    "_original/cronitor-telemetry-api-openapi.yml"
   ],
   "outputs": [
-    "cronitor-cronitor-telemetry-api-api-openapi.yml",
     "cronitor-groups-api-openapi.yml",
-    "cronitor-monitors-api-openapi.yml",
     "cronitor-notifications-api-openapi.yml",
-    "cronitor-p-api-openapi.yml",
-    "cronitor-search-api-openapi.yml"
+    "cronitor-cronitor-telemetry-api-api-openapi.yml",
+    "cronitor-p-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cronitor-groups-notifications-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths GET /api/groups -> Groups",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths POST /api/groups -> Groups",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths GET /api/groups/{key} -> Groups",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths PUT /api/groups/{key} -> Groups",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths DELETE /api/groups/{key} -> Groups",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths GET /api/groups/{key}/pause/{hours} -> Groups",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths GET /api/notifications -> Notifications",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths POST /api/notifications -> Notifications",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths GET /api/notifications/{key} -> Notifications",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths PUT /api/notifications/{key} -> Notifications",
+    "cronitor-groups-notifications-api-openapi.yml: tagged paths DELETE /api/notifications/{key} -> Notifications",
+    "cronitor-groups-notifications-api-openapi.yml: declared missing tag: Groups",
+    "cronitor-groups-notifications-api-openapi.yml: declared missing tag: Notifications",
+    "cronitor-telemetry-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "cronitor-telemetry-api-openapi.yml: tagged paths GET /p/{apiKey}/{monitorKey} -> P",
+    "cronitor-telemetry-api-openapi.yml: tagged paths POST /p/{apiKey}/{monitorKey} -> P",
+    "cronitor-telemetry-api-openapi.yml: tagged paths HEAD /p/{apiKey}/{monitorKey} -> P",
+    "cronitor-telemetry-api-openapi.yml: tagged paths GET /{monitorKey} -> Cronitor Telemetry API",
+    "cronitor-telemetry-api-openapi.yml: declared missing tag: Cronitor Telemetry API",
+    "cronitor-telemetry-api-openapi.yml: declared missing tag: P"
+  ],
+  "skipped": [
+    "cronitor-cronitor-telemetry-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cronitor-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cronitor-monitors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cronitor-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cronitor-p-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cronitor-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
