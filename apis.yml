@@ -1,15 +1,12 @@
----
 aid: cronitor
 name: Cronitor
-description: >-
-  Cronitor is a cron job and scheduled task monitoring platform that provides
-  developers with instant alerts when jobs fail, run too long, or don't run at
-  all. The platform offers a REST API for creating and managing monitors,
-  recording job telemetry events, and configuring alert policies across teams.
-  Cronitor supports job monitoring, heartbeat monitoring, website uptime checks,
-  and Real User Monitoring (RUM), all accessible via a versioned HTTP API using
-  Basic Auth with scoped API keys. SDKs are available for Python, Node.js, Ruby,
-  PHP, Java, Go, and other languages through the cronitorio GitHub organization.
+description: Cronitor is a cron job and scheduled task monitoring platform that provides developers with
+  instant alerts when jobs fail, run too long, or don't run at all. The platform offers a REST API for
+  creating and managing monitors, recording job telemetry events, and configuring alert policies across
+  teams. Cronitor supports job monitoring, heartbeat monitoring, website uptime checks, and Real User
+  Monitoring (RUM), all accessible via a versioned HTTP API using Basic Auth with scoped API keys. SDKs
+  are available for Python, Node.js, Ruby, PHP, Java, Go, and other languages through the cronitorio GitHub
+  organization.
 type: Index
 deliveryModel:
   model: saas
@@ -38,22 +35,21 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cronitor.png
 tags:
-  - Monitoring
-  - Cron Jobs
-  - Scheduled Tasks
-  - Alerting
-  - Uptime
-  - Telemetry
-  - Status Pages
+- Monitoring
+- Cron Jobs
+- Scheduled Tasks
+- Alerting
+- Uptime
+- Telemetry
+- Status Pages
 url: https://raw.githubusercontent.com/api-evangelist/cronitor/refs/heads/main/apis.yml
 created: '2026-06-12'
-modified: '2026-06-12'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: cronitor:cronitor-cronitor-telemetry-api-api
-  name: Cronitor Cronitor Telemetry API API
-  description: >-
-    The Cronitor Telemetry API API from Cronitor — 1 operation(s) for cronitor telemetry api.
+  name: Cronitor Telemetry API
+  description: The Cronitor Telemetry API API from Cronitor — 1 operation(s) for cronitor telemetry api.
   humanURL: https://cronitor.io/docs/monitors-api
   baseURL: https://cronitor.io/api/monitors
   tags:
@@ -112,44 +108,44 @@ apis:
   - type: Documentation
     url: https://cronitor.io/docs/sites-api
 common:
-  - type: AgenticAccess
-    url: agentic-access/cronitor-agentic-access.yml
-  - type: DomainSecurity
-    url: security/cronitor-domain-security.yml
-  - type: Authentication
-    url: authentication/cronitor-authentication.yml
-  - type: Website
-    url: https://cronitor.io
-  - type: Documentation
-    url: https://cronitor.io/docs
-  - type: GitHubOrganization
-    url: https://github.com/cronitorio
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/cronitor
-  - type: Blog
-    url: https://cronitor.io/cronicle
-  - type: Pricing
-    url: https://cronitor.io/pricing
-  - type: StatusPage
-    url: https://status.cronitor.io
-  - type: X
-    url: https://x.com/cronitorio
-  - type: Plans
-    url: plans/cronitor-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/cronitor-rate-limits.yml
-  - type: FinOps
-    url: finops/cronitor-finops.yml
-  - type: Vocabulary
-    url: vocabulary/cronitor-vocabulary.yml
-  - type: JSONLDContext
-    url: json-ld/cronitor-context.jsonld
-  - type: JSONSchema
-    url: json-schema/cronitor-monitor-schema.json
-  - type: JSONSchema
-    url: json-schema/cronitor-telemetry-event-schema.json
-  - type: JSONSchema
-    url: json-schema/cronitor-notification-list-schema.json
+- type: AgenticAccess
+  url: agentic-access/cronitor-agentic-access.yml
+- type: DomainSecurity
+  url: security/cronitor-domain-security.yml
+- type: Authentication
+  url: authentication/cronitor-authentication.yml
+- type: Website
+  url: https://cronitor.io
+- type: Documentation
+  url: https://cronitor.io/docs
+- type: GitHubOrganization
+  url: https://github.com/cronitorio
+- type: LinkedIn
+  url: https://www.linkedin.com/company/cronitor
+- type: Blog
+  url: https://cronitor.io/cronicle
+- type: Pricing
+  url: https://cronitor.io/pricing
+- type: StatusPage
+  url: https://status.cronitor.io
+- type: X
+  url: https://x.com/cronitorio
+- type: Plans
+  url: plans/cronitor-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/cronitor-rate-limits.yml
+- type: FinOps
+  url: finops/cronitor-finops.yml
+- type: Vocabulary
+  url: vocabulary/cronitor-vocabulary.yml
+- type: JSONLDContext
+  url: json-ld/cronitor-context.jsonld
+- type: JSONSchema
+  url: json-schema/cronitor-monitor-schema.json
+- type: JSONSchema
+  url: json-schema/cronitor-telemetry-event-schema.json
+- type: JSONSchema
+  url: json-schema/cronitor-notification-list-schema.json
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
