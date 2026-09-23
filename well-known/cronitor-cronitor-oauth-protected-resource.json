@@ -1,0 +1,1 @@
+{"resource": "https://cronitor.io/mcp", "authorization_servers": ["https://auth.cronitor.io"], "bearer_methods_supported": ["header"], "resource_name": "Cronitor MCP server"}

@@ -194,6 +194,28 @@ paths:
       - Groups
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+    GroupListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        count:
+          type: integer
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
     Group:
       type: object
       required:
@@ -233,28 +255,6 @@ components:
           - object
           - 'null'
           readOnly: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
-    GroupListResponse:
-      type: object
-      properties:
-        page:
-          type: integer
-        page_size:
-          type: integer
-        count:
-          type: integer
-        groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group'
   securitySchemes:
     basicAuth:
       type: http

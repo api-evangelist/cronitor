@@ -35,14 +35,13 @@
     "cronitor-telemetry-api-openapi.yml: tagged paths HEAD /p/{apiKey}/{monitorKey} -> P",
     "cronitor-telemetry-api-openapi.yml: tagged paths GET /{monitorKey} -> Cronitor Telemetry API",
     "cronitor-telemetry-api-openapi.yml: declared missing tag: Cronitor Telemetry API",
-    "cronitor-telemetry-api-openapi.yml: declared missing tag: P"
+    "cronitor-telemetry-api-openapi.yml: declared missing tag: P",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "cronitor-cronitor-telemetry-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cronitor-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cronitor-monitors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cronitor-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cronitor-p-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cronitor-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "cronitor-p-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }
