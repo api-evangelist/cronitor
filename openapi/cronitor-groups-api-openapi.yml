@@ -194,15 +194,6 @@ paths:
       - Groups
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
     GroupListResponse:
       type: object
       properties:
@@ -255,6 +246,15 @@ components:
           - object
           - 'null'
           readOnly: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     basicAuth:
       type: http

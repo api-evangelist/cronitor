@@ -134,6 +134,19 @@ paths:
       - Notifications
 components:
   schemas:
+    NotificationListResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_template_count:
+          type: integer
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotificationList'
     NotificationList:
       type: object
       required:
@@ -225,19 +238,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    NotificationListResponse:
-      type: object
-      properties:
-        page:
-          type: integer
-        page_size:
-          type: integer
-        total_template_count:
-          type: integer
-        templates:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotificationList'
   securitySchemes:
     basicAuth:
       type: http
