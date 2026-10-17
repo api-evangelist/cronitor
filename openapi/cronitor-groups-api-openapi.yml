@@ -207,6 +207,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Group'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
     Group:
       type: object
       required:
@@ -246,15 +255,6 @@ components:
           - object
           - 'null'
           readOnly: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
   securitySchemes:
     basicAuth:
       type: http
