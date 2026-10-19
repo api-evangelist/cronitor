@@ -1,0 +1,206 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Site Errors API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: site_errors
+  externalDocs:
+    url: https://cronitor.io/docs/sites-api
+paths:
+  /api/site_errors:
+    get:
+      operationId: site_errors_list
+      parameters:
+      - in: query
+        name: env
+        schema:
+          type: string
+      - in: query
+        name: environment
+        schema:
+          type: integer
+      - in: query
+        name: ignored
+        schema:
+          type: boolean
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: site
+        schema:
+          type: string
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - site_errors
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRumErrorList'
+          description: ''
+      summary: Site errors list
+      x-summary-source: derived
+  /api/site_errors/{key}:
+    get:
+      operationId: site_errors_retrieve
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - site_errors
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RumError'
+          description: ''
+      summary: Site errors retrieve
+      x-summary-source: derived
+components:
+  schemas:
+    RumError:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        ignored:
+          type: boolean
+        error_type:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        message:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        filename:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        lineno:
+          type:
+          - integer
+          - 'null'
+          readOnly: true
+        colno:
+          type:
+          - integer
+          - 'null'
+          readOnly: true
+        first_seen:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        last_seen:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        occurrences:
+          type: integer
+          readOnly: true
+        latest_event:
+          type: string
+          readOnly: true
+        site:
+          type:
+          - string
+          - 'null'
+          description: RUM site key.
+        environment:
+          type: string
+          description: Environment key.
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - colno
+      - created
+      - environment
+      - error_type
+      - filename
+      - first_seen
+      - key
+      - last_seen
+      - latest_event
+      - lineno
+      - message
+      - occurrences
+      - site
+      - updated
+    PaginatedRumErrorList:
+      type: object
+      required:
+      - page
+      - page_count
+      - page_size
+      - total_count
+      - data
+      properties:
+        page:
+          type: integer
+        page_count:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RumError'
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

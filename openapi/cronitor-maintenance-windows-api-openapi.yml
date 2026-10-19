@@ -1,0 +1,377 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Maintenance Windows API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: maintenance_windows
+  externalDocs:
+    url: https://cronitor.io/docs/maintenance-windows-api
+paths:
+  /api/maintenance_windows:
+    get:
+      operationId: maintenance_windows_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - maintenance_windows
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMaintenanceWindowList'
+          description: ''
+      summary: Maintenance windows list
+      x-summary-source: derived
+    post:
+      operationId: maintenance_windows_create
+      tags:
+      - maintenance_windows
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceWindowRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceWindow'
+          description: ''
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Maintenance windows create
+      x-summary-source: derived
+  /api/maintenance_windows/{key}:
+    get:
+      operationId: maintenance_windows_retrieve
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - maintenance_windows
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceWindow'
+          description: ''
+      summary: Maintenance windows retrieve
+      x-summary-source: derived
+    put:
+      operationId: maintenance_windows_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - maintenance_windows
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceWindowRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceWindow'
+          description: ''
+      summary: Maintenance windows update
+      x-summary-source: derived
+    patch:
+      operationId: maintenance_windows_partial_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - maintenance_windows
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMaintenanceWindowRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceWindow'
+          description: ''
+      summary: Maintenance windows partial update
+      x-summary-source: derived
+    delete:
+      operationId: maintenance_windows_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - maintenance_windows
+      responses:
+        '204':
+          description: No response body
+      summary: Maintenance windows destroy
+      x-summary-source: derived
+components:
+  schemas:
+    PatchedMaintenanceWindowRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        description:
+          type:
+          - string
+          - 'null'
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        affects_all_monitors:
+          type: boolean
+        affects_statuspage_components:
+          type: boolean
+        environment:
+          type:
+          - string
+          - 'null'
+          description: Environment key.
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        monitors:
+          type: array
+          items: {}
+        groups:
+          type: array
+          items: {}
+    MaintenanceWindow:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 128
+        description:
+          type:
+          - string
+          - 'null'
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        affects_all_monitors:
+          type: boolean
+        affects_statuspage_components:
+          type: boolean
+        environment:
+          type:
+          - string
+          - 'null'
+          description: Environment key.
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        monitors:
+          type: array
+          items: {}
+        groups:
+          type: array
+          items: {}
+        all_affected_monitors:
+          type: string
+          readOnly: true
+        duration:
+          type: integer
+          description: Returns the total duration of the maintenance window in seconds.
+          readOnly: true
+        state:
+          type: string
+          description: Returns whether the window is currently past|ongoing|upcoming.
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - all_affected_monitors
+      - created
+      - duration
+      - end
+      - key
+      - name
+      - start
+      - state
+      - updated
+    PaginatedMaintenanceWindowList:
+      type: object
+      required:
+      - page
+      - page_count
+      - page_size
+      - total_count
+      - data
+      properties:
+        page:
+          type: integer
+        page_count:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaintenanceWindow'
+    MaintenanceWindowRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        description:
+          type:
+          - string
+          - 'null'
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        affects_all_monitors:
+          type: boolean
+        affects_statuspage_components:
+          type: boolean
+        environment:
+          type:
+          - string
+          - 'null'
+          description: Environment key.
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        monitors:
+          type: array
+          items: {}
+        groups:
+          type: array
+          items: {}
+      required:
+      - end
+      - name
+      - start
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

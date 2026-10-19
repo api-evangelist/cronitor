@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Environments API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Environments
+  externalDocs:
+    url: https://cronitor.io/docs/environments-api
+paths:
+  /api/environments:
+    get:
+      operationId: environments_retrieve
+      tags:
+      - Environments
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/environments-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Environments retrieve
+      x-summary-source: derived
+    post:
+      operationId: environments_create
+      tags:
+      - Environments
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/environments-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Environments create
+      x-summary-source: derived
+  /api/environments/{key}:
+    get:
+      operationId: environments_retrieve_2
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\-_.$|\s}{\%]{1,150}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Environments
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/environments-api
+      summary: Environments retrieve 2
+      x-summary-source: derived
+    put:
+      operationId: environments_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\-_.$|\s}{\%]{1,150}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Environments
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/environments-api
+      summary: Environments update
+      x-summary-source: derived
+    delete:
+      operationId: environments_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\-_.$|\s}{\%]{1,150}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Environments
+      responses:
+        '204':
+          description: No response body
+      summary: Environments destroy
+      x-summary-source: derived
+components:
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

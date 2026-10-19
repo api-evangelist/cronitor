@@ -1,0 +1,164 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Telemetry API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Telemetry
+  description: Send events from jobs and heartbeats. Served from cronitor.link.
+  externalDocs:
+    url: https://cronitor.io/docs/telemetry-api
+paths:
+  /p/{apiKey}/{monitorKey}:
+    get:
+      servers:
+      - url: https://cronitor.link
+      - url: https://eu.cronitor.link
+        description: Received in Germany; stored with all other events.
+      tags:
+      - Telemetry
+      summary: Send a telemetry event
+      description: 'Records a job or heartbeat event. Every request returns 200, even with an invalid key: authentication happens after ingestion. https://cronitor.io/docs/telemetry-api'
+      security: []
+      parameters:
+      - name: apiKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: An API key with the monitor:telemetry scope. Telemetry keys are not secret.
+      - name: monitorKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The monitor key. An unknown key creates a monitor.
+      - name: state
+        in: query
+        schema:
+          type: string
+          enum:
+          - run
+          - complete
+          - fail
+          - tick
+          - ok
+        description: Omit to record a tick. ok resets the monitor to passing.
+      - name: message
+        in: query
+        schema:
+          type: string
+          maxLength: 2000
+      - name: series
+        in: query
+        schema:
+          type: string
+        description: Matches a run event with its complete or fail event.
+      - name: metric
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            example: count:100
+        description: A metric in name:value form. Repeat for multiple metrics.
+      - name: env
+        in: query
+        schema:
+          type: string
+      - name: host
+        in: query
+        schema:
+          type: string
+      - name: status_code
+        in: query
+        schema:
+          type: integer
+        description: The exit code returned by the job.
+      responses:
+        '200':
+          description: Event accepted.
+      operationId: telemetry_send
+    post:
+      servers:
+      - url: https://cronitor.link
+      - url: https://eu.cronitor.link
+        description: Received in Germany; stored with all other events.
+      tags:
+      - Telemetry
+      summary: Send a telemetry event
+      description: 'Records a job or heartbeat event. Every request returns 200, even with an invalid key: authentication happens after ingestion. https://cronitor.io/docs/telemetry-api'
+      security: []
+      parameters:
+      - name: apiKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: An API key with the monitor:telemetry scope. Telemetry keys are not secret.
+      - name: monitorKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The monitor key. An unknown key creates a monitor.
+      - name: state
+        in: query
+        schema:
+          type: string
+          enum:
+          - run
+          - complete
+          - fail
+          - tick
+          - ok
+        description: Omit to record a tick. ok resets the monitor to passing.
+      - name: message
+        in: query
+        schema:
+          type: string
+          maxLength: 2000
+      - name: series
+        in: query
+        schema:
+          type: string
+        description: Matches a run event with its complete or fail event.
+      - name: metric
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            example: count:100
+        description: A metric in name:value form. Repeat for multiple metrics.
+      - name: env
+        in: query
+        schema:
+          type: string
+      - name: host
+        in: query
+        schema:
+          type: string
+      - name: status_code
+        in: query
+        schema:
+          type: integer
+        description: The exit code returned by the job.
+      responses:
+        '200':
+          description: Event accepted.
+      operationId: telemetry_send_post
+components:
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

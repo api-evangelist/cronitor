@@ -1,0 +1,378 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Statuspages API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: statuspages
+  externalDocs:
+    url: https://cronitor.io/docs/statuspages-api
+paths:
+  /api/statuspages:
+    get:
+      operationId: statuspages_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspages
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStatusPageList'
+          description: ''
+      summary: Statuspages list
+      x-summary-source: derived
+    post:
+      operationId: statuspages_create
+      tags:
+      - statuspages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPage'
+          description: ''
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Statuspages create
+      x-summary-source: derived
+  /api/statuspages/{key}:
+    get:
+      operationId: statuspages_retrieve
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspages
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPage'
+          description: ''
+      summary: Statuspages retrieve
+      x-summary-source: derived
+    put:
+      operationId: statuspages_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPage'
+          description: ''
+      summary: Statuspages update
+      x-summary-source: derived
+    delete:
+      operationId: statuspages_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspages
+      responses:
+        '204':
+          description: No response body
+      summary: Statuspages destroy
+      x-summary-source: derived
+components:
+  schemas:
+    PaginatedStatusPageList:
+      type: object
+      required:
+      - page
+      - page_count
+      - page_size
+      - total_count
+      - data
+      properties:
+        page:
+          type: integer
+        page_count:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusPage'
+    StatusPage:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        logo_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        website_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 2000
+        support_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 2000
+        allow_search_index:
+          type: boolean
+        enable_performance_metrics:
+          type: boolean
+        default_time_period:
+          $ref: '#/components/schemas/DefaultTimePeriodEnum'
+        enable_dark_mode:
+          type: boolean
+        hosted_subdomain:
+          type: string
+          maxLength: 63
+        custom_domain:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        access:
+          $ref: '#/components/schemas/AccessEnum'
+        auth_secret:
+          type: string
+          readOnly: true
+        ip_allowlist:
+          type:
+          - string
+          - 'null'
+        components:
+          type: string
+          readOnly: true
+        components_count:
+          type: string
+          readOnly: true
+        status:
+          type: string
+          readOnly: true
+        environment:
+          type:
+          - string
+          - 'null'
+          description: Environment key.
+        metadata:
+          type: string
+          readOnly: true
+        badge_url_light:
+          type: string
+          readOnly: true
+        badge_url_dark:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - auth_secret
+      - badge_url_dark
+      - badge_url_light
+      - components
+      - components_count
+      - created
+      - hosted_subdomain
+      - key
+      - metadata
+      - name
+      - status
+      - updated
+    AccessEnum:
+      enum:
+      - public
+      - password
+      type: string
+      description: '* `public` - public
+
+        * `password` - password'
+    StatusPageRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        logo_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          minLength: 1
+        website_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          minLength: 1
+          maxLength: 2000
+        support_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          minLength: 1
+          maxLength: 2000
+        allow_search_index:
+          type: boolean
+        enable_performance_metrics:
+          type: boolean
+        default_time_period:
+          $ref: '#/components/schemas/DefaultTimePeriodEnum'
+        enable_dark_mode:
+          type: boolean
+        hosted_subdomain:
+          type: string
+          minLength: 1
+          maxLength: 63
+        custom_domain:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+          maxLength: 255
+        access:
+          $ref: '#/components/schemas/AccessEnum'
+        password:
+          type:
+          - string
+          - 'null'
+          writeOnly: true
+        ip_allowlist:
+          type:
+          - string
+          - 'null'
+        environment:
+          type:
+          - string
+          - 'null'
+          description: Environment key.
+      required:
+      - hosted_subdomain
+      - name
+    DefaultTimePeriodEnum:
+      enum:
+      - 24h
+      - 7d
+      - 30d
+      - 90d
+      type: string
+      description: '* `24h` - 24h
+
+        * `7d` - 7d
+
+        * `30d` - 30d
+
+        * `90d` - 90d'
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

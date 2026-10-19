@@ -1,0 +1,334 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Sites API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Sites
+  externalDocs:
+    url: https://cronitor.io/docs/sites-api
+paths:
+  /api/sites:
+    get:
+      operationId: sites_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Sites
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSiteList'
+          description: ''
+      summary: Sites list
+      x-summary-source: derived
+    post:
+      operationId: sites_create
+      tags:
+      - Sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Sites create
+      x-summary-source: derived
+  /api/sites/{key}:
+    get:
+      operationId: sites_retrieve
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Sites
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+      summary: Sites retrieve
+      x-summary-source: derived
+    put:
+      operationId: sites_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+      summary: Sites update
+      x-summary-source: derived
+    delete:
+      operationId: sites_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\.\-\:]{3,255}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Sites
+      responses:
+        '204':
+          description: No response body
+      summary: Sites destroy
+      x-summary-source: derived
+  /api/sites/query:
+    post:
+      operationId: sites_query_create
+      tags:
+      - Sites
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/sites-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Sites query create
+      x-summary-source: derived
+components:
+  schemas:
+    SiteRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        public_report_enabled:
+          type: boolean
+        webvitals_enabled:
+          type: boolean
+        errors_enabled:
+          type: boolean
+        filter_localhost:
+          type: boolean
+        filter_bots:
+          type: boolean
+        filter_browser_extensions:
+          type: boolean
+        exclude_internal_referrers:
+          type: boolean
+        origin_allowlist:
+          type:
+          - string
+          - 'null'
+        ip_denylist:
+          type:
+          - string
+          - 'null'
+        country_code_denylist:
+          type:
+          - string
+          - 'null'
+        path_denylist:
+          type:
+          - string
+          - 'null'
+        sampling:
+          type: integer
+          maximum: 100
+          minimum: 0
+      required:
+      - name
+    PaginatedSiteList:
+      type: object
+      required:
+      - page
+      - page_count
+      - page_size
+      - total_count
+      - data
+      properties:
+        page:
+          type: integer
+        page_count:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Site'
+    Site:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        client_key:
+          type: string
+          readOnly: true
+        public_report_enabled:
+          type: boolean
+        public_report_key:
+          type: string
+          readOnly: true
+        webvitals_enabled:
+          type: boolean
+        errors_enabled:
+          type: boolean
+        filter_localhost:
+          type: boolean
+        filter_bots:
+          type: boolean
+        filter_browser_extensions:
+          type: boolean
+        exclude_internal_referrers:
+          type: boolean
+        origin_allowlist:
+          type:
+          - string
+          - 'null'
+        ip_denylist:
+          type:
+          - string
+          - 'null'
+        country_code_denylist:
+          type:
+          - string
+          - 'null'
+        path_denylist:
+          type:
+          - string
+          - 'null'
+        snippet:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        sampling:
+          type: integer
+          maximum: 100
+          minimum: 0
+        ingestion_enabled:
+          type: boolean
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - client_key
+      - created
+      - ingestion_enabled
+      - key
+      - name
+      - public_report_key
+      - snippet
+      - updated
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

@@ -1,0 +1,275 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Statuspage Components API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: statuspage_components
+  externalDocs:
+    url: https://cronitor.io/docs/statuspages-api
+paths:
+  /api/statuspage_components:
+    get:
+      operationId: statuspage_components_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: statuspage
+        schema:
+          type: string
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspage_components
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStatusPageComponentList'
+          description: ''
+      summary: Statuspage components list
+      x-summary-source: derived
+    post:
+      operationId: statuspage_components_create
+      tags:
+      - statuspage_components
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageComponentRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageComponent'
+          description: ''
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Statuspage components create
+      x-summary-source: derived
+  /api/statuspage_components/{key}:
+    get:
+      operationId: statuspage_components_retrieve
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspage_components
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageComponent'
+          description: ''
+      summary: Statuspage components retrieve
+      x-summary-source: derived
+    put:
+      operationId: statuspage_components_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspage_components
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageComponentRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageComponent'
+          description: ''
+      summary: Statuspage components update
+      x-summary-source: derived
+    delete:
+      operationId: statuspage_components_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - statuspage_components
+      responses:
+        '204':
+          description: No response body
+      summary: Statuspage components destroy
+      x-summary-source: derived
+components:
+  schemas:
+    StatusPageComponentRequest:
+      type: object
+      properties:
+        position:
+          type: string
+          minLength: 1
+          maxLength: 64
+        name:
+          type: string
+          maxLength: 128
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        monitor:
+          type: string
+        group:
+          type: string
+        statuspage:
+          type: string
+        autopublish:
+          type: boolean
+    PaginatedStatusPageComponentList:
+      type: object
+      required:
+      - page
+      - page_count
+      - page_size
+      - total_count
+      - data
+      properties:
+        page:
+          type: integer
+        page_count:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusPageComponent'
+    StatusPageComponent:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        position:
+          type: string
+          maxLength: 64
+        type:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 128
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        status:
+          type: string
+          readOnly: true
+        uptime_history:
+          type: string
+          readOnly: true
+        monitor:
+          type: string
+        group:
+          type: string
+        statuspage:
+          type: string
+        autopublish:
+          type: boolean
+        children:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - children
+      - created
+      - key
+      - status
+      - type
+      - updated
+      - uptime_history
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

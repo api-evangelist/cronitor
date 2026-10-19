@@ -1,0 +1,46 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Search API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Search
+  externalDocs:
+    url: https://cronitor.io/docs/monitors-api
+paths:
+  /api/search:
+    get:
+      operationId: search_retrieve
+      summary: Search monitors
+      parameters:
+      - in: query
+        name: query
+        schema:
+          type: string
+        description: 'Search text. Supports job:, check:, heartbeat:, group:, and tag: prefixes.'
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Search
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/monitors-api
+        '204':
+          description: No query given.
+components:
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

@@ -1,0 +1,1021 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Monitors API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Monitors
+  externalDocs:
+    url: https://cronitor.io/docs/monitors-api
+paths:
+  /api/monitors:
+    get:
+      operationId: monitors_retrieve
+      summary: List monitors
+      parameters:
+      - in: query
+        name: env
+        schema:
+          type: string
+        description: Environment key. Defaults to the account default environment.
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - yaml
+        description: yaml returns monitor configuration as YAML.
+      - in: query
+        name: group
+        schema:
+          type: string
+        description: Group key.
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: Page number, starting at 1.
+      - in: query
+        name: pageSize
+        schema:
+          type: integer
+        description: Monitors per page, up to 1000.
+      - in: query
+        name: search
+        schema:
+          type: string
+        description: Search monitor names and keys.
+      - in: query
+        name: site
+        schema:
+          type: string
+        description: RUM site key.
+      - in: query
+        name: sort
+        schema:
+          type: string
+          enum:
+          - -created
+          - -name
+          - created
+          - name
+        description: Sort order.
+      - in: query
+        name: state
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - failing
+            - passing
+            - paused
+            - running
+        description: Monitor states.
+      - in: query
+        name: tag
+        schema:
+          type: array
+          items:
+            type: string
+        description: Tags. A monitor must have every tag.
+      - in: query
+        name: type
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - check
+            - heartbeat
+            - job
+            - site
+        description: Monitor types to include.
+      - in: query
+        name: withEvents
+        schema:
+          type: boolean
+        description: Include latest_events.
+      - in: query
+        name: withInvocations
+        schema:
+          type: boolean
+        description: Include latest_invocations.
+      - in: query
+        name: withStatus
+        schema:
+          type: boolean
+        description: Include passing, running, and latest_event. Default true.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Monitors
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorPage'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+    post:
+      operationId: monitors_create
+      summary: Create a monitor
+      tags:
+      - Monitors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MonitorRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+    put:
+      operationId: monitors_update
+      description: 'Upserts monitors by key. Send an array of monitors, or {"monitors": [...]} to receive the same shape back. A YAML body (Content-Type: application/yaml) imports a YAML configuration.'
+      summary: Create or update monitors
+      tags:
+      - Monitors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/MonitorRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Monitor'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+    delete:
+      operationId: monitors_destroy
+      summary: Delete monitors
+      tags:
+      - Monitors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MonitorKeysRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorBulkDeleteResult'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+  /api/monitors/{code}:
+    get:
+      operationId: monitors_retrieve_2
+      summary: Get a monitor
+      parameters:
+      - in: path
+        name: code
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{3,12}|[\w|\W]+$
+        required: true
+      - in: query
+        name: env
+        schema:
+          type: string
+        description: Environment key. Defaults to the account default environment.
+      - in: query
+        name: withEvents
+        schema:
+          type: boolean
+        description: Include latest_events.
+      - in: query
+        name: withInvocations
+        schema:
+          type: boolean
+        description: Include latest_invocations.
+      - in: query
+        name: withStatus
+        schema:
+          type: boolean
+        description: Include passing, running, and latest_event. Default true.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Monitors
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+          description: ''
+        '404':
+          description: Not found.
+    delete:
+      operationId: monitors_destroy_2
+      summary: Delete a monitor
+      parameters:
+      - in: path
+        name: code
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{3,12}|[\w|\W]+$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Monitors
+      responses:
+        '204':
+          description: Deleted.
+        '404':
+          description: Not found.
+  /api/monitors/{code}/pause:
+    get:
+      operationId: monitors_pause_retrieve
+      description: Without hours, pauses indefinitely. hours=0 resumes.
+      summary: Pause or resume a monitor
+      parameters:
+      - in: path
+        name: code
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{3,12}|[\w|\W]+$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Monitors
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorPauseResult'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+  /api/monitors/{code}/pause/{hours}:
+    get:
+      operationId: monitors_pause_retrieve_2
+      description: Without hours, pauses indefinitely. hours=0 resumes.
+      summary: Pause or resume a monitor
+      parameters:
+      - in: path
+        name: code
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{3,12}|[\w|\W]+$
+        required: true
+      - in: path
+        name: hours
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Monitors
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitorPauseResult'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+  /api/monitors/clone:
+    post:
+      operationId: monitors_clone_create
+      summary: Clone a monitor
+      tags:
+      - Monitors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MonitorCloneRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monitor'
+          description: ''
+        '400':
+          description: Validation errors, keyed by field.
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+components:
+  schemas:
+    EventEnum:
+      enum:
+      - req-ok
+      - req-fail
+      - req-trig
+      - run
+      - complete
+      - fail
+      - ok
+      - pause
+      - tick
+      - logs
+      - skipped
+      type: string
+      description: '* `req-ok` - req-ok
+
+        * `req-fail` - req-fail
+
+        * `req-trig` - req-trig
+
+        * `run` - run
+
+        * `complete` - complete
+
+        * `fail` - fail
+
+        * `ok` - ok
+
+        * `pause` - pause
+
+        * `tick` - tick
+
+        * `logs` - logs
+
+        * `skipped` - skipped'
+    MonitorPauseResult:
+      type: object
+      properties:
+        key:
+          type: string
+        paused:
+          type: boolean
+        paused_until:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      required:
+      - key
+      - paused
+      - paused_until
+    MonitorKeysRequest:
+      type: object
+      properties:
+        monitors:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          minItems: 1
+      required:
+      - monitors
+    Event:
+      type: object
+      properties:
+        stamp:
+          type: number
+          format: double
+        msg:
+          type:
+          - string
+          - 'null'
+          description: Event message. Null when the event has none.
+        event:
+          allOf:
+          - $ref: '#/components/schemas/EventEnum'
+          readOnly: true
+        metrics:
+          type: object
+          additionalProperties:
+            type: number
+          description: 'Built-in and custom metric values, such as {"duration": 1.25, "queue_depth": 12}. An empty object when the event has none.'
+        client:
+          type:
+          - string
+          - 'null'
+          description: Client that sent the event. Null when unknown.
+        host:
+          type:
+          - string
+          - 'null'
+          description: Host that sent the event. Null when unknown.
+        ip:
+          type: string
+      required:
+      - client
+      - event
+      - host
+      - ip
+      - metrics
+      - msg
+      - stamp
+    TypeEnum:
+      type: string
+      enum:
+      - job
+      - heartbeat
+      - check
+      - site
+    MonitorBulkDeleteResult:
+      type: object
+      properties:
+        deleted_count:
+          type: integer
+        requested_count:
+          type: integer
+      required:
+      - deleted_count
+      - requested_count
+    MonitorPage:
+      type: object
+      properties:
+        monitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Monitor'
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_monitor_count:
+          type: integer
+        version:
+          type: string
+      required:
+      - monitors
+      - page
+      - page_size
+      - total_monitor_count
+      - version
+    Monitor:
+      type: object
+      description: 'V5 serializer replaces ''schedule'' with ''schedules'' to support multiple schedule expressions.
+
+        This is used for monitors with multiple cron expressions or Windows Task Scheduler RRULE triggers.
+
+
+        Also consolidates public_badge_url and public_detailed_badge_url into a ''badges'' object.'
+      properties:
+        attributes:
+          type:
+          - object
+          - 'null'
+          readOnly: true
+          description: Values derived from the monitor configuration.
+        assertions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Assertions such as "response.code = 200" or "metric.queue_depth < 100".
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        disabled:
+          type: boolean
+          readOnly: true
+        failure_tolerance:
+          type:
+          - integer
+          - 'null'
+          description: Failures tolerated before an alert. Default 0.
+        grace_seconds:
+          type:
+          - integer
+          - 'null'
+          description: Seconds to wait after a missed or late event before alerting.
+        consecutive_alert_threshold:
+          type: integer
+          maximum: 1000
+          minimum: 1
+        group:
+          type:
+          - string
+          - 'null'
+          description: Group key.
+        initialized:
+          type:
+          - boolean
+          - 'null'
+          readOnly: true
+          description: Whether the monitor has received telemetry.
+        key:
+          type:
+          - string
+          - 'null'
+          description: Unique monitor key. Required when creating a monitor.
+        latest_event:
+          allOf:
+          - $ref: '#/components/schemas/Event'
+          readOnly: true
+          description: Present when the request has withStatus=true (the default).
+        latest_events:
+          type:
+          - object
+          - 'null'
+          readOnly: true
+          additionalProperties:
+            $ref: '#/components/schemas/Event'
+          description: Latest event of each kind, keyed by event name. Present with withEvents=true.
+        latest_issue:
+          type:
+          - object
+          - 'null'
+          readOnly: true
+          properties:
+            stamp:
+              type: number
+              description: Unix timestamp the issue started.
+            state:
+              type: string
+        latest_invocations:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            type: object
+          description: Present with withInvocations=true.
+        metric_names:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          readOnly: true
+        badges:
+          type:
+          - object
+          - 'null'
+          readOnly: true
+          properties:
+            simple:
+              type: string
+              format: uri
+            detailed:
+              type: string
+              format: uri
+        metadata:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+        next_expected_at:
+          type:
+          - number
+          - 'null'
+          readOnly: true
+          description: Unix timestamp of the next scheduled run. Null when the monitor has no schedule. May include fractional seconds.
+        note:
+          type:
+          - string
+          - 'null'
+        notify:
+          description: Notification list keys or inline destinations such as "email:ops@example.com". Omit to use the default list.
+          oneOf:
+          - type: array
+            items:
+              type: string
+          - type: object
+            properties:
+              alerts:
+                type: array
+                items:
+                  type: string
+              events:
+                description: true alerts on every tick. Otherwise run and complete flags.
+                oneOf:
+                - type: boolean
+                - type: object
+                  properties:
+                    run:
+                      type: boolean
+                    complete:
+                      type: boolean
+        passing:
+          type:
+          - boolean
+          - 'null'
+          readOnly: true
+          description: Present when the request has withStatus=true (the default).
+        paused:
+          type: boolean
+        platform:
+          type:
+          - string
+          - 'null'
+        realert_interval:
+          description: How often to repeat an alert, for example "8 hours", or seconds.
+          oneOf:
+          - type: integer
+          - type: string
+        request:
+          type:
+          - object
+          - 'null'
+          description: The request a check monitor makes. Required when type is check.
+          properties:
+            url:
+              type: string
+              description: http(s) URL for an HTTP check, or host:port for TCP and UDP.
+            method:
+              type: string
+              enum:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - HEAD
+              - TCP
+              - UDP
+              description: HTTP method, or TCP or UDP.
+            body:
+              type:
+              - string
+              - 'null'
+              description: Request body. Null when the check sends none.
+            headers:
+              type: object
+              additionalProperties:
+                type: string
+            cookies:
+              type: object
+              additionalProperties:
+                type: string
+            timeout_seconds:
+              type: integer
+              minimum: 1
+              maximum: 60
+              description: Seconds before the check times out. Free plans allow up to 30; paid plans allow up to 60.
+            regions:
+              type: array
+              items:
+                type: string
+            follow_redirects:
+              type: boolean
+            verify_ssl:
+              type: boolean
+            use_ipv6:
+              type: boolean
+        running:
+          type:
+          - boolean
+          - 'null'
+          readOnly: true
+          description: Present when the request has withStatus=true (the default).
+        schedules:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Cron expressions, intervals such as "every 5 minutes", or RRULEs.
+        schedule_tolerance:
+          type:
+          - integer
+          - 'null'
+          description: Missed runs tolerated before an alert. Default 0.
+        tags:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        timezone:
+          type:
+          - string
+          - 'null'
+          description: IANA timezone. Defaults to the account timezone.
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        environments:
+          type: array
+          items:
+            type: string
+            description: 'Environment key. Requests also accept {"key": "<environment>"}.'
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        site:
+          type:
+          - string
+          - 'null'
+          description: RUM site key.
+      required:
+      - attributes
+      - badges
+      - created
+      - disabled
+      - initialized
+      - latest_event
+      - latest_events
+      - latest_invocations
+      - latest_issue
+      - metric_names
+      - next_expected_at
+      - passing
+      - running
+    MonitorRequest:
+      type: object
+      description: 'V5 serializer replaces ''schedule'' with ''schedules'' to support multiple schedule expressions.
+
+        This is used for monitors with multiple cron expressions or Windows Task Scheduler RRULE triggers.
+
+
+        Also consolidates public_badge_url and public_detailed_badge_url into a ''badges'' object.'
+      properties:
+        assertions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Assertions such as "response.code = 200" or "metric.queue_depth < 100".
+        failure_tolerance:
+          type:
+          - integer
+          - 'null'
+          description: Failures tolerated before an alert. Default 0.
+        grace_seconds:
+          type:
+          - integer
+          - 'null'
+          description: Seconds to wait after a missed or late event before alerting.
+        consecutive_alert_threshold:
+          type: integer
+          maximum: 1000
+          minimum: 1
+        group:
+          type:
+          - string
+          - 'null'
+          description: Group key.
+        key:
+          type:
+          - string
+          - 'null'
+          description: Unique monitor key. Required when creating a monitor.
+        metadata:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+        note:
+          type:
+          - string
+          - 'null'
+        notify:
+          description: Notification list keys or inline destinations such as "email:ops@example.com". Omit to use the default list.
+          oneOf:
+          - type: array
+            items:
+              type: string
+          - type: object
+            properties:
+              alerts:
+                type: array
+                items:
+                  type: string
+              events:
+                description: true alerts on every tick. Otherwise run and complete flags.
+                oneOf:
+                - type: boolean
+                - type: object
+                  properties:
+                    run:
+                      type: boolean
+                    complete:
+                      type: boolean
+        paused:
+          type: boolean
+        platform:
+          type:
+          - string
+          - 'null'
+        realert_interval:
+          description: How often to repeat an alert, for example "8 hours", or seconds.
+          oneOf:
+          - type: integer
+          - type: string
+        request:
+          type:
+          - object
+          - 'null'
+          description: The request a check monitor makes. Required when type is check.
+          properties:
+            url:
+              type: string
+              description: http(s) URL for an HTTP check, or host:port for TCP and UDP.
+            method:
+              type: string
+              enum:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - HEAD
+              - TCP
+              - UDP
+              description: HTTP method, or TCP or UDP.
+            body:
+              type:
+              - string
+              - 'null'
+              description: Request body. Null when the check sends none.
+            headers:
+              type: object
+              additionalProperties:
+                type: string
+            cookies:
+              type: object
+              additionalProperties:
+                type: string
+            timeout_seconds:
+              type: integer
+              minimum: 1
+              maximum: 60
+              description: Seconds before the check times out. Free plans allow up to 30; paid plans allow up to 60.
+            regions:
+              type: array
+              items:
+                type: string
+            follow_redirects:
+              type: boolean
+            verify_ssl:
+              type: boolean
+            use_ipv6:
+              type: boolean
+        schedules:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Cron expressions, intervals such as "every 5 minutes", or RRULEs.
+        schedule_tolerance:
+          type:
+          - integer
+          - 'null'
+          description: Missed runs tolerated before an alert. Default 0.
+        tags:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        timezone:
+          type:
+          - string
+          - 'null'
+          description: IANA timezone. Defaults to the account timezone.
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        environments:
+          type: array
+          items:
+            type: string
+            description: 'Environment key. Requests also accept {"key": "<environment>"}.'
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        site:
+          type:
+          - string
+          - 'null'
+          description: RUM site key.
+        defaultName:
+          type: string
+          writeOnly: true
+          minLength: 1
+        defaultNote:
+          type: string
+          writeOnly: true
+          minLength: 1
+        tolerated_failures:
+          type: integer
+          writeOnly: true
+          deprecated: true
+          description: Use failure_tolerance.
+    MonitorCloneRequest:
+      type: object
+      properties:
+        key:
+          type: string
+          minLength: 1
+          description: Key of the monitor to clone.
+        name:
+          type: string
+          minLength: 1
+          description: Defaults to "Clone of <name>".
+      required:
+      - key
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

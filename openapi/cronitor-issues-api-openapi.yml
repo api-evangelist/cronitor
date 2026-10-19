@@ -1,0 +1,720 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Issues API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Issues
+  externalDocs:
+    url: https://cronitor.io/docs/issues-api
+paths:
+  /api/issues:
+    get:
+      operationId: issues_list
+      summary: List issues
+      parameters:
+      - in: query
+        name: check
+        schema:
+          type: array
+          items:
+            type: string
+        description: Check monitor keys.
+      - in: query
+        name: component
+        schema:
+          type: array
+          items:
+            type: string
+        description: Status page component keys.
+      - in: query
+        name: env
+        schema:
+          type: string
+        description: Environment key.
+      - in: query
+        name: group
+        schema:
+          type: array
+          items:
+            type: string
+        description: Monitor group keys.
+      - in: query
+        name: heartbeat
+        schema:
+          type: array
+          items:
+            type: string
+        description: Heartbeat monitor keys.
+      - in: query
+        name: job
+        schema:
+          type: array
+          items:
+            type: string
+        description: Monitor keys.
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+          enum:
+          - -relevance
+          - -started
+          - relevance
+          - started
+        description: Sort order.
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: search
+        schema:
+          type: string
+        description: Search issue names and monitor names, keys, and codes.
+      - in: query
+        name: severity
+        schema:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+            enum:
+            - degraded_performance
+            - maintenance
+            - minor_outage
+            - missing_data
+            - operational
+            - outage
+        description: '* `missing_data` - missing_data
+
+          * `operational` - operational
+
+          * `maintenance` - maintenance
+
+          * `degraded_performance` - degraded_performance
+
+          * `minor_outage` - minor_outage
+
+          * `outage` - outage'
+        explode: true
+        style: form
+      - in: query
+        name: site
+        schema:
+          type: array
+          items:
+            type: string
+        description: Site monitor keys.
+      - in: query
+        name: state
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - identified
+            - investigating
+            - monitoring
+            - resolved
+            - unresolved
+            - unresolved
+            - update
+        description: '* `unresolved` - unresolved
+
+          * `investigating` - investigating
+
+          * `identified` - identified
+
+          * `monitoring` - monitoring
+
+          * `resolved` - resolved
+
+          * `update` - update
+
+          * `unresolved` - unresolved'
+        explode: true
+        style: form
+      - in: query
+        name: statuspage
+        schema:
+          type: string
+      - in: query
+        name: tag
+        schema:
+          type: array
+          items:
+            type: string
+        description: Monitor tags.
+      - in: query
+        name: time
+        schema:
+          type: string
+        description: Time range, for example 24h, 7d, or 30d.
+      - in: query
+        name: type
+        schema:
+          type: array
+          items:
+            type: string
+        description: Monitor types.
+      - in: query
+        name: withAlertDetails
+        schema:
+          type: boolean
+        description: Include alerts.
+      - in: query
+        name: withComponentDetails
+        schema:
+          type: boolean
+        description: Expand affected_components.
+      - in: query
+        name: withEnvironmentDetails
+        schema:
+          type: boolean
+        description: Expand environment.
+      - in: query
+        name: withMonitorDetails
+        schema:
+          type: boolean
+        description: Include monitor details.
+      - in: query
+        name: withStatusPageDetails
+        schema:
+          type: boolean
+        description: Expand statuspages.
+      - in: query
+        name: withSummary
+        schema:
+          type: boolean
+        description: Return a shorter summary of each issue.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Issues
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedIssueList'
+          description: ''
+    post:
+      operationId: issues_create
+      summary: Create an issue
+      parameters:
+      - in: query
+        name: withAlertDetails
+        schema:
+          type: boolean
+        description: Include alerts.
+      - in: query
+        name: withComponentDetails
+        schema:
+          type: boolean
+        description: Expand affected_components.
+      - in: query
+        name: withEnvironmentDetails
+        schema:
+          type: boolean
+        description: Expand environment.
+      - in: query
+        name: withMonitorDetails
+        schema:
+          type: boolean
+        description: Include monitor details.
+      - in: query
+        name: withStatusPageDetails
+        schema:
+          type: boolean
+        description: Expand statuspages.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Issues
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+          description: ''
+  /api/issues/{key}:
+    get:
+      operationId: issues_retrieve
+      summary: Get an issue
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - in: query
+        name: withAlertDetails
+        schema:
+          type: boolean
+        description: Include alerts.
+      - in: query
+        name: withComponentDetails
+        schema:
+          type: boolean
+        description: Expand affected_components.
+      - in: query
+        name: withEnvironmentDetails
+        schema:
+          type: boolean
+        description: Expand environment.
+      - in: query
+        name: withMonitorDetails
+        schema:
+          type: boolean
+        description: Include monitor details.
+      - in: query
+        name: withStatusPageDetails
+        schema:
+          type: boolean
+        description: Expand statuspages.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Issues
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+          description: ''
+    put:
+      operationId: issues_update
+      summary: Update an issue
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - in: query
+        name: withAlertDetails
+        schema:
+          type: boolean
+        description: Include alerts.
+      - in: query
+        name: withComponentDetails
+        schema:
+          type: boolean
+        description: Expand affected_components.
+      - in: query
+        name: withEnvironmentDetails
+        schema:
+          type: boolean
+        description: Expand environment.
+      - in: query
+        name: withMonitorDetails
+        schema:
+          type: boolean
+        description: Include monitor details.
+      - in: query
+        name: withStatusPageDetails
+        schema:
+          type: boolean
+        description: Expand statuspages.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Issues
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+          description: ''
+    delete:
+      operationId: issues_destroy
+      summary: Delete an issue
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9]{16}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Issues
+      responses:
+        '204':
+          description: No response body
+  /api/issues/bulk:
+    post:
+      operationId: issues_bulk_create
+      summary: Change, assign, or delete issues in bulk
+      tags:
+      - Issues
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueBulkActionsRequest'
+        required: true
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/issues-api
+        '400':
+          description: Validation errors, keyed by field.
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+components:
+  schemas:
+    SeverityEnum:
+      enum:
+      - missing_data
+      - operational
+      - maintenance
+      - degraded_performance
+      - minor_outage
+      - outage
+      type: string
+      description: '* `missing_data` - missing_data
+
+        * `operational` - operational
+
+        * `maintenance` - maintenance
+
+        * `degraded_performance` - degraded_performance
+
+        * `minor_outage` - minor_outage
+
+        * `outage` - outage'
+    StateEnum:
+      enum:
+      - unresolved
+      - investigating
+      - identified
+      - monitoring
+      - resolved
+      - update
+      type: string
+      description: '* `unresolved` - unresolved
+
+        * `investigating` - investigating
+
+        * `identified` - identified
+
+        * `monitoring` - monitoring
+
+        * `resolved` - resolved
+
+        * `update` - update'
+    NullEnum:
+      enum:
+      - null
+    IssueBulkActionsRequest:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ActionEnum'
+        issues:
+          type: array
+          items:
+            type: string
+          description: Issue keys.
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        assign_to:
+          type:
+          - string
+          - 'null'
+          format: email
+          description: Email address of the assigned team member.
+      required:
+      - action
+      - issues
+    IssueRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        severity:
+          oneOf:
+          - $ref: '#/components/schemas/SeverityEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        updates:
+          type: array
+          items:
+            $ref: '#/components/schemas/IncidentUpdateRequest'
+        started:
+          type: string
+          format: date-time
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        affected_components:
+          type: array
+          items:
+            type: string
+          description: Status page component keys.
+        environment:
+          type: string
+          description: Environment key.
+        assigned_to:
+          type:
+          - string
+          - 'null'
+          format: email
+          description: Email address of the assigned team member.
+      required:
+      - name
+    ActionEnum:
+      enum:
+      - assign_to
+      - change_state
+      - delete
+      type: string
+      description: '* `assign_to` - assign_to
+
+        * `change_state` - change_state
+
+        * `delete` - delete'
+    PaginatedIssueList:
+      type: object
+      required:
+      - page
+      - page_count
+      - page_size
+      - total_count
+      - data
+      properties:
+        page:
+          type: integer
+        page_count:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+    IncidentUpdate:
+      type: object
+      properties:
+        key:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        message:
+          type: string
+          maxLength: 2048
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          type:
+          - string
+          - 'null'
+          format: email
+      required:
+      - created
+      - updated
+    IncidentUpdateRequest:
+      type: object
+      properties:
+        key:
+          type: string
+          minLength: 1
+        timestamp:
+          type: string
+          format: date-time
+        message:
+          type: string
+          maxLength: 2048
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        created_by:
+          type:
+          - string
+          - 'null'
+          format: email
+    Issue:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        severity:
+          oneOf:
+          - $ref: '#/components/schemas/SeverityEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        updates:
+          type: array
+          items:
+            $ref: '#/components/schemas/IncidentUpdate'
+        started:
+          type: string
+          format: date-time
+        ended:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        duration:
+          type: integer
+          readOnly: true
+          description: Seconds of downtime.
+        statuspages:
+          type: array
+          items:
+            type: string
+          description: Status page keys.
+        affected_components:
+          type: array
+          items:
+            type: string
+          description: Status page component keys.
+        monitors:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              name:
+                type: string
+          description: Null unless withMonitorDetails=true, which includes monitor details.
+        alerts:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            type: object
+          description: Present with withAlertDetails=true.
+        environment:
+          type: string
+          description: Environment key.
+        created_by:
+          readOnly: true
+        assigned_to:
+          type:
+          - string
+          - 'null'
+          format: email
+          description: Email address of the assigned team member.
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - alerts
+      - created
+      - created_by
+      - duration
+      - ended
+      - key
+      - monitors
+      - name
+      - updated
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

@@ -48,20 +48,6 @@ created: '2026-06-12'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-- aid: cronitor:cronitor-cronitor-telemetry-api-api
-  name: Cronitor Telemetry API
-  description: The Cronitor Telemetry API API from Cronitor — 1 operation(s) for cronitor telemetry api.
-  humanURL: https://cronitor.io/docs/monitors-api
-  baseURL: https://cronitor.io/api/monitors
-  tags:
-  - Cronitor Telemetry API
-  properties:
-  - type: OpenAPI
-    url: openapi/cronitor-cronitor-telemetry-api-api-openapi.yml
-  - type: Documentation
-    url: https://cronitor.io/docs/telemetry-api
-  - type: Documentation
-    url: https://cronitor.io/docs/sites-api
 - aid: cronitor:cronitor-groups-api
   name: Cronitor Groups API
   description: The Groups API from Cronitor — 3 operation(s) for groups.
@@ -94,16 +80,198 @@ apis:
     url: https://cronitor.io/docs/telemetry-api
   - type: Documentation
     url: https://cronitor.io/docs/sites-api
-- aid: cronitor:cronitor-p-api
-  name: Cronitor P API
-  description: The P API from Cronitor — 1 operation(s) for p.
+- aid: cronitor:cronitor-aggregates-api
+  name: Cronitor Aggregates API
+  description: The aggregates API from Cronitor — 1 operation(s) for aggregates.
   humanURL: https://cronitor.io/docs/monitors-api
   baseURL: https://cronitor.io/api/monitors
   tags:
-  - P
+  - aggregates
   properties:
   - type: OpenAPI
-    url: openapi/cronitor-p-api-openapi.yml
+    url: openapi/cronitor-aggregates-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-environments-api
+  name: Cronitor Environments API
+  description: The environments API from Cronitor — 2 operation(s) for environments.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - environments
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-environments-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-integrations-api
+  name: Cronitor Integrations API
+  description: The integrations API from Cronitor — 4 operation(s) for integrations.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-issues-api
+  name: Cronitor Issues API
+  description: The issues API from Cronitor — 3 operation(s) for issues.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - issues
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-issues-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-keys-api
+  name: Cronitor Keys API
+  description: The keys API from Cronitor — 2 operation(s) for keys.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - keys
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-keys-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-maintenance-windows-api
+  name: Cronitor Maintenance Windows API
+  description: The maintenance_windows API from Cronitor — 2 operation(s) for maintenance_windows.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - maintenance_windows
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-maintenance-windows-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-metrics-api
+  name: Cronitor Metrics API
+  description: The metrics API from Cronitor — 1 operation(s) for metrics.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-monitors-api
+  name: Cronitor Monitors API
+  description: The monitors API from Cronitor — 5 operation(s) for monitors.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - monitors
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-monitors-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-search-api
+  name: Cronitor Search API
+  description: The search API from Cronitor — 1 operation(s) for search.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-search-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-site-errors-api
+  name: Cronitor Site Errors API
+  description: The site_errors API from Cronitor — 2 operation(s) for site_errors.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - site_errors
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-site-errors-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-sites-api
+  name: Cronitor Sites API
+  description: The sites API from Cronitor — 3 operation(s) for sites.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - sites
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-sites-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-statuspage-components-api
+  name: Cronitor Statuspage Components API
+  description: The statuspage_components API from Cronitor — 2 operation(s) for statuspage_components.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - statuspage_components
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-statuspage-components-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-statuspages-api
+  name: Cronitor Statuspages API
+  description: The statuspages API from Cronitor — 2 operation(s) for statuspages.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - statuspages
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-statuspages-api-openapi.yml
+  - type: Documentation
+    url: https://cronitor.io/docs/telemetry-api
+  - type: Documentation
+    url: https://cronitor.io/docs/sites-api
+- aid: cronitor:cronitor-telemetry-api
+  name: Cronitor Telemetry API
+  description: Send events from jobs and heartbeats. Served from cronitor.link.
+  humanURL: https://cronitor.io/docs/monitors-api
+  baseURL: https://cronitor.io/api/monitors
+  tags:
+  - telemetry
+  properties:
+  - type: OpenAPI
+    url: openapi/cronitor-telemetry-api-openapi.yml
   - type: Documentation
     url: https://cronitor.io/docs/telemetry-api
   - type: Documentation

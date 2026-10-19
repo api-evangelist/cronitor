@@ -1,245 +1,135 @@
 openapi: 3.2.0
 info:
-  title: Cronitor Groups Notifications API
-  description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
-  version: v1
-  contact:
-    name: Cronitor Support
-    url: https://cronitor.io/docs/groups-api
-  license:
-    name: Proprietary
-    url: https://cronitor.io
+  title: Cronitor Notifications API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
 servers:
 - url: https://cronitor.io
-  description: Cronitor production server
 security:
-- basicAuth: []
+- apiKey: []
 tags:
 - name: Notifications
+  externalDocs:
+    url: https://cronitor.io/docs/notifications-api
 paths:
   /api/notifications:
     get:
-      operationId: listNotificationLists
-      summary: List notification lists
-      description: Returns a paginated list of notification lists.
+      operationId: notifications_retrieve
+      tags:
+      - Notifications
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/notifications-api
       parameters:
-      - name: page
-        in: query
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
         schema:
-          type: integer
-          default: 1
-      - name: pageSize
-        in: query
-        schema:
-          type: integer
-          default: 50
-      responses:
-        '200':
-          description: List of notification lists.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotificationListResponse'
-        '403':
-          description: Forbidden.
-      tags:
-      - Notifications
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Notifications retrieve
+      x-summary-source: derived
     post:
-      operationId: createNotificationList
-      summary: Create a notification list
-      description: Creates a new notification list.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NotificationList'
-      responses:
-        '201':
-          description: Notification list created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotificationList'
-        '400':
-          description: Validation error.
-        '403':
-          description: Forbidden.
+      operationId: notifications_create
       tags:
       - Notifications
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/notifications-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Notifications create
+      x-summary-source: derived
   /api/notifications/{key}:
-    parameters:
-    - name: key
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Notification list key.
     get:
-      operationId: getNotificationList
-      summary: Get a notification list
-      description: Retrieves a single notification list by key.
-      responses:
-        '200':
-          description: Notification list object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotificationList'
-        '403':
-          description: Forbidden.
-        '404':
-          description: Not found.
-      tags:
-      - Notifications
-    put:
-      operationId: updateNotificationList
-      summary: Update a notification list
-      description: Updates an existing notification list.
-      requestBody:
+      operationId: notifications_retrieve_2
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\-_.]{1,50}$
         required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NotificationList'
-      responses:
-        '200':
-          description: Updated notification list.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotificationList'
-        '400':
-          description: Validation error.
-        '403':
-          description: Forbidden.
-        '404':
-          description: Not found.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
       tags:
       - Notifications
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/notifications-api
+      summary: Notifications retrieve 2
+      x-summary-source: derived
+    put:
+      operationId: notifications_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\-_.]{1,50}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Notifications
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/notifications-api
+      summary: Notifications update
+      x-summary-source: derived
     delete:
-      operationId: deleteNotificationList
-      summary: Delete a notification list
-      description: Deletes a notification list. Cannot delete the "default" list.
+      operationId: notifications_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9\-_.]{1,50}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Notifications
       responses:
         '204':
-          description: Notification list deleted.
-        '400':
-          description: Cannot delete the default notification list.
-        '403':
-          description: Forbidden.
-        '404':
-          description: Not found.
-      tags:
-      - Notifications
+          description: No response body
+      summary: Notifications destroy
+      x-summary-source: derived
 components:
-  schemas:
-    NotificationList:
-      type: object
-      required:
-      - name
-      - notifications
-      properties:
-        key:
-          type: string
-          readOnly: true
-          description: Unique identifier for the notification list.
-          example: devops-team
-        name:
-          type: string
-          description: Display name.
-          example: DevOps Team
-        notifications:
-          type: object
-          description: Alert destination targets.
-          properties:
-            emails:
-              type: array
-              items:
-                type: string
-                format: email
-            phones:
-              type: array
-              items:
-                type: string
-            slack:
-              type: array
-              items:
-                type: string
-            pagerduty:
-              type: array
-              items:
-                type: string
-            opsgenie:
-              type: array
-              items:
-                type: string
-            victorops:
-              type: array
-              items:
-                type: string
-            microsoft-teams:
-              type: array
-              items:
-                type: string
-            discord:
-              type: array
-              items:
-                type: string
-            telegram:
-              type: array
-              items:
-                type: string
-            gchat:
-              type: array
-              items:
-                type: string
-            larksuite:
-              type: array
-              items:
-                type: string
-            webhooks:
-              type: array
-              items:
-                type: string
-                format: uri
-        environments:
-          type: array
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-        monitors:
-          type: integer
-          readOnly: true
-          description: Count of associated monitors.
-        monitor_details:
-          type: array
-          readOnly: true
-          description: Array of associated monitor objects.
-        status:
-          type: string
-          readOnly: true
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-    NotificationListResponse:
-      type: object
-      properties:
-        page:
-          type: integer
-        page_size:
-          type: integer
-        total_template_count:
-          type: integer
-        templates:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotificationList'
   securitySchemes:
-    basicAuth:
+    apiKey:
       type: http
       scheme: basic
-      description: Use your Cronitor API key as the username; leave the password blank.
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

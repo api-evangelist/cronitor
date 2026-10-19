@@ -1,0 +1,144 @@
+openapi: 3.2.0
+info:
+  title: Cronitor Integrations API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
+servers:
+- url: https://cronitor.io
+security:
+- apiKey: []
+tags:
+- name: Integrations
+  externalDocs:
+    url: https://cronitor.io/docs/integrations-api
+paths:
+  /api/integrations:
+    get:
+      operationId: integrations_retrieve
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/integrations-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Integrations retrieve
+      x-summary-source: derived
+    post:
+      operationId: integrations_create
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/integrations-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Integrations create
+      x-summary-source: derived
+    delete:
+      operationId: integrations_destroy
+      tags:
+      - Integrations
+      responses:
+        '204':
+          description: No response body
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Integrations destroy
+      x-summary-source: derived
+  /api/integrations/connect:
+    post:
+      operationId: integrations_connect_create
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/integrations-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Integrations connect create
+      x-summary-source: derived
+  /api/integrations/connect/{token}:
+    get:
+      operationId: integrations_connect_retrieve
+      parameters:
+      - in: path
+        name: token
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9_-]+$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/integrations-api
+      summary: Integrations connect retrieve
+      x-summary-source: derived
+  /api/integrations/services:
+    get:
+      operationId: integrations_services_retrieve
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/integrations-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Integrations services retrieve
+      x-summary-source: derived
+components:
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'

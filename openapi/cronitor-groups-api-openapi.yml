@@ -1,262 +1,193 @@
 openapi: 3.2.0
 info:
-  title: Cronitor and Notifications Groups API
-  description: The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.
-  version: v1
-  contact:
-    name: Cronitor Support
-    url: https://cronitor.io/docs/groups-api
-  license:
-    name: Proprietary
-    url: https://cronitor.io
+  title: Cronitor Groups API
+  version: '2025-11-28'
+  description: 'Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api'
 servers:
 - url: https://cronitor.io
-  description: Cronitor production server
 security:
-- basicAuth: []
+- apiKey: []
 tags:
 - name: Groups
+  externalDocs:
+    url: https://cronitor.io/docs/groups-api
 paths:
   /api/groups:
     get:
-      operationId: listGroups
-      summary: List groups
-      description: Returns a paginated list of monitor groups.
-      parameters:
-      - name: page
-        in: query
-        schema:
-          type: integer
-          default: 1
-      - name: pageSize
-        in: query
-        schema:
-          type: integer
-          default: 50
-      - name: env
-        in: query
-        schema:
-          type: string
-      - name: withStatus
-        in: query
-        schema:
-          type: boolean
-      responses:
-        '200':
-          description: List of groups.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GroupListResponse'
-        '403':
-          description: Forbidden.
+      operationId: groups_retrieve
       tags:
       - Groups
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/groups-api
+      parameters:
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Groups retrieve
+      x-summary-source: derived
     post:
-      operationId: createGroup
-      summary: Create a group
-      description: Creates a new monitor group.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Group'
-      responses:
-        '201':
-          description: Group created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Group'
-        '400':
-          description: Validation error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '403':
-          description: Forbidden.
+      operationId: groups_create
       tags:
       - Groups
-  /api/groups/{key}:
-    parameters:
-    - name: key
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Group key.
-    get:
-      operationId: getGroup
-      summary: Get a group
-      description: Retrieves a single group by key.
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/groups-api
       parameters:
-      - name: env
-        in: query
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
         schema:
           type: string
-      - name: withStatus
-        in: query
-        schema:
-          type: boolean
-      - name: sort
-        in: query
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      summary: Groups create
+      x-summary-source: derived
+  /api/groups/{key}:
+    get:
+      operationId: groups_retrieve_2
+      parameters:
+      - in: path
+        name: key
         schema:
           type: string
-      responses:
-        '200':
-          description: Group object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Group'
-        '403':
-          description: Forbidden.
-        '404':
-          description: Group not found.
-      tags:
-      - Groups
-    put:
-      operationId: updateGroup
-      summary: Update a group
-      description: Updates the name or member monitors of a group. The monitors array replaces the existing member list entirely.
-      requestBody:
+          pattern: ^[A-Za-z0-9-_.]{2,50}$
         required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                monitors:
-                  type: array
-                  items:
-                    type: string
-      responses:
-        '200':
-          description: Updated group object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Group'
-        '400':
-          description: Validation error.
-        '403':
-          description: Forbidden.
-        '404':
-          description: Group not found.
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
       tags:
       - Groups
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/groups-api
+      summary: Groups retrieve 2
+      x-summary-source: derived
+    put:
+      operationId: groups_update
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9-_.]{2,50}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Groups
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/groups-api
+      summary: Groups update
+      x-summary-source: derived
     delete:
-      operationId: deleteGroup
-      summary: Delete a group
-      description: Deletes a group.
+      operationId: groups_destroy
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9-_.]{2,50}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
+      tags:
+      - Groups
       responses:
         '204':
-          description: Group deleted.
-        '403':
-          description: Forbidden.
-        '404':
-          description: Group not found.
+          description: No response body
+      summary: Groups destroy
+      x-summary-source: derived
+  /api/groups/{key}/pause:
+    get:
+      operationId: groups_pause_retrieve
+      parameters:
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9-_.]{2,50}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
       tags:
       - Groups
-  /api/groups/{key}/pause/{hours}:
-    parameters:
-    - name: key
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: hours
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Hours to pause all monitors in the group; 0 to resume.
-    get:
-      operationId: pauseGroupMonitors
-      summary: Pause or resume all monitors in a group
-      description: Pauses all monitors in the group for the specified number of hours.
       responses:
         '200':
-          description: Updated group object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Group'
-        '403':
-          description: Forbidden.
-        '404':
-          description: Group not found.
+          description: Response schema not yet published. See https://cronitor.io/docs/groups-api
+      summary: Groups pause retrieve
+      x-summary-source: derived
+  /api/groups/{key}/pause/{hours}:
+    get:
+      operationId: groups_pause_retrieve_2
+      parameters:
+      - in: path
+        name: hours
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: key
+        schema:
+          type: string
+          pattern: ^[A-Za-z0-9-_.]{2,50}$
+        required: true
+      - name: Cronitor-Version
+        in: header
+        required: false
+        description: API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning
+        schema:
+          type: string
+          enum:
+          - '2025-11-28'
+          - '2020-10-01'
       tags:
       - Groups
+      responses:
+        '200':
+          description: Response schema not yet published. See https://cronitor.io/docs/groups-api
+      summary: Groups pause retrieve 2
+      x-summary-source: derived
 components:
-  schemas:
-    GroupListResponse:
-      type: object
-      properties:
-        page:
-          type: integer
-        page_size:
-          type: integer
-        count:
-          type: integer
-        groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group'
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
-    Group:
-      type: object
-      required:
-      - name
-      properties:
-        key:
-          type: string
-          description: Unique group identifier.
-          example: backend-jobs
-        name:
-          type: string
-          description: Display name.
-          example: Backend Jobs
-        monitors:
-          type: array
-          items:
-            type: string
-          description: Array of member monitor keys.
-          example:
-          - daily-backup
-          - weekly-report
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-          description: ISO 8601 creation timestamp.
-        latest_event:
-          type: object
-          readOnly: true
-          properties:
-            stamp:
-              type: integer
-            state:
-              type: string
-        latest_issue:
-          type:
-          - object
-          - 'null'
-          readOnly: true
   securitySchemes:
-    basicAuth:
+    apiKey:
       type: http
       scheme: basic
-      description: Use your Cronitor API key as the username; leave the password blank.
+      description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'
