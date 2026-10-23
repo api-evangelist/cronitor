@@ -133,3 +133,9 @@ components:
       type: http
       scheme: basic
       description: 'Send an API key as the HTTP Basic username with an empty password, for example `curl -u API_KEY: https://cronitor.io/api/monitors`. Keys carry scopes: https://cronitor.io/docs/api-keys'
+x-provenance:
+  method: harvested
+  publisher: Cronitor
+  source: https://cronitor.io/api/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
