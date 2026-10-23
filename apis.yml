@@ -277,6 +277,8 @@ apis:
   - type: Documentation
     url: https://cronitor.io/docs/sites-api
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/cronitor/overview
 - type: CapabilityMap
   url: capabilities/cronitor-capability-edges.yml
   name: Cronitor Business Capability Map
