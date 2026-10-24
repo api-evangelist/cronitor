@@ -1,0 +1,594 @@
+{
+  "info": {
+    "_postman_id": "af1e3c85-9aeb-47a4-b86f-652350552a7a",
+    "name": "Cronitor Statuspages API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:24:14.000Z",
+    "updatedAt": "2026-10-21T20:24:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-af1e3c85-9aeb-47a4-b86f-652350552a7a"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "statuspages",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Statuspages retrieve",
+                  "id": "873586e2-eeee-4031-8216-8243192c6d16",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/statuspages/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "statuspages",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aecd0a57-2d18-445f-8ffa-ddc34b4e93e0",
+                          "key": "key",
+                          "value": "3IlFuGYiqiz",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4c6d0362-1298-4c68-9ceb-f5fd95dbad33",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/statuspages/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "statuspages",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"auth_secret\": \"<string>\",\n  \"badge_url_dark\": \"<string>\",\n  \"badge_url_light\": \"<string>\",\n  \"components\": \"<string>\",\n  \"components_count\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"hosted_subdomain\": \"<string>\",\n  \"key\": \"<string>\",\n  \"metadata\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                      "createdAt": "2026-10-21T20:24:15.000Z",
+                      "updatedAt": "2026-10-21T20:24:15.000Z",
+                      "uid": "35240-4c6d0362-1298-4c68-9ceb-f5fd95dbad33"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:15.000Z",
+                  "updatedAt": "2026-10-21T20:24:15.000Z",
+                  "uid": "35240-873586e2-eeee-4031-8216-8243192c6d16"
+                },
+                {
+                  "name": "Statuspages update",
+                  "id": "d92ebdf6-1064-4686-bcb3-9eb52db5553f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"hosted_subdomain\": \"<string>\",\n  \"name\": \"<string>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"password\": \"<string,null>\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/statuspages/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "statuspages",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5a5e3c51-c361-4fc4-8a1b-dd66e9e4be70",
+                          "key": "key",
+                          "value": "3IlFuGYiqiz",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4c09c2ba-cb39-4ba8-bf91-9a48d0569158",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"hosted_subdomain\": \"<string>\",\n  \"name\": \"<string>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"password\": \"<string,null>\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/statuspages/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "statuspages",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"auth_secret\": \"<string>\",\n  \"badge_url_dark\": \"<string>\",\n  \"badge_url_light\": \"<string>\",\n  \"components\": \"<string>\",\n  \"components_count\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"hosted_subdomain\": \"<string>\",\n  \"key\": \"<string>\",\n  \"metadata\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                      "createdAt": "2026-10-21T20:24:15.000Z",
+                      "updatedAt": "2026-10-21T20:24:15.000Z",
+                      "uid": "35240-4c09c2ba-cb39-4ba8-bf91-9a48d0569158"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:15.000Z",
+                  "updatedAt": "2026-10-21T20:24:15.000Z",
+                  "uid": "35240-d92ebdf6-1064-4686-bcb3-9eb52db5553f"
+                },
+                {
+                  "name": "Statuspages destroy",
+                  "id": "d3e9b375-45b6-4ebc-bb6c-7a7f26229e83",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/statuspages/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "statuspages",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fa8e758e-b07f-443b-8b0b-70675602b095",
+                          "key": "key",
+                          "value": "3IlFuGYiqiz",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c939116a-36d2-4453-aacf-011e4eedaaa9",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/statuspages/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "statuspages",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:24:15.000Z",
+                      "updatedAt": "2026-10-21T20:24:15.000Z",
+                      "uid": "35240-c939116a-36d2-4453-aacf-011e4eedaaa9"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:15.000Z",
+                  "updatedAt": "2026-10-21T20:24:15.000Z",
+                  "uid": "35240-d3e9b375-45b6-4ebc-bb6c-7a7f26229e83"
+                }
+              ],
+              "id": "ef188ede-b8ea-4634-996d-e48355ad0dbf",
+              "createdAt": "2026-10-21T20:24:15.000Z",
+              "updatedAt": "2026-10-21T20:24:15.000Z",
+              "uid": "35240-ef188ede-b8ea-4634-996d-e48355ad0dbf"
+            },
+            {
+              "name": "Statuspages list",
+              "id": "668eebe1-35c0-404c-8619-45b16af88b3a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/statuspages?page=<integer>&pageSize=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "statuspages"
+                  ],
+                  "query": [
+                    {
+                      "description": "A page number within the paginated result set.",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to return per page.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6eed5443-8e5e-475c-a4c2-0e63bd421281",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/statuspages?page=<integer>&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "statuspages"
+                      ],
+                      "query": [
+                        {
+                          "description": "A page number within the paginated result set.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results to return per page.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"page_count\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"total_count\": \"<integer>\",\n  \"data\": [\n    {\n      \"auth_secret\": \"<string>\",\n      \"badge_url_dark\": \"<string>\",\n      \"badge_url_light\": \"<string>\",\n      \"components\": \"<string>\",\n      \"components_count\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"hosted_subdomain\": \"<string>\",\n      \"key\": \"<string>\",\n      \"metadata\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"logo_url\": \"<string,null-uri>\",\n      \"website_url\": \"<string,null-uri>\",\n      \"support_url\": \"<string,null-uri>\",\n      \"allow_search_index\": \"<boolean>\",\n      \"enable_performance_metrics\": \"<boolean>\",\n      \"default_time_period\": \"7d\",\n      \"enable_dark_mode\": \"<boolean>\",\n      \"custom_domain\": \"<string,null>\",\n      \"access\": \"password\",\n      \"ip_allowlist\": \"<string,null>\",\n      \"environment\": \"<string,null>\"\n    },\n    {\n      \"auth_secret\": \"<string>\",\n      \"badge_url_dark\": \"<string>\",\n      \"badge_url_light\": \"<string>\",\n      \"components\": \"<string>\",\n      \"components_count\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"hosted_subdomain\": \"<string>\",\n      \"key\": \"<string>\",\n      \"metadata\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"logo_url\": \"<string,null-uri>\",\n      \"website_url\": \"<string,null-uri>\",\n      \"support_url\": \"<string,null-uri>\",\n      \"allow_search_index\": \"<boolean>\",\n      \"enable_performance_metrics\": \"<boolean>\",\n      \"default_time_period\": \"30d\",\n      \"enable_dark_mode\": \"<boolean>\",\n      \"custom_domain\": \"<string,null>\",\n      \"access\": \"password\",\n      \"ip_allowlist\": \"<string,null>\",\n      \"environment\": \"<string,null>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:24:15.000Z",
+                  "updatedAt": "2026-10-21T20:24:15.000Z",
+                  "uid": "35240-6eed5443-8e5e-475c-a4c2-0e63bd421281"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:15.000Z",
+              "updatedAt": "2026-10-21T20:24:15.000Z",
+              "uid": "35240-668eebe1-35c0-404c-8619-45b16af88b3a"
+            },
+            {
+              "name": "Statuspages create",
+              "id": "a3ee64cb-3876-437a-849b-9acb8ff60ee5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hosted_subdomain\": \"<string>\",\n  \"name\": \"<string>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"password\": \"<string,null>\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/statuspages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "statuspages"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0a9bb4ff-dbba-49f1-af0a-05ecdf7b0703",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"hosted_subdomain\": \"<string>\",\n  \"name\": \"<string>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"password\": \"<string,null>\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/statuspages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "statuspages"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"auth_secret\": \"<string>\",\n  \"badge_url_dark\": \"<string>\",\n  \"badge_url_light\": \"<string>\",\n  \"components\": \"<string>\",\n  \"components_count\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"hosted_subdomain\": \"<string>\",\n  \"key\": \"<string>\",\n  \"metadata\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"logo_url\": \"<string,null-uri>\",\n  \"website_url\": \"<string,null-uri>\",\n  \"support_url\": \"<string,null-uri>\",\n  \"allow_search_index\": \"<boolean>\",\n  \"enable_performance_metrics\": \"<boolean>\",\n  \"default_time_period\": \"7d\",\n  \"enable_dark_mode\": \"<boolean>\",\n  \"custom_domain\": \"<string,null>\",\n  \"access\": \"public\",\n  \"ip_allowlist\": \"<string,null>\",\n  \"environment\": \"<string,null>\"\n}",
+                  "createdAt": "2026-10-21T20:24:15.000Z",
+                  "updatedAt": "2026-10-21T20:24:15.000Z",
+                  "uid": "35240-0a9bb4ff-dbba-49f1-af0a-05ecdf7b0703"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:15.000Z",
+              "updatedAt": "2026-10-21T20:24:15.000Z",
+              "uid": "35240-a3ee64cb-3876-437a-849b-9acb8ff60ee5"
+            }
+          ],
+          "id": "5ef627ce-17c0-4e25-b98d-fc1b8ce8d7a3",
+          "createdAt": "2026-10-21T20:24:15.000Z",
+          "updatedAt": "2026-10-21T20:24:15.000Z",
+          "uid": "35240-5ef627ce-17c0-4e25-b98d-fc1b8ce8d7a3"
+        }
+      ],
+      "id": "e91233a9-9422-4271-afd6-2299a9db7714",
+      "createdAt": "2026-10-21T20:24:15.000Z",
+      "updatedAt": "2026-10-21T20:24:15.000Z",
+      "uid": "35240-e91233a9-9422-4271-afd6-2299a9db7714"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

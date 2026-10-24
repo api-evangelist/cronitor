@@ -1,0 +1,386 @@
+{
+  "info": {
+    "_postman_id": "04bbb161-0e3d-42a6-bee6-1ef61dc54500",
+    "name": "Cronitor Telemetry API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:24:20.000Z",
+    "updatedAt": "2026-10-21T20:24:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-04bbb161-0e3d-42a6-bee6-1ef61dc54500"
+  },
+  "item": [
+    {
+      "name": "p",
+      "item": [
+        {
+          "name": "{apiKey}",
+          "item": [
+            {
+              "name": "{monitorKey}",
+              "item": [
+                {
+                  "name": "Send a telemetry event",
+                  "id": "a627a4a8-e8b3-4f70-a74d-7cbb31bcea64",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://cronitor.link/p/:apiKey/:monitorKey?state=complete&message=<string>&series=<string>&metric=<string>&metric=<string>&env=<string>&host=<string>&status_code=<integer>",
+                      "protocol": "https",
+                      "host": [
+                        "cronitor",
+                        "link"
+                      ],
+                      "path": [
+                        "p",
+                        ":apiKey",
+                        ":monitorKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "Omit to record a tick. ok resets the monitor to passing.",
+                          "key": "state",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "message",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Matches a run event with its complete or fail event.",
+                          "key": "series",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A metric in name:value form. Repeat for multiple metrics.",
+                          "key": "metric",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A metric in name:value form. Repeat for multiple metrics.",
+                          "key": "metric",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "env",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "host",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The exit code returned by the job.",
+                          "key": "status_code",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b1a3291d-d3ce-49aa-83d9-4ec97df6e865",
+                          "key": "apiKey",
+                          "value": "<string>",
+                          "description": "(Required) An API key with the monitor:telemetry scope. Telemetry keys are not secret."
+                        },
+                        {
+                          "id": "ca5a8bd8-9ab0-4c8e-9e96-7291ab7dce94",
+                          "key": "monitorKey",
+                          "value": "<string>",
+                          "description": "(Required) The monitor key. An unknown key creates a monitor."
+                        }
+                      ]
+                    },
+                    "description": "Records a job or heartbeat event. Every request returns 200, even with an invalid key: authentication happens after ingestion. https://cronitor.io/docs/telemetry-api"
+                  },
+                  "response": [
+                    {
+                      "id": "0ee27cdd-8fe8-4fc6-b4fb-ab64e928f00b",
+                      "name": "Event accepted.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "https://cronitor.link/p/:apiKey/:monitorKey?state=complete&message=<string>&series=<string>&metric=<string>&env=<string>&host=<string>&status_code=<integer>",
+                          "protocol": "https",
+                          "host": [
+                            "cronitor",
+                            "link"
+                          ],
+                          "path": [
+                            "p",
+                            ":apiKey",
+                            ":monitorKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "Omit to record a tick. ok resets the monitor to passing.",
+                              "key": "state",
+                              "value": "complete"
+                            },
+                            {
+                              "key": "message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Matches a run event with its complete or fail event.",
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A metric in name:value form. Repeat for multiple metrics.",
+                              "key": "metric",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "env",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "host",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The exit code returned by the job.",
+                              "key": "status_code",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "apiKey"
+                            },
+                            {
+                              "key": "monitorKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:24:21.000Z",
+                      "updatedAt": "2026-10-21T20:24:21.000Z",
+                      "uid": "35240-0ee27cdd-8fe8-4fc6-b4fb-ab64e928f00b"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-a627a4a8-e8b3-4f70-a74d-7cbb31bcea64"
+                },
+                {
+                  "name": "Send a telemetry event",
+                  "id": "a837aee1-0059-4370-82f2-784e6cc355f0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "https://cronitor.link/p/:apiKey/:monitorKey?state=complete&message=<string>&series=<string>&metric=<string>&metric=<string>&env=<string>&host=<string>&status_code=<integer>",
+                      "protocol": "https",
+                      "host": [
+                        "cronitor",
+                        "link"
+                      ],
+                      "path": [
+                        "p",
+                        ":apiKey",
+                        ":monitorKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "Omit to record a tick. ok resets the monitor to passing.",
+                          "key": "state",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "message",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Matches a run event with its complete or fail event.",
+                          "key": "series",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A metric in name:value form. Repeat for multiple metrics.",
+                          "key": "metric",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A metric in name:value form. Repeat for multiple metrics.",
+                          "key": "metric",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "env",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "host",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The exit code returned by the job.",
+                          "key": "status_code",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "9193d810-8589-45d5-9cea-0e2363df368c",
+                          "key": "apiKey",
+                          "value": "<string>",
+                          "description": "(Required) An API key with the monitor:telemetry scope. Telemetry keys are not secret."
+                        },
+                        {
+                          "id": "279c7c96-c79e-4631-9a09-80bf79a49104",
+                          "key": "monitorKey",
+                          "value": "<string>",
+                          "description": "(Required) The monitor key. An unknown key creates a monitor."
+                        }
+                      ]
+                    },
+                    "description": "Records a job or heartbeat event. Every request returns 200, even with an invalid key: authentication happens after ingestion. https://cronitor.io/docs/telemetry-api"
+                  },
+                  "response": [
+                    {
+                      "id": "194c39b7-916a-4b61-8637-91503d95fcd6",
+                      "name": "Event accepted.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "https://cronitor.link/p/:apiKey/:monitorKey?state=complete&message=<string>&series=<string>&metric=<string>&env=<string>&host=<string>&status_code=<integer>",
+                          "protocol": "https",
+                          "host": [
+                            "cronitor",
+                            "link"
+                          ],
+                          "path": [
+                            "p",
+                            ":apiKey",
+                            ":monitorKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "Omit to record a tick. ok resets the monitor to passing.",
+                              "key": "state",
+                              "value": "complete"
+                            },
+                            {
+                              "key": "message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Matches a run event with its complete or fail event.",
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A metric in name:value form. Repeat for multiple metrics.",
+                              "key": "metric",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "env",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "host",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The exit code returned by the job.",
+                              "key": "status_code",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "apiKey"
+                            },
+                            {
+                              "key": "monitorKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:24:21.000Z",
+                      "updatedAt": "2026-10-21T20:24:21.000Z",
+                      "uid": "35240-194c39b7-916a-4b61-8637-91503d95fcd6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-a837aee1-0059-4370-82f2-784e6cc355f0"
+                }
+              ],
+              "id": "1505192f-706e-4802-9732-852f15317aee",
+              "createdAt": "2026-10-21T20:24:21.000Z",
+              "updatedAt": "2026-10-21T20:24:21.000Z",
+              "uid": "35240-1505192f-706e-4802-9732-852f15317aee"
+            }
+          ],
+          "id": "254320be-1b83-4295-a1fb-d4a7b2bace26",
+          "createdAt": "2026-10-21T20:24:21.000Z",
+          "updatedAt": "2026-10-21T20:24:21.000Z",
+          "uid": "35240-254320be-1b83-4295-a1fb-d4a7b2bace26"
+        }
+      ],
+      "id": "7bfe2d33-1573-4ef7-b3c8-0d02c84a703a",
+      "createdAt": "2026-10-21T20:24:21.000Z",
+      "updatedAt": "2026-10-21T20:24:21.000Z",
+      "uid": "35240-7bfe2d33-1573-4ef7-b3c8-0d02c84a703a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

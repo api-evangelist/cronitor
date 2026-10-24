@@ -1,0 +1,721 @@
+{
+  "info": {
+    "_postman_id": "75a4b680-647f-4a6b-8b54-5ea0f9b55805",
+    "name": "Cronitor Maintenance Windows API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:32.000Z",
+    "updatedAt": "2026-10-21T20:23:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-75a4b680-647f-4a6b-8b54-5ea0f9b55805"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "maintenance_windows",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Maintenance windows retrieve",
+                  "id": "972076b8-58f0-49e4-8549-009e0d0179da",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "maintenance_windows",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "15f6c3d2-5fe3-441a-91b6-28d83b8bb3c5",
+                          "key": "key",
+                          "value": "SqIdDCvl0evAYxVX",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bdb72f37-9a35-4330-bcf7-ab44aee7ff79",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "maintenance_windows",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"all_affected_monitors\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"duration\": \"<integer>\",\n  \"end\": \"<dateTime>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T20:23:32.000Z",
+                      "updatedAt": "2026-10-21T20:23:32.000Z",
+                      "uid": "35240-bdb72f37-9a35-4330-bcf7-ab44aee7ff79"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:32.000Z",
+                  "updatedAt": "2026-10-21T20:23:32.000Z",
+                  "uid": "35240-972076b8-58f0-49e4-8549-009e0d0179da"
+                },
+                {
+                  "name": "Maintenance windows update",
+                  "id": "fd27a42b-d8cb-4616-8d67-ce9571561382",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"end\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "maintenance_windows",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "65ada4a9-57d6-4a83-a778-d3442dc9bbe6",
+                          "key": "key",
+                          "value": "SqIdDCvl0evAYxVX",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "59c3ddf7-e571-4508-8d28-4b8f786261a1",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"end\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "maintenance_windows",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"all_affected_monitors\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"duration\": \"<integer>\",\n  \"end\": \"<dateTime>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T20:23:32.000Z",
+                      "updatedAt": "2026-10-21T20:23:32.000Z",
+                      "uid": "35240-59c3ddf7-e571-4508-8d28-4b8f786261a1"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:32.000Z",
+                  "updatedAt": "2026-10-21T20:23:32.000Z",
+                  "uid": "35240-fd27a42b-d8cb-4616-8d67-ce9571561382"
+                },
+                {
+                  "name": "Maintenance windows partial update",
+                  "id": "b69b49b0-ff72-4e4e-aa7e-35992e84b223",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "maintenance_windows",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c30e03e8-ceaa-4994-849f-e86d70c433c6",
+                          "key": "key",
+                          "value": "SqIdDCvl0evAYxVX",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ba56ada0-0a8c-4fda-b07f-7d57a5d56055",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "maintenance_windows",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"all_affected_monitors\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"duration\": \"<integer>\",\n  \"end\": \"<dateTime>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T20:23:32.000Z",
+                      "updatedAt": "2026-10-21T20:23:32.000Z",
+                      "uid": "35240-ba56ada0-0a8c-4fda-b07f-7d57a5d56055"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:32.000Z",
+                  "updatedAt": "2026-10-21T20:23:32.000Z",
+                  "uid": "35240-b69b49b0-ff72-4e4e-aa7e-35992e84b223"
+                },
+                {
+                  "name": "Maintenance windows destroy",
+                  "id": "a1e38ddd-9a53-471a-bd0b-bb2c4f4a580d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "maintenance_windows",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "091c2e87-ff4e-4bb3-ab13-9ab573b46e00",
+                          "key": "key",
+                          "value": "SqIdDCvl0evAYxVX",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "875c3f07-58bd-4145-95e9-ae6cedbf127c",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/maintenance_windows/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "maintenance_windows",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:32.000Z",
+                      "updatedAt": "2026-10-21T20:23:32.000Z",
+                      "uid": "35240-875c3f07-58bd-4145-95e9-ae6cedbf127c"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:32.000Z",
+                  "updatedAt": "2026-10-21T20:23:32.000Z",
+                  "uid": "35240-a1e38ddd-9a53-471a-bd0b-bb2c4f4a580d"
+                }
+              ],
+              "id": "106539a5-5622-4579-8cee-dc751508a3e5",
+              "createdAt": "2026-10-21T20:23:32.000Z",
+              "updatedAt": "2026-10-21T20:23:32.000Z",
+              "uid": "35240-106539a5-5622-4579-8cee-dc751508a3e5"
+            },
+            {
+              "name": "Maintenance windows list",
+              "id": "fc8ab3f9-6434-4786-a921-d39d531f9aa6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/maintenance_windows?page=<integer>&pageSize=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "maintenance_windows"
+                  ],
+                  "query": [
+                    {
+                      "description": "A page number within the paginated result set.",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to return per page.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9026e82c-1f70-4386-a161-76940cd802ac",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/maintenance_windows?page=<integer>&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "maintenance_windows"
+                      ],
+                      "query": [
+                        {
+                          "description": "A page number within the paginated result set.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results to return per page.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"page_count\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"total_count\": \"<integer>\",\n  \"data\": [\n    {\n      \"all_affected_monitors\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"duration\": \"<integer>\",\n      \"end\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"name\": \"<string>\",\n      \"start\": \"<dateTime>\",\n      \"state\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"description\": \"<string,null>\",\n      \"affects_all_monitors\": \"<boolean>\",\n      \"affects_statuspage_components\": \"<boolean>\",\n      \"environment\": \"<string,null>\",\n      \"statuspages\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"all_affected_monitors\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"duration\": \"<integer>\",\n      \"end\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"name\": \"<string>\",\n      \"start\": \"<dateTime>\",\n      \"state\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"description\": \"<string,null>\",\n      \"affects_all_monitors\": \"<boolean>\",\n      \"affects_statuspage_components\": \"<boolean>\",\n      \"environment\": \"<string,null>\",\n      \"statuspages\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:23:32.000Z",
+                  "updatedAt": "2026-10-21T20:23:32.000Z",
+                  "uid": "35240-9026e82c-1f70-4386-a161-76940cd802ac"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:32.000Z",
+              "updatedAt": "2026-10-21T20:23:32.000Z",
+              "uid": "35240-fc8ab3f9-6434-4786-a921-d39d531f9aa6"
+            },
+            {
+              "name": "Maintenance windows create",
+              "id": "bd2be5dd-178a-47fb-809c-b27f55175c26",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"end\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/maintenance_windows",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "maintenance_windows"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d356c724-5e88-440a-8350-c89c82661bce",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"end\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/maintenance_windows",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "maintenance_windows"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"all_affected_monitors\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"duration\": \"<integer>\",\n  \"end\": \"<dateTime>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"description\": \"<string,null>\",\n  \"affects_all_monitors\": \"<boolean>\",\n  \"affects_statuspage_components\": \"<boolean>\",\n  \"environment\": \"<string,null>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-21T20:23:32.000Z",
+                  "updatedAt": "2026-10-21T20:23:32.000Z",
+                  "uid": "35240-d356c724-5e88-440a-8350-c89c82661bce"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:32.000Z",
+              "updatedAt": "2026-10-21T20:23:32.000Z",
+              "uid": "35240-bd2be5dd-178a-47fb-809c-b27f55175c26"
+            }
+          ],
+          "id": "59c37596-fb56-4a05-bb36-e6c2712cef2c",
+          "createdAt": "2026-10-21T20:23:32.000Z",
+          "updatedAt": "2026-10-21T20:23:32.000Z",
+          "uid": "35240-59c37596-fb56-4a05-bb36-e6c2712cef2c"
+        }
+      ],
+      "id": "5a615ea1-dbb2-4d9b-8ee2-87d4713bb6b9",
+      "createdAt": "2026-10-21T20:23:32.000Z",
+      "updatedAt": "2026-10-21T20:23:32.000Z",
+      "uid": "35240-5a615ea1-dbb2-4d9b-8ee2-87d4713bb6b9"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

@@ -1,1090 +1,441 @@
 {
+  "info": {
+    "_postman_id": "7fb12418-9588-46fc-8ac4-4ba3d3683c9b",
+    "name": "Cronitor Notifications API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:22:55.000Z",
+    "updatedAt": "2026-10-21T20:22:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7fb12418-9588-46fc-8ac4-4ba3d3683c9b"
+  },
   "item": [
     {
-      "id": "0f7ad57c-ee28-4950-8080-9b245f61adee",
-      "name": "Notifications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "1aa8e49c-ef8e-4d92-af25-752212ef554f",
-          "name": "List notification lists",
-          "request": {
-            "name": "List notification lists",
-            "description": {
-              "content": "Returns a paginated list of notification lists.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "notifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "50"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "notifications",
+          "item": [
             {
-              "id": "cd7d1e67-abed-4b6c-bae5-ffc831c58f5e",
-              "name": "List of notification lists.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Notifications retrieve 2",
+                  "id": "6f4a264c-0e5e-4c6f-ad24-0e46c9f0b203",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/notifications/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "notifications",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a8da46dd-c74e-4b84-b690-f42b27182c8c",
+                          "key": "key",
+                          "value": "Gqilizc-NrawHE81095pf-n",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "50"
+                      "id": "9e0b1621-f921-4843-b73d-57e11428ae70",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/notifications-api",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/notifications/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "notifications",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:22:56.000Z",
+                      "updatedAt": "2026-10-21T20:22:56.000Z",
+                      "uid": "35240-9e0b1621-f921-4843-b73d-57e11428ae70"
                     }
                   ],
-                  "variable": []
+                  "createdAt": "2026-10-21T20:22:56.000Z",
+                  "updatedAt": "2026-10-21T20:22:56.000Z",
+                  "uid": "35240-6f4a264c-0e5e-4c6f-ad24-0e46c9f0b203"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"page\": 7028,\n  \"page_size\": 5757,\n  \"total_template_count\": 5143,\n  \"templates\": [\n    {\n      \"name\": \"DevOps Team\",\n      \"notifications\": {\n        \"emails\": [\n          \"Mpqvfto2Rz@UfSGKz.rx\",\n          \"MWS2ANfg3ME31@CunQNuvanNSRmaYANPsmjEwcJOYqvo.bl\"\n        ],\n        \"phones\": [\n          \"string\",\n          \"string\"\n        ],\n        \"slack\": [\n          \"string\",\n          \"string\"\n        ],\n        \"pagerduty\": [\n          \"string\",\n          \"string\"\n        ],\n        \"opsgenie\": [\n          \"string\",\n          \"string\"\n        ],\n        \"victorops\": [\n          \"string\",\n          \"string\"\n        ],\n        \"microsoft-teams\": [\n          \"string\",\n          \"string\"\n        ],\n        \"discord\": [\n          \"string\",\n          \"string\"\n        ],\n        \"telegram\": [\n          \"string\",\n          \"string\"\n        ],\n        \"gchat\": [\n          \"string\",\n          \"string\"\n        ],\n        \"larksuite\": [\n          \"string\",\n          \"string\"\n        ],\n        \"webhooks\": [\n          \"http://rpgbmlVeIiZgdadtIWlHI.jfucl-o,khopJYa4j5nclSvwhmcSQx3BozKt8xLSU29yg7Nr5uK+FIfINtFKovDoNVBk\",\n          \"http://UMJOJYZLPkGwWKpKWwDMv.cvqS+bMFk3FizCKusOAE6Y0c7cEF.uLrdZ6VtG7o\"\n        ]\n      },\n      \"key\": \"devops-team\",\n      \"environments\": [\n        {\n          \"key\": \"string\"\n        },\n        {\n          \"key\": \"string\"\n        }\n      ],\n      \"monitors\": 7315,\n      \"status\": \"string\",\n      \"created\": \"2007-10-10T11:41:22.309Z\"\n    },\n    {\n      \"name\": \"DevOps Team\",\n      \"notifications\": {\n        \"emails\": [\n          \"7dXz7sW@oNFtZSWafEZbxGtAZpAhi.pvhp\",\n          \"rqjr@iTpmuIjMGoZdChKuOUqdwtqgMAclEEo.elms\"\n        ],\n        \"phones\": [\n          \"string\",\n          \"string\"\n        ],\n        \"slack\": [\n          \"string\",\n          \"string\"\n        ],\n        \"pagerduty\": [\n          \"string\",\n          \"string\"\n        ],\n        \"opsgenie\": [\n          \"string\",\n          \"string\"\n        ],\n        \"victorops\": [\n          \"string\",\n          \"string\"\n        ],\n        \"microsoft-teams\": [\n          \"string\",\n          \"string\"\n        ],\n        \"discord\": [\n          \"string\",\n          \"string\"\n        ],\n        \"telegram\": [\n          \"string\",\n          \"string\"\n        ],\n        \"gchat\": [\n          \"string\",\n          \"string\"\n        ],\n        \"larksuite\": [\n          \"string\",\n          \"string\"\n        ],\n        \"webhooks\": [\n          \"http://XvNuKPIAiuLGItAUBpIyzbUDWMTlIyRI.cpqbqqQ,nUu\",\n          \"http://ryaTCgGtrqOQkzriEeAKpgoVYc.mwh,zP,isgRuyD6jK\"\n        ]\n      },\n      \"key\": \"devops-team\",\n      \"environments\": [\n        {\n          \"key\": \"string\"\n        },\n        {\n          \"key\": \"string\"\n        }\n      ],\n      \"monitors\": 5084,\n      \"status\": \"string\",\n      \"created\": \"1976-12-26T07:09:25.814Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3377f3e4-6d43-4062-8b44-a9a3cc7ad477",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "Notifications update",
+                  "id": "bc40ae37-0124-4630-a7c7-6d919e2e7a85",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/notifications/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "notifications",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "61dd542c-aea4-43ff-adb8-7e80461701fa",
+                          "key": "key",
+                          "value": "Gqilizc-NrawHE81095pf-n",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "50"
+                      "id": "079283a7-2148-4a3f-86aa-62b454390f52",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/notifications-api",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/notifications/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "notifications",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:22:56.000Z",
+                      "updatedAt": "2026-10-21T20:22:56.000Z",
+                      "uid": "35240-079283a7-2148-4a3f-86aa-62b454390f52"
                     }
                   ],
-                  "variable": []
+                  "createdAt": "2026-10-21T20:22:56.000Z",
+                  "updatedAt": "2026-10-21T20:22:56.000Z",
+                  "uid": "35240-bc40ae37-0124-4630-a7c7-6d919e2e7a85"
                 },
+                {
+                  "name": "Notifications destroy",
+                  "id": "51180105-7b9d-4a0d-ab56-102f121607e4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/notifications/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "notifications",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "30b77d0b-58eb-4336-9984-ff5196868173",
+                          "key": "key",
+                          "value": "Gqilizc-NrawHE81095pf-n",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9eaf3fed-9971-414a-8557-b7fce0afc7ae",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/notifications/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "notifications",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:22:56.000Z",
+                      "updatedAt": "2026-10-21T20:22:56.000Z",
+                      "uid": "35240-9eaf3fed-9971-414a-8557-b7fce0afc7ae"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:22:56.000Z",
+                  "updatedAt": "2026-10-21T20:22:56.000Z",
+                  "uid": "35240-51180105-7b9d-4a0d-ab56-102f121607e4"
+                }
+              ],
+              "id": "a1a534c1-2634-45d0-bb70-ba6ba7b9dd2c",
+              "createdAt": "2026-10-21T20:22:56.000Z",
+              "updatedAt": "2026-10-21T20:22:56.000Z",
+              "uid": "35240-a1a534c1-2634-45d0-bb70-ba6ba7b9dd2c"
+            },
+            {
+              "name": "Notifications retrieve",
+              "id": "39d0562a-6cce-4363-bc47-43bb1ad20ced",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8977797e-75e6-47e0-836b-7c80b6611dea",
-          "name": "Create a notification list",
-          "request": {
-            "name": "Create a notification list",
-            "description": {
-              "content": "Creates a new notification list.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "notifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "94128fec-23cb-4ccd-b002-2f05996708ff",
-              "name": "Notification list created.",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "api",
-                    "notifications"
-                  ],
+                  "raw": "{{baseUrl}}/api/notifications",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                  "path": [
+                    "api",
+                    "notifications"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3bad44fe-b835-4a03-b791-55a4514dba83",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/notifications-api",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/notifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "notifications"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:22:56.000Z",
+                  "updatedAt": "2026-10-21T20:22:56.000Z",
+                  "uid": "35240-3bad44fe-b835-4a03-b791-55a4514dba83"
+                }
+              ],
+              "createdAt": "2026-10-21T20:22:56.000Z",
+              "updatedAt": "2026-10-21T20:22:56.000Z",
+              "uid": "35240-39d0562a-6cce-4363-bc47-43bb1ad20ced"
+            },
+            {
+              "name": "Notifications create",
+              "id": "cf4ab404-f356-4bf8-b3a3-1e1acc26fbf3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
                   }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"key\": \"devops-team\",\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ],\n  \"monitors\": 4772,\n  \"status\": \"string\",\n  \"created\": \"1992-05-10T18:07:55.895Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3b5f2fcc-2e0c-47bf-9727-27bf07ff5909",
-              "name": "Validation error.",
-              "originalRequest": {
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/api/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "notifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9ffc7b2e-ef66-4d39-b467-6dc728e165f1",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fa2f8155-7e6a-41b2-83cc-a527c7348d1c",
-          "name": "Get a notification list",
-          "request": {
-            "name": "Get a notification list",
-            "description": {
-              "content": "Retrieves a single notification list by key.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "notifications",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Notification list key."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "40df52ad-06b1-44d7-96cb-8f75ef7f3b32",
-              "name": "Notification list object.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                }
+              },
+              "response": [
+                {
+                  "id": "74dc982c-e850-43d8-8b6c-741d114e0d1a",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/notifications-api",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/notifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "notifications"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:22:56.000Z",
+                  "updatedAt": "2026-10-21T20:22:56.000Z",
+                  "uid": "35240-74dc982c-e850-43d8-8b6c-741d114e0d1a"
                 }
               ],
-              "body": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"key\": \"devops-team\",\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ],\n  \"monitors\": 4772,\n  \"status\": \"string\",\n  \"created\": \"1992-05-10T18:07:55.895Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8d116cba-26cf-4da8-a305-226faf3869e3",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "97215601-4a4a-4446-adee-d336b4fe9e73",
-              "name": "Not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:22:56.000Z",
+              "updatedAt": "2026-10-21T20:22:56.000Z",
+              "uid": "35240-cf4ab404-f356-4bf8-b3a3-1e1acc26fbf3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "81d5d685-a8e6-469c-91eb-5ee2c90c2233",
-          "name": "Update a notification list",
-          "request": {
-            "name": "Update a notification list",
-            "description": {
-              "content": "Updates an existing notification list.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "notifications",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Notification list key."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "d314c3de-5dfc-4aa1-b1ca-0e7c37d594b0",
-              "name": "Updated notification list.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"key\": \"devops-team\",\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ],\n  \"monitors\": 4772,\n  \"status\": \"string\",\n  \"created\": \"1992-05-10T18:07:55.895Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c9773757-9cc7-4bac-82be-071b34eb304d",
-              "name": "Validation error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0bb2648f-d648-4c25-8d66-2c24b38efef3",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "837e1d97-e61c-4a40-a2e6-faeb96cbff1d",
-              "name": "Not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"DevOps Team\",\n  \"notifications\": {\n    \"emails\": [\n      \"<email>\",\n      \"<email>\"\n    ],\n    \"phones\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slack\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pagerduty\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"opsgenie\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"victorops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"microsoft-teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"discord\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"telegram\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"gchat\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"larksuite\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"webhooks\": [\n      \"<uri>\",\n      \"<uri>\"\n    ]\n  },\n  \"environments\": [\n    {\n      \"key\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ee2c23d0-39e1-4e8a-9728-cff3b7ff3bdb",
-          "name": "Delete a notification list",
-          "request": {
-            "name": "Delete a notification list",
-            "description": {
-              "content": "Deletes a notification list. Cannot delete the \"default\" list.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "notifications",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Notification list key."
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "553df4f5-e1d7-4749-bd3b-6fc6b7cd421e",
-              "name": "Notification list deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "6bb1191a-b931-4762-9f67-eaa233eb8adf",
-              "name": "Cannot delete the default notification list.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "db51e694-d9a5-4013-be4d-6e23e6c9a185",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "52e5a149-100e-4ab6-9c0a-52ff949f0a6f",
-              "name": "Not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "notifications",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Notification list key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a9e296e2-9a51-4327-8b6e-de7b74c9e54c",
+          "createdAt": "2026-10-21T20:22:56.000Z",
+          "updatedAt": "2026-10-21T20:22:56.000Z",
+          "uid": "35240-a9e296e2-9a51-4327-8b6e-de7b74c9e54c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cronitor.io",
-      "key": "baseUrl"
+      "id": "ed7c6bd8-58eb-442b-9bfb-3b5a32722c18",
+      "createdAt": "2026-10-21T20:22:56.000Z",
+      "updatedAt": "2026-10-21T20:22:56.000Z",
+      "uid": "35240-ed7c6bd8-58eb-442b-9bfb-3b5a32722c18"
     }
   ],
   "auth": {
@@ -1092,21 +443,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "38b76858-24c2-4f9d-9647-85c7d853ecfa",
-    "name": "Cronitor Groups and Cronitor Telemetry API Notifications API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.\n\nContact Support:\n Name: Cronitor Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
     }
-  }
+  ]
 }

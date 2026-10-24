@@ -1,1358 +1,646 @@
 {
+  "info": {
+    "_postman_id": "d37588c8-c4a9-4f2e-a2a3-ec63432f1849",
+    "name": "Cronitor Groups API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:22:48.000Z",
+    "updatedAt": "2026-10-21T20:22:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d37588c8-c4a9-4f2e-a2a3-ec63432f1849"
+  },
   "item": [
     {
-      "id": "6f9a7a36-2bed-44a9-9fd8-92ea502e61f5",
-      "name": "Groups",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "b5027bb5-4cc7-4e2c-9343-220351ed963f",
-          "name": "List groups",
-          "request": {
-            "name": "List groups",
-            "description": {
-              "content": "Returns a paginated list of monitor groups.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "groups"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "50"
-                },
-                {
-                  "disabled": false,
-                  "key": "env",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "withStatus",
-                  "value": "<boolean>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "groups",
+          "item": [
             {
-              "id": "2c862705-4658-4804-bd11-74743c8c1fc8",
-              "name": "List of groups.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "pause",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "{hours}",
+                      "item": [
+                        {
+                          "name": "Groups pause retrieve 2",
+                          "id": "0539321e-c68f-4f78-bfdc-a311930fbb52",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                                "key": "Cronitor-Version",
+                                "value": "2025-11-28"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/groups/:key/pause/:hours",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "groups",
+                                ":key",
+                                "pause",
+                                ":hours"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "bbcf522f-72fe-47d7-a44b-8286f197cf8f",
+                                  "key": "key",
+                                  "value": "nSnaPudBQbMKVAJ7J",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "1aef33c7-5ff3-45ca-9eb6-9953e37734d6",
+                                  "key": "hours",
+                                  "value": "51410652",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "7451faab-b8a1-45b1-90f0-b925a1e39afe",
+                              "name": "Response schema not yet published. See https://cronitor.io/docs/groups-api",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                                    "key": "Cronitor-Version",
+                                    "value": "2025-11-28"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/groups/:key/pause/:hours",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "groups",
+                                    ":key",
+                                    "pause",
+                                    ":hours"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    },
+                                    {
+                                      "key": "hours"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:22:48.000Z",
+                              "updatedAt": "2026-10-21T20:22:48.000Z",
+                              "uid": "35240-7451faab-b8a1-45b1-90f0-b925a1e39afe"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:22:48.000Z",
+                          "updatedAt": "2026-10-21T20:22:48.000Z",
+                          "uid": "35240-0539321e-c68f-4f78-bfdc-a311930fbb52"
+                        }
+                      ],
+                      "id": "565da083-3ca1-44ec-b1f7-d5a0c4374ad1",
+                      "createdAt": "2026-10-21T20:22:48.000Z",
+                      "updatedAt": "2026-10-21T20:22:48.000Z",
+                      "uid": "35240-565da083-3ca1-44ec-b1f7-d5a0c4374ad1"
                     },
                     {
-                      "key": "pageSize",
-                      "value": "50"
-                    },
-                    {
-                      "key": "env",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "withStatus",
-                      "value": "<boolean>"
+                      "name": "Groups pause retrieve",
+                      "id": "8e02fd09-3e58-48a1-92a8-3d16637b8747",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/groups/:key/pause",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "groups",
+                            ":key",
+                            "pause"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1e6508bc-91e6-4892-8985-a1d7dbf2bb96",
+                              "key": "key",
+                              "value": "nSnaPudBQbMKVAJ7J",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "31905b18-7dde-46ef-abc0-30310c54ecfa",
+                          "name": "Response schema not yet published. See https://cronitor.io/docs/groups-api",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                                "key": "Cronitor-Version",
+                                "value": "2025-11-28"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/groups/:key/pause",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "groups",
+                                ":key",
+                                "pause"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:22:48.000Z",
+                          "updatedAt": "2026-10-21T20:22:48.000Z",
+                          "uid": "35240-31905b18-7dde-46ef-abc0-30310c54ecfa"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:22:48.000Z",
+                      "updatedAt": "2026-10-21T20:22:48.000Z",
+                      "uid": "35240-8e02fd09-3e58-48a1-92a8-3d16637b8747"
                     }
                   ],
-                  "variable": []
+                  "id": "79cfb322-16e5-4337-bab7-2949b48255dc",
+                  "createdAt": "2026-10-21T20:22:48.000Z",
+                  "updatedAt": "2026-10-21T20:22:48.000Z",
+                  "uid": "35240-79cfb322-16e5-4337-bab7-2949b48255dc"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"page\": 4816,\n  \"page_size\": 9882,\n  \"count\": 6404,\n  \"groups\": [\n    {\n      \"name\": \"Backend Jobs\",\n      \"key\": \"backend-jobs\",\n      \"monitors\": [\n        \"daily-backup\",\n        \"weekly-report\"\n      ],\n      \"created\": \"1998-08-07T23:15:43.144Z\",\n      \"latest_event\": {\n        \"stamp\": 9912,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    },\n    {\n      \"name\": \"Backend Jobs\",\n      \"key\": \"backend-jobs\",\n      \"monitors\": [\n        \"daily-backup\",\n        \"weekly-report\"\n      ],\n      \"created\": \"1956-06-17T00:26:27.543Z\",\n      \"latest_event\": {\n        \"stamp\": 8611,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1e07eb6d-7917-4716-bb37-de0ea8aa424f",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "Groups retrieve 2",
+                  "id": "b31e918a-a9b4-4b36-af82-419ce9f46cce",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/groups/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "groups",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e98c05ac-9dd1-48b4-bb99-ee5abb02d4af",
+                          "key": "key",
+                          "value": "nSnaPudBQbMKVAJ7J",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "50"
-                    },
-                    {
-                      "key": "env",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "withStatus",
-                      "value": "<boolean>"
+                      "id": "e4d18b93-3d98-4b89-b4e6-f773704c7bca",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/groups-api",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/groups/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "groups",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:22:48.000Z",
+                      "updatedAt": "2026-10-21T20:22:48.000Z",
+                      "uid": "35240-e4d18b93-3d98-4b89-b4e6-f773704c7bca"
                     }
                   ],
-                  "variable": []
+                  "createdAt": "2026-10-21T20:22:48.000Z",
+                  "updatedAt": "2026-10-21T20:22:48.000Z",
+                  "uid": "35240-b31e918a-a9b4-4b36-af82-419ce9f46cce"
                 },
+                {
+                  "name": "Groups update",
+                  "id": "6b0ca24d-b2ba-4775-a489-3752806c163c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/groups/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "groups",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9f877dcb-4775-40f3-b5a8-c2246ccf0f25",
+                          "key": "key",
+                          "value": "nSnaPudBQbMKVAJ7J",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4534726d-ce45-4f98-8836-9e38fc9409c9",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/groups-api",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/groups/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "groups",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:22:48.000Z",
+                      "updatedAt": "2026-10-21T20:22:48.000Z",
+                      "uid": "35240-4534726d-ce45-4f98-8836-9e38fc9409c9"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:22:48.000Z",
+                  "updatedAt": "2026-10-21T20:22:48.000Z",
+                  "uid": "35240-6b0ca24d-b2ba-4775-a489-3752806c163c"
+                },
+                {
+                  "name": "Groups destroy",
+                  "id": "1ae20caf-92be-45b0-8a69-7a24ace69df4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/groups/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "groups",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d5a8efe3-4d9b-4cc5-81fa-c5a477e8d549",
+                          "key": "key",
+                          "value": "nSnaPudBQbMKVAJ7J",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "76763686-0b13-4878-ab8e-0759939b68a3",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/groups/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "groups",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:22:48.000Z",
+                      "updatedAt": "2026-10-21T20:22:48.000Z",
+                      "uid": "35240-76763686-0b13-4878-ab8e-0759939b68a3"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:22:48.000Z",
+                  "updatedAt": "2026-10-21T20:22:48.000Z",
+                  "uid": "35240-1ae20caf-92be-45b0-8a69-7a24ace69df4"
+                }
+              ],
+              "id": "ec8086fd-58de-4716-9a84-e48ba9adb5e9",
+              "createdAt": "2026-10-21T20:22:48.000Z",
+              "updatedAt": "2026-10-21T20:22:48.000Z",
+              "uid": "35240-ec8086fd-58de-4716-9a84-e48ba9adb5e9"
+            },
+            {
+              "name": "Groups retrieve",
+              "id": "03a0306f-4749-4b31-bbef-5ed41871b9e1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "008a951c-d698-4063-bcf7-9c21578fb894",
-          "name": "Create a group",
-          "request": {
-            "name": "Create a group",
-            "description": {
-              "content": "Creates a new monitor group.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "groups"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "d1a3afe1-5918-47e7-98ce-cf2c3d406cf2",
-              "name": "Group created.",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "api",
-                    "groups"
-                  ],
+                  "raw": "{{baseUrl}}/api/groups",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                  "path": [
+                    "api",
+                    "groups"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "fea35434-f1c6-4ee7-8c99-af3c1e652607",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/groups-api",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/groups",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "groups"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:22:48.000Z",
+                  "updatedAt": "2026-10-21T20:22:48.000Z",
+                  "uid": "35240-fea35434-f1c6-4ee7-8c99-af3c1e652607"
+                }
+              ],
+              "createdAt": "2026-10-21T20:22:48.000Z",
+              "updatedAt": "2026-10-21T20:22:48.000Z",
+              "uid": "35240-03a0306f-4749-4b31-bbef-5ed41871b9e1"
+            },
+            {
+              "name": "Groups create",
+              "id": "f5dcac3e-532d-4503-bc0e-f7c1de6bd045",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
                   }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ],\n  \"created\": \"1980-11-09T13:46:31.609Z\",\n  \"latest_event\": {\n    \"stamp\": 9401,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1ae78d22-d42e-43eb-97c4-6746ecea31b3",
-              "name": "Validation error.",
-              "originalRequest": {
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/api/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "groups"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3638b05b-925b-4058-b61b-6b426e4397fe",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/groups-api",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/groups",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "groups"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:22:48.000Z",
+                  "updatedAt": "2026-10-21T20:22:48.000Z",
+                  "uid": "35240-3638b05b-925b-4058-b61b-6b426e4397fe"
                 }
               ],
-              "body": "{\n  \"error\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e4b1e888-8ae3-42fc-9290-879830ce4203",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:22:48.000Z",
+              "updatedAt": "2026-10-21T20:22:48.000Z",
+              "uid": "35240-f5dcac3e-532d-4503-bc0e-f7c1de6bd045"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e0df9c31-3070-40a1-aac2-9b94306044e3",
-          "name": "Get a group",
-          "request": {
-            "name": "Get a group",
-            "description": {
-              "content": "Retrieves a single group by key.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "groups",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "env",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "withStatus",
-                  "value": "<boolean>"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Group key."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "804a7c3c-e559-4a45-ad84-f62496cc9b1a",
-              "name": "Group object.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "env",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "withStatus",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ],\n  \"created\": \"1980-11-09T13:46:31.609Z\",\n  \"latest_event\": {\n    \"stamp\": 9401,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3286cbff-893c-4fc4-a898-8946e9b248a5",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "env",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "withStatus",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a69a44ad-9028-4d54-9c64-71d5fbcab560",
-              "name": "Group not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "env",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "withStatus",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5668c5e2-da9f-41ff-9916-663429ab2f25",
-          "name": "Update a group",
-          "request": {
-            "name": "Update a group",
-            "description": {
-              "content": "Updates the name or member monitors of a group. The monitors array replaces the existing member list entirely.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "groups",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Group key."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "06c1580a-f6db-4260-97a7-3b8845ba2027",
-              "name": "Updated group object.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ],\n  \"created\": \"1980-11-09T13:46:31.609Z\",\n  \"latest_event\": {\n    \"stamp\": 9401,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1a02ecec-066d-4356-837b-64844a011539",
-              "name": "Validation error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d8e02a4b-a1ea-4031-8248-8cdd02b7fca4",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e38e64b0-10a2-49a0-993a-2a0215c17691",
-              "name": "Group not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"monitors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "809dfe42-d6a0-44c2-be0a-192647719071",
-          "name": "Delete a group",
-          "request": {
-            "name": "Delete a group",
-            "description": {
-              "content": "Deletes a group.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "groups",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Group key."
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "dfa1b732-7f4f-4c59-bb8a-c8fd30b40a95",
-              "name": "Group deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "50f43c5e-31a6-469d-b7af-407ef5bccb36",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c95889e5-49d0-4a7e-8689-241fc80ce62c",
-              "name": "Group not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Group key."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "db7f958c-cbe6-4906-b062-f9ee0af603a9",
-          "name": "Pause or resume all monitors in a group",
-          "request": {
-            "name": "Pause or resume all monitors in a group",
-            "description": {
-              "content": "Pauses all monitors in the group for the specified number of hours.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "groups",
-                ":key",
-                "pause",
-                ":hours"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "hours",
-                  "description": "(Required) Hours to pause all monitors in the group; 0 to resume."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3cffa29b-b1be-4494-b8c8-029ca482289e",
-              "name": "Updated group object.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key",
-                    "pause",
-                    ":hours"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "hours",
-                      "description": "(Required) Hours to pause all monitors in the group; 0 to resume."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"Backend Jobs\",\n  \"key\": \"backend-jobs\",\n  \"monitors\": [\n    \"daily-backup\",\n    \"weekly-report\"\n  ],\n  \"created\": \"1980-11-09T13:46:31.609Z\",\n  \"latest_event\": {\n    \"stamp\": 9401,\n    \"state\": \"string\"\n  },\n  \"latest_issue\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "156c87d9-d377-47b2-95a1-1fe6ee53c5cb",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key",
-                    "pause",
-                    ":hours"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "hours",
-                      "description": "(Required) Hours to pause all monitors in the group; 0 to resume."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0cdd403b-4763-4ea8-ad80-9915f39f8f67",
-              "name": "Group not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "groups",
-                    ":key",
-                    "pause",
-                    ":hours"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "hours",
-                      "description": "(Required) Hours to pause all monitors in the group; 0 to resume."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bb6b056d-2a42-464a-9fab-9eb012d18cee",
+          "createdAt": "2026-10-21T20:22:48.000Z",
+          "updatedAt": "2026-10-21T20:22:48.000Z",
+          "uid": "35240-bb6b056d-2a42-464a-9fab-9eb012d18cee"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cronitor.io",
-      "key": "baseUrl"
+      "id": "e3de533b-801c-4525-a5aa-4f5d2b87af32",
+      "createdAt": "2026-10-21T20:22:48.000Z",
+      "updatedAt": "2026-10-21T20:22:48.000Z",
+      "uid": "35240-e3de533b-801c-4525-a5aa-4f5d2b87af32"
     }
   ],
   "auth": {
@@ -1360,21 +648,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "ad75d912-8dab-4403-a57f-e6b4db85302a",
-    "name": "Cronitor and Notifications Cronitor Telemetry API Groups API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.\n\nContact Support:\n Name: Cronitor Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
     }
-  }
+  ]
 }

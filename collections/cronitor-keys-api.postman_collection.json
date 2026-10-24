@@ -1,0 +1,604 @@
+{
+  "info": {
+    "_postman_id": "41d0f08f-21b3-4632-a6aa-dd699631387f",
+    "name": "Cronitor Keys API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:25.000Z",
+    "updatedAt": "2026-10-21T20:23:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-41d0f08f-21b3-4632-a6aa-dd699631387f"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "keys",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Keys retrieve",
+                  "id": "f92b2a73-42c9-4ece-a7fc-2100afc49e18",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/keys/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "keys",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3c8e220f-b137-4b51-a81d-4101bead7bfc",
+                          "key": "key",
+                          "value": "PQRzMqGa4X9r2hQHOOLn1wBLRwvEME0WFX.F4zgb8CC5jhkVdw0pTmS515s22IorokV1a8FowlAzPqTu7c.CFpTc3sTH9WJ3AEquCuJoxddab3m.gB3-DkzDCxWDuZqRx2Btffo4Ga9Xxe.ocSG-L9oeNGr4M7BZWTBYln719vmR7vjz3qAD5hSbvjjQLp:iJb.mkivLk-RY5nk2:rBO7Omk0f",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e03d152b-d8f6-4ca2-9439-df7740360558",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/keys/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "keys",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"created\": \"<dateTime>\",\n  \"immutable\": \"<string>\",\n  \"key\": \"<string>\",\n  \"last_used\": \"<string>\",\n  \"name\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                      "createdAt": "2026-10-21T20:23:26.000Z",
+                      "updatedAt": "2026-10-21T20:23:26.000Z",
+                      "uid": "35240-e03d152b-d8f6-4ca2-9439-df7740360558"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-f92b2a73-42c9-4ece-a7fc-2100afc49e18"
+                },
+                {
+                  "name": "Keys update",
+                  "id": "468aca39-9db7-48de-b476-7b2e609c8dd7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/keys/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "keys",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a9d7623f-fef4-4d15-ad1c-d06defcdaf2d",
+                          "key": "key",
+                          "value": "PQRzMqGa4X9r2hQHOOLn1wBLRwvEME0WFX.F4zgb8CC5jhkVdw0pTmS515s22IorokV1a8FowlAzPqTu7c.CFpTc3sTH9WJ3AEquCuJoxddab3m.gB3-DkzDCxWDuZqRx2Btffo4Ga9Xxe.ocSG-L9oeNGr4M7BZWTBYln719vmR7vjz3qAD5hSbvjjQLp:iJb.mkivLk-RY5nk2:rBO7Omk0f",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6cc3c272-c23c-4bc8-a21c-ef9c17b7812e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/keys/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "keys",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"created\": \"<dateTime>\",\n  \"immutable\": \"<string>\",\n  \"key\": \"<string>\",\n  \"last_used\": \"<string>\",\n  \"name\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                      "createdAt": "2026-10-21T20:23:26.000Z",
+                      "updatedAt": "2026-10-21T20:23:26.000Z",
+                      "uid": "35240-6cc3c272-c23c-4bc8-a21c-ef9c17b7812e"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-468aca39-9db7-48de-b476-7b2e609c8dd7"
+                },
+                {
+                  "name": "Keys destroy",
+                  "id": "2cb3848e-26a0-4634-83a5-c68f98820373",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/keys/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "keys",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "415d00b6-9ebb-46d8-9c12-a84ee3901a85",
+                          "key": "key",
+                          "value": "PQRzMqGa4X9r2hQHOOLn1wBLRwvEME0WFX.F4zgb8CC5jhkVdw0pTmS515s22IorokV1a8FowlAzPqTu7c.CFpTc3sTH9WJ3AEquCuJoxddab3m.gB3-DkzDCxWDuZqRx2Btffo4Ga9Xxe.ocSG-L9oeNGr4M7BZWTBYln719vmR7vjz3qAD5hSbvjjQLp:iJb.mkivLk-RY5nk2:rBO7Omk0f",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4a6d26df-8e9f-47fe-8a21-d0be72b81eca",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/keys/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "keys",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:26.000Z",
+                      "updatedAt": "2026-10-21T20:23:26.000Z",
+                      "uid": "35240-4a6d26df-8e9f-47fe-8a21-d0be72b81eca"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-2cb3848e-26a0-4634-83a5-c68f98820373"
+                }
+              ],
+              "id": "11380391-c196-44ea-b583-8933c3ecd4a5",
+              "createdAt": "2026-10-21T20:23:26.000Z",
+              "updatedAt": "2026-10-21T20:23:26.000Z",
+              "uid": "35240-11380391-c196-44ea-b583-8933c3ecd4a5"
+            },
+            {
+              "name": "Keys list",
+              "id": "b47f5099-fee2-478e-8133-57b903132ffa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/keys?page=<integer>&pageSize=<integer>&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "keys"
+                  ],
+                  "query": [
+                    {
+                      "description": "A page number within the paginated result set.",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to return per page.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A search term.",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "64c4fbb3-3912-4621-b4ea-2a8baf8cbc0c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/keys?page=<integer>&pageSize=<integer>&search=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "keys"
+                      ],
+                      "query": [
+                        {
+                          "description": "A page number within the paginated result set.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results to return per page.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A search term.",
+                          "key": "search",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"page_count\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"total_count\": \"<integer>\",\n  \"data\": [\n    {\n      \"created\": \"<dateTime>\",\n      \"immutable\": \"<string>\",\n      \"key\": \"<string>\",\n      \"last_used\": \"<string>\",\n      \"name\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"kind\": \"telemetry\",\n      \"scopes\": {}\n    },\n    {\n      \"created\": \"<dateTime>\",\n      \"immutable\": \"<string>\",\n      \"key\": \"<string>\",\n      \"last_used\": \"<string>\",\n      \"name\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"kind\": \"telemetry\",\n      \"scopes\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-64c4fbb3-3912-4621-b4ea-2a8baf8cbc0c"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:26.000Z",
+              "updatedAt": "2026-10-21T20:23:26.000Z",
+              "uid": "35240-b47f5099-fee2-478e-8133-57b903132ffa"
+            },
+            {
+              "name": "Keys create",
+              "id": "bee2f611-18be-4c96-8517-38777041d3b4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "keys"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a8d9b1a9-7cb3-4402-8c03-fd95704b7029",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "keys"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<dateTime>\",\n  \"immutable\": \"<string>\",\n  \"key\": \"<string>\",\n  \"last_used\": \"<string>\",\n  \"name\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"kind\": \"custom\",\n  \"scopes\": {}\n}",
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-a8d9b1a9-7cb3-4402-8c03-fd95704b7029"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:26.000Z",
+              "updatedAt": "2026-10-21T20:23:26.000Z",
+              "uid": "35240-bee2f611-18be-4c96-8517-38777041d3b4"
+            }
+          ],
+          "id": "52c70f27-362b-4722-86e6-93f1fb7b42be",
+          "createdAt": "2026-10-21T20:23:26.000Z",
+          "updatedAt": "2026-10-21T20:23:26.000Z",
+          "uid": "35240-52c70f27-362b-4722-86e6-93f1fb7b42be"
+        }
+      ],
+      "id": "68bd3b23-c37e-4a01-9250-3894afa35641",
+      "createdAt": "2026-10-21T20:23:26.000Z",
+      "updatedAt": "2026-10-21T20:23:26.000Z",
+      "uid": "35240-68bd3b23-c37e-4a01-9250-3894afa35641"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

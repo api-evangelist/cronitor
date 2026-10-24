@@ -1,0 +1,124 @@
+{
+  "info": {
+    "_postman_id": "bc8e9ab8-996b-43ae-829c-a8ac52d58971",
+    "name": "Cronitor Aggregates API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:01.000Z",
+    "updatedAt": "2026-10-21T20:23:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bc8e9ab8-996b-43ae-829c-a8ac52d58971"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "aggregates",
+          "item": [
+            {
+              "name": "Aggregates retrieve",
+              "id": "d8843a40-a46f-407c-9048-866217a8dd43",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/aggregates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "aggregates"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "285f7d45-f2b3-4d70-add1-464ea0c8e891",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/metrics-api",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/aggregates",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "aggregates"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:02.000Z",
+                  "updatedAt": "2026-10-21T20:23:02.000Z",
+                  "uid": "35240-285f7d45-f2b3-4d70-add1-464ea0c8e891"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:02.000Z",
+              "updatedAt": "2026-10-21T20:23:02.000Z",
+              "uid": "35240-d8843a40-a46f-407c-9048-866217a8dd43"
+            }
+          ],
+          "id": "73fa14b6-72fb-4620-96e4-173297e3b0c8",
+          "createdAt": "2026-10-21T20:23:02.000Z",
+          "updatedAt": "2026-10-21T20:23:02.000Z",
+          "uid": "35240-73fa14b6-72fb-4620-96e4-173297e3b0c8"
+        }
+      ],
+      "id": "a31d5930-14bc-4556-9d08-907ae9439e25",
+      "createdAt": "2026-10-21T20:23:02.000Z",
+      "updatedAt": "2026-10-21T20:23:02.000Z",
+      "uid": "35240-a31d5930-14bc-4556-9d08-907ae9439e25"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

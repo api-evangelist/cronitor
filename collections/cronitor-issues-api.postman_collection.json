@@ -1,0 +1,1178 @@
+{
+  "info": {
+    "_postman_id": "194f124b-ad98-414c-9f42-fec1e7463a18",
+    "name": "Cronitor Issues API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:19.000Z",
+    "updatedAt": "2026-10-21T20:23:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-194f124b-ad98-414c-9f42-fec1e7463a18"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "issues",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Get an issue",
+                  "id": "c9af4306-21d3-429e-9194-44cca89f5bc9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/issues/:key?withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "issues",
+                        ":key"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include alerts.",
+                          "key": "withAlertDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand affected_components.",
+                          "key": "withComponentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand environment.",
+                          "key": "withEnvironmentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Include monitor details.",
+                          "key": "withMonitorDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand statuspages.",
+                          "key": "withStatusPageDetails",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6f5b6cfd-1e8e-47e7-8267-645f65fdd0d5",
+                          "key": "key",
+                          "value": "LKSrrfwPGXhPnwUV",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a0f14b02-95be-45f6-b619-cb6ad61fedbc",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/issues/:key?withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "issues",
+                            ":key"
+                          ],
+                          "query": [
+                            {
+                              "description": "Include alerts.",
+                              "key": "withAlertDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Expand affected_components.",
+                              "key": "withComponentDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Expand environment.",
+                              "key": "withEnvironmentDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Include monitor details.",
+                              "key": "withMonitorDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Expand statuspages.",
+                              "key": "withStatusPageDetails",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"alerts\": \"<array,null>\",\n  \"created\": \"<dateTime>\",\n  \"created_by\": {\n    \"readOnly\": true\n  },\n  \"duration\": \"<integer>\",\n  \"ended\": \"<string,null-date-time>\",\n  \"key\": \"<string>\",\n  \"monitors\": \"<array,null>\",\n  \"name\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"severity\": \"operational\",\n  \"state\": \"unresolved\",\n  \"updates\": [\n    {\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-a0f14b02-95be-45f6-b619-cb6ad61fedbc"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-c9af4306-21d3-429e-9194-44cca89f5bc9"
+                },
+                {
+                  "name": "Update an issue",
+                  "id": "203ac358-6748-421c-986e-d81506815f7f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"severity\": \"missing_data\",\n  \"state\": \"monitoring\",\n  \"updates\": [\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/issues/:key?withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "issues",
+                        ":key"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include alerts.",
+                          "key": "withAlertDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand affected_components.",
+                          "key": "withComponentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand environment.",
+                          "key": "withEnvironmentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Include monitor details.",
+                          "key": "withMonitorDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand statuspages.",
+                          "key": "withStatusPageDetails",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "220bbab1-dd3d-46d4-ac14-16a39f17f8ef",
+                          "key": "key",
+                          "value": "LKSrrfwPGXhPnwUV",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "be8a6743-5816-4fdc-96b4-d907397a87b3",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"severity\": \"missing_data\",\n  \"state\": \"monitoring\",\n  \"updates\": [\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/issues/:key?withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "issues",
+                            ":key"
+                          ],
+                          "query": [
+                            {
+                              "description": "Include alerts.",
+                              "key": "withAlertDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Expand affected_components.",
+                              "key": "withComponentDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Expand environment.",
+                              "key": "withEnvironmentDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Include monitor details.",
+                              "key": "withMonitorDetails",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Expand statuspages.",
+                              "key": "withStatusPageDetails",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"alerts\": \"<array,null>\",\n  \"created\": \"<dateTime>\",\n  \"created_by\": {\n    \"readOnly\": true\n  },\n  \"duration\": \"<integer>\",\n  \"ended\": \"<string,null-date-time>\",\n  \"key\": \"<string>\",\n  \"monitors\": \"<array,null>\",\n  \"name\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"severity\": \"operational\",\n  \"state\": \"unresolved\",\n  \"updates\": [\n    {\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-be8a6743-5816-4fdc-96b4-d907397a87b3"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-203ac358-6748-421c-986e-d81506815f7f"
+                },
+                {
+                  "name": "Delete an issue",
+                  "id": "6393ceae-a2c7-4219-a164-4efd9c2bc357",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/issues/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "issues",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1358e880-7cc0-4692-9a8e-ef02bd93548e",
+                          "key": "key",
+                          "value": "LKSrrfwPGXhPnwUV",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ebe2e2cd-3bb4-4572-b4be-f0fb3e8e6976",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/issues/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "issues",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-ebe2e2cd-3bb4-4572-b4be-f0fb3e8e6976"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-6393ceae-a2c7-4219-a164-4efd9c2bc357"
+                }
+              ],
+              "id": "cf66094c-e7a2-404f-8b8e-b7c33dfbe584",
+              "createdAt": "2026-10-21T20:23:19.000Z",
+              "updatedAt": "2026-10-21T20:23:19.000Z",
+              "uid": "35240-cf66094c-e7a2-404f-8b8e-b7c33dfbe584"
+            },
+            {
+              "name": "bulk",
+              "item": [
+                {
+                  "name": "Change, assign, or delete issues in bulk",
+                  "id": "697c727d-27ba-478e-8ee5-f4afac94e268",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"action\": \"delete\",\n  \"issues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"update\",\n  \"assign_to\": \"<string,null-email>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/issues/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "issues",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "108b85fa-cfbf-4ef4-95b9-a808c4ea049d",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/issues-api",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"action\": \"delete\",\n  \"issues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"update\",\n  \"assign_to\": \"<string,null-email>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/issues/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "issues",
+                            "bulk"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-108b85fa-cfbf-4ef4-95b9-a808c4ea049d"
+                    },
+                    {
+                      "id": "704f2eb6-cec3-48e6-b8be-16614f662d6a",
+                      "name": "Validation errors, keyed by field.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2020-10-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"action\": \"delete\",\n  \"issues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"update\",\n  \"assign_to\": \"<string,null-email>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/issues/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "issues",
+                            "bulk"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-704f2eb6-cec3-48e6-b8be-16614f662d6a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-697c727d-27ba-478e-8ee5-f4afac94e268"
+                }
+              ],
+              "id": "9bb09baf-6b36-43dd-a5e6-6565e5151607",
+              "createdAt": "2026-10-21T20:23:19.000Z",
+              "updatedAt": "2026-10-21T20:23:19.000Z",
+              "uid": "35240-9bb09baf-6b36-43dd-a5e6-6565e5151607"
+            },
+            {
+              "name": "List issues",
+              "id": "1b4083d5-ade4-431d-8410-b56e0e68d815",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/issues?check=<string>&check=<string>&component=<string>&component=<string>&env=<string>&group=<string>&group=<string>&heartbeat=<string>&heartbeat=<string>&job=<string>&job=<string>&orderBy=relevance&page=<integer>&pageSize=<integer>&search=<string>&severity=missing_data&severity=operational&site=<string>&site=<string>&state=investigating&state=unresolved&statuspage=<string>&tag=<string>&tag=<string>&time=<string>&type=<string>&type=<string>&withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>&withSummary=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "issues"
+                  ],
+                  "query": [
+                    {
+                      "description": "Check monitor keys.",
+                      "key": "check",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Check monitor keys.",
+                      "key": "check",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Status page component keys.",
+                      "key": "component",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Status page component keys.",
+                      "key": "component",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Environment key.",
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor group keys.",
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor group keys.",
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Heartbeat monitor keys.",
+                      "key": "heartbeat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Heartbeat monitor keys.",
+                      "key": "heartbeat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor keys.",
+                      "key": "job",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor keys.",
+                      "key": "job",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort order.",
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "description": "A page number within the paginated result set.",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to return per page.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Search issue names and monitor names, keys, and codes.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "* `missing_data` - missing_data\n* `operational` - operational\n* `maintenance` - maintenance\n* `degraded_performance` - degraded_performance\n* `minor_outage` - minor_outage\n* `outage` - outage",
+                      "key": "severity",
+                      "value": "missing_data"
+                    },
+                    {
+                      "description": "* `missing_data` - missing_data\n* `operational` - operational\n* `maintenance` - maintenance\n* `degraded_performance` - degraded_performance\n* `minor_outage` - minor_outage\n* `outage` - outage",
+                      "key": "severity",
+                      "value": "operational"
+                    },
+                    {
+                      "description": "Site monitor keys.",
+                      "key": "site",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Site monitor keys.",
+                      "key": "site",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "* `unresolved` - unresolved\n* `investigating` - investigating\n* `identified` - identified\n* `monitoring` - monitoring\n* `resolved` - resolved\n* `update` - update\n* `unresolved` - unresolved",
+                      "key": "state",
+                      "value": "investigating"
+                    },
+                    {
+                      "description": "* `unresolved` - unresolved\n* `investigating` - investigating\n* `identified` - identified\n* `monitoring` - monitoring\n* `resolved` - resolved\n* `update` - update\n* `unresolved` - unresolved",
+                      "key": "state",
+                      "value": "unresolved"
+                    },
+                    {
+                      "key": "statuspage",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor tags.",
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor tags.",
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Time range, for example 24h, 7d, or 30d.",
+                      "key": "time",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor types.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Monitor types.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include alerts.",
+                      "key": "withAlertDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Expand affected_components.",
+                      "key": "withComponentDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Expand environment.",
+                      "key": "withEnvironmentDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Include monitor details.",
+                      "key": "withMonitorDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Expand statuspages.",
+                      "key": "withStatusPageDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a shorter summary of each issue.",
+                      "key": "withSummary",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "771163be-b160-47ba-ad2d-3886cbdad74d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/issues?check=<string>&component=<string>&env=<string>&group=<string>&heartbeat=<string>&job=<string>&orderBy=relevance&page=<integer>&pageSize=<integer>&search=<string>&severity=operational&site=<string>&state=unresolved&statuspage=<string>&tag=<string>&time=<string>&type=<string>&withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>&withSummary=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "issues"
+                      ],
+                      "query": [
+                        {
+                          "description": "Check monitor keys.",
+                          "key": "check",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Status page component keys.",
+                          "key": "component",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Environment key.",
+                          "key": "env",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Monitor group keys.",
+                          "key": "group",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Heartbeat monitor keys.",
+                          "key": "heartbeat",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Monitor keys.",
+                          "key": "job",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort order.",
+                          "key": "orderBy",
+                          "value": "relevance"
+                        },
+                        {
+                          "description": "A page number within the paginated result set.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results to return per page.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Search issue names and monitor names, keys, and codes.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "* `missing_data` - missing_data\n* `operational` - operational\n* `maintenance` - maintenance\n* `degraded_performance` - degraded_performance\n* `minor_outage` - minor_outage\n* `outage` - outage",
+                          "key": "severity",
+                          "value": "operational"
+                        },
+                        {
+                          "description": "Site monitor keys.",
+                          "key": "site",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "* `unresolved` - unresolved\n* `investigating` - investigating\n* `identified` - identified\n* `monitoring` - monitoring\n* `resolved` - resolved\n* `update` - update\n* `unresolved` - unresolved",
+                          "key": "state",
+                          "value": "unresolved"
+                        },
+                        {
+                          "key": "statuspage",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Monitor tags.",
+                          "key": "tag",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Time range, for example 24h, 7d, or 30d.",
+                          "key": "time",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Monitor types.",
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include alerts.",
+                          "key": "withAlertDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand affected_components.",
+                          "key": "withComponentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand environment.",
+                          "key": "withEnvironmentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Include monitor details.",
+                          "key": "withMonitorDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand statuspages.",
+                          "key": "withStatusPageDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Return a shorter summary of each issue.",
+                          "key": "withSummary",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"page_count\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"total_count\": \"<integer>\",\n  \"data\": [\n    {\n      \"alerts\": \"<array,null>\",\n      \"created\": \"<dateTime>\",\n      \"created_by\": {\n        \"readOnly\": true\n      },\n      \"duration\": \"<integer>\",\n      \"ended\": \"<string,null-date-time>\",\n      \"key\": \"<string>\",\n      \"monitors\": \"<array,null>\",\n      \"name\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"severity\": \"minor_outage\",\n      \"state\": \"resolved\",\n      \"updates\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"key\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"message\": \"<string>\",\n          \"state\": \"identified\",\n          \"created_by\": \"<string,null-email>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"key\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"message\": \"<string>\",\n          \"state\": \"update\",\n          \"created_by\": \"<string,null-email>\"\n        }\n      ],\n      \"started\": \"<dateTime>\",\n      \"statuspages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"affected_components\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"environment\": \"<string>\",\n      \"assigned_to\": \"<string,null-email>\"\n    },\n    {\n      \"alerts\": \"<array,null>\",\n      \"created\": \"<dateTime>\",\n      \"created_by\": {\n        \"readOnly\": true\n      },\n      \"duration\": \"<integer>\",\n      \"ended\": \"<string,null-date-time>\",\n      \"key\": \"<string>\",\n      \"monitors\": \"<array,null>\",\n      \"name\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"severity\": \"outage\",\n      \"state\": \"update\",\n      \"updates\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"key\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"message\": \"<string>\",\n          \"state\": \"monitoring\",\n          \"created_by\": \"<string,null-email>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"key\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"message\": \"<string>\",\n          \"state\": \"identified\",\n          \"created_by\": \"<string,null-email>\"\n        }\n      ],\n      \"started\": \"<dateTime>\",\n      \"statuspages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"affected_components\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"environment\": \"<string>\",\n      \"assigned_to\": \"<string,null-email>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-771163be-b160-47ba-ad2d-3886cbdad74d"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:19.000Z",
+              "updatedAt": "2026-10-21T20:23:19.000Z",
+              "uid": "35240-1b4083d5-ade4-431d-8410-b56e0e68d815"
+            },
+            {
+              "name": "Create an issue",
+              "id": "2ce5bb24-ff76-47c1-abdf-091388fb4fa2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"severity\": \"missing_data\",\n  \"state\": \"monitoring\",\n  \"updates\": [\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/issues?withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "issues"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include alerts.",
+                      "key": "withAlertDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Expand affected_components.",
+                      "key": "withComponentDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Expand environment.",
+                      "key": "withEnvironmentDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Include monitor details.",
+                      "key": "withMonitorDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Expand statuspages.",
+                      "key": "withStatusPageDetails",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5b93ea9d-eb7d-4712-b8aa-d928a27eaa6a",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"severity\": \"missing_data\",\n  \"state\": \"monitoring\",\n  \"updates\": [\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/issues?withAlertDetails=<boolean>&withComponentDetails=<boolean>&withEnvironmentDetails=<boolean>&withMonitorDetails=<boolean>&withStatusPageDetails=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "issues"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include alerts.",
+                          "key": "withAlertDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand affected_components.",
+                          "key": "withComponentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand environment.",
+                          "key": "withEnvironmentDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Include monitor details.",
+                          "key": "withMonitorDetails",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Expand statuspages.",
+                          "key": "withStatusPageDetails",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"alerts\": \"<array,null>\",\n  \"created\": \"<dateTime>\",\n  \"created_by\": {\n    \"readOnly\": true\n  },\n  \"duration\": \"<integer>\",\n  \"ended\": \"<string,null-date-time>\",\n  \"key\": \"<string>\",\n  \"monitors\": \"<array,null>\",\n  \"name\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"severity\": \"operational\",\n  \"state\": \"unresolved\",\n  \"updates\": [\n    {\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"update\",\n      \"created_by\": \"<string,null-email>\"\n    },\n    {\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"key\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"state\": \"investigating\",\n      \"created_by\": \"<string,null-email>\"\n    }\n  ],\n  \"started\": \"<dateTime>\",\n  \"statuspages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"affected_components\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"environment\": \"<string>\",\n  \"assigned_to\": \"<string,null-email>\"\n}",
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-5b93ea9d-eb7d-4712-b8aa-d928a27eaa6a"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:19.000Z",
+              "updatedAt": "2026-10-21T20:23:19.000Z",
+              "uid": "35240-2ce5bb24-ff76-47c1-abdf-091388fb4fa2"
+            }
+          ],
+          "id": "bc4b18f3-b313-4180-9cc1-d26fad57a2f0",
+          "createdAt": "2026-10-21T20:23:19.000Z",
+          "updatedAt": "2026-10-21T20:23:19.000Z",
+          "uid": "35240-bc4b18f3-b313-4180-9cc1-d26fad57a2f0"
+        }
+      ],
+      "id": "2120b02d-8d51-4932-b08d-cffe5f799911",
+      "createdAt": "2026-10-21T20:23:19.000Z",
+      "updatedAt": "2026-10-21T20:23:19.000Z",
+      "uid": "35240-2120b02d-8d51-4932-b08d-cffe5f799911"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "info": {
+    "_postman_id": "45f40d15-d121-4c97-be91-d5de4949b107",
+    "name": "Cronitor Integrations API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:12.000Z",
+    "updatedAt": "2026-10-21T20:23:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45f40d15-d121-4c97-be91-d5de4949b107"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "integrations",
+          "item": [
+            {
+              "name": "connect",
+              "item": [
+                {
+                  "name": "{token}",
+                  "item": [
+                    {
+                      "name": "Integrations connect retrieve",
+                      "id": "f6921782-6f98-4750-a93c-b2d2fee958e3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/integrations/connect/:token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "integrations",
+                            "connect",
+                            ":token"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f9a30c20-08ed-477a-a394-1dd075ee0a39",
+                              "key": "token",
+                              "value": "3HQxv96T0W",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "973066fd-aabd-4aaf-ac1a-29140dbf5e84",
+                          "name": "Response schema not yet published. See https://cronitor.io/docs/integrations-api",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                                "key": "Cronitor-Version",
+                                "value": "2025-11-28"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/integrations/connect/:token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "integrations",
+                                "connect",
+                                ":token"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "token"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:23:13.000Z",
+                          "updatedAt": "2026-10-21T20:23:13.000Z",
+                          "uid": "35240-973066fd-aabd-4aaf-ac1a-29140dbf5e84"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:23:13.000Z",
+                      "updatedAt": "2026-10-21T20:23:13.000Z",
+                      "uid": "35240-f6921782-6f98-4750-a93c-b2d2fee958e3"
+                    }
+                  ],
+                  "id": "ee7d50ca-569a-4081-b42e-f62d41b86392",
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-ee7d50ca-569a-4081-b42e-f62d41b86392"
+                },
+                {
+                  "name": "Integrations connect create",
+                  "id": "6da6561a-883e-4724-88ca-635a368660b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/integrations/connect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "integrations",
+                        "connect"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e5689416-4805-4c64-a647-7cf668b8bdf5",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/integrations-api",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/integrations/connect",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "integrations",
+                            "connect"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:13.000Z",
+                      "updatedAt": "2026-10-21T20:23:13.000Z",
+                      "uid": "35240-e5689416-4805-4c64-a647-7cf668b8bdf5"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-6da6561a-883e-4724-88ca-635a368660b7"
+                }
+              ],
+              "id": "83619360-81aa-4ffc-a1d9-ce0161de5e23",
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-83619360-81aa-4ffc-a1d9-ce0161de5e23"
+            },
+            {
+              "name": "services",
+              "item": [
+                {
+                  "name": "Integrations services retrieve",
+                  "id": "6923fe40-b092-4a6b-bce6-963fb21ca6db",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/integrations/services",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "integrations",
+                        "services"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "74712d81-29a5-4259-8de5-4860b077dad6",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/integrations-api",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/integrations/services",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "integrations",
+                            "services"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:13.000Z",
+                      "updatedAt": "2026-10-21T20:23:13.000Z",
+                      "uid": "35240-74712d81-29a5-4259-8de5-4860b077dad6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-6923fe40-b092-4a6b-bce6-963fb21ca6db"
+                }
+              ],
+              "id": "eeb1c6a1-fc59-4135-86fa-636b4b2363fc",
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-eeb1c6a1-fc59-4135-86fa-636b4b2363fc"
+            },
+            {
+              "name": "Integrations retrieve",
+              "id": "87441753-f0e8-443d-87a9-89fabc96cd68",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/integrations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "integrations"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "25043430-9a04-420d-960e-27466f98aed4",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/integrations-api",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/integrations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "integrations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-25043430-9a04-420d-960e-27466f98aed4"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-87441753-f0e8-443d-87a9-89fabc96cd68"
+            },
+            {
+              "name": "Integrations create",
+              "id": "f78ff597-2258-43c3-a667-ba09c4a4f6ae",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/integrations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "integrations"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c69a6b75-8088-48c3-b8a7-5293c4a260cc",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/integrations-api",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/integrations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "integrations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-c69a6b75-8088-48c3-b8a7-5293c4a260cc"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-f78ff597-2258-43c3-a667-ba09c4a4f6ae"
+            },
+            {
+              "name": "Integrations destroy",
+              "id": "d13d53fc-ca63-4bd4-b279-8ba8f25ac292",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/integrations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "integrations"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "81f6f14d-c073-4735-8502-a8d576fef8c0",
+                  "name": "No response body",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/integrations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "integrations"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-81f6f14d-c073-4735-8502-a8d576fef8c0"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-d13d53fc-ca63-4bd4-b279-8ba8f25ac292"
+            }
+          ],
+          "id": "ee0d1b3d-187b-45c1-82fa-bc0efc778ada",
+          "createdAt": "2026-10-21T20:23:13.000Z",
+          "updatedAt": "2026-10-21T20:23:13.000Z",
+          "uid": "35240-ee0d1b3d-187b-45c1-82fa-bc0efc778ada"
+        }
+      ],
+      "id": "5c4d936e-c757-4797-a0ae-c6bb81074948",
+      "createdAt": "2026-10-21T20:23:13.000Z",
+      "updatedAt": "2026-10-21T20:23:13.000Z",
+      "uid": "35240-5c4d936e-c757-4797-a0ae-c6bb81074948"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

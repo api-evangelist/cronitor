@@ -1,0 +1,676 @@
+{
+  "info": {
+    "_postman_id": "c069547d-eaea-4ace-b2ba-226ec717f198",
+    "name": "Cronitor Sites API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:24:03.000Z",
+    "updatedAt": "2026-10-21T20:24:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c069547d-eaea-4ace-b2ba-226ec717f198"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "sites",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Sites retrieve",
+                  "id": "c06d3229-e906-4201-ba54-e0c39a432010",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/sites/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "sites",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "123f0b84-1433-4a9b-b7a5-c3a7c6805dbb",
+                          "key": "key",
+                          "value": "DZzXS3H2EUKGhxrwRqmBux-5TnnvC43oHrTDU6Ih3m-jyHQnm5kEbAti0OAiE28s9z5xTKxPwvFv7nJafKc0HTDhULRw5Qc",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "22b9f0e3-c6e0-4189-967b-efa0a8e86aa6",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/sites/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "sites",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"client_key\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"ingestion_enabled\": \"<boolean>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public_report_key\": \"<string>\",\n  \"snippet\": \"<string,null>\",\n  \"updated\": \"<dateTime>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-22b9f0e3-c6e0-4189-967b-efa0a8e86aa6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-c06d3229-e906-4201-ba54-e0c39a432010"
+                },
+                {
+                  "name": "Sites update",
+                  "id": "03a97b2f-ac9c-451d-975f-284c27230429",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/sites/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "sites",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "656f9c9a-71a0-4b45-9918-db9cf2f1df0c",
+                          "key": "key",
+                          "value": "DZzXS3H2EUKGhxrwRqmBux-5TnnvC43oHrTDU6Ih3m-jyHQnm5kEbAti0OAiE28s9z5xTKxPwvFv7nJafKc0HTDhULRw5Qc",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "dc6aee6d-8cd1-421c-9bde-5e64523f08d2",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/sites/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "sites",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"client_key\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"ingestion_enabled\": \"<boolean>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public_report_key\": \"<string>\",\n  \"snippet\": \"<string,null>\",\n  \"updated\": \"<dateTime>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-dc6aee6d-8cd1-421c-9bde-5e64523f08d2"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-03a97b2f-ac9c-451d-975f-284c27230429"
+                },
+                {
+                  "name": "Sites destroy",
+                  "id": "28076603-6e31-4821-8220-9ddd4c6f1b65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/sites/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "sites",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "24406db8-7bf3-4e91-bd8a-f396cc30dc42",
+                          "key": "key",
+                          "value": "DZzXS3H2EUKGhxrwRqmBux-5TnnvC43oHrTDU6Ih3m-jyHQnm5kEbAti0OAiE28s9z5xTKxPwvFv7nJafKc0HTDhULRw5Qc",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7befcd41-8627-4b3f-bf2f-c727cb0ca4fe",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/sites/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "sites",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-7befcd41-8627-4b3f-bf2f-c727cb0ca4fe"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-28076603-6e31-4821-8220-9ddd4c6f1b65"
+                }
+              ],
+              "id": "6c6bce26-39d9-4e6c-8827-7aa88c7c25c3",
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-6c6bce26-39d9-4e6c-8827-7aa88c7c25c3"
+            },
+            {
+              "name": "query",
+              "item": [
+                {
+                  "name": "Sites query create",
+                  "id": "101d2880-eb17-408a-a8c1-44468f4cc203",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/sites/query",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "sites",
+                        "query"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7bef6d43-c8ed-4dc2-bb6c-e9f4ebc3f4a0",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/sites-api",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/sites/query",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "sites",
+                            "query"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-7bef6d43-c8ed-4dc2-bb6c-e9f4ebc3f4a0"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-101d2880-eb17-408a-a8c1-44468f4cc203"
+                }
+              ],
+              "id": "b02617ac-371e-4052-8c6d-25f204ce050c",
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-b02617ac-371e-4052-8c6d-25f204ce050c"
+            },
+            {
+              "name": "Sites list",
+              "id": "9f82de3f-6de0-4ff5-b1ff-f0480958760a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/sites?page=<integer>&pageSize=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "sites"
+                  ],
+                  "query": [
+                    {
+                      "description": "A page number within the paginated result set.",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to return per page.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "88426d3d-9d6b-4f53-a7d2-eb14d9e8e580",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/sites?page=<integer>&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "sites"
+                      ],
+                      "query": [
+                        {
+                          "description": "A page number within the paginated result set.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results to return per page.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"page_count\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"total_count\": \"<integer>\",\n  \"data\": [\n    {\n      \"client_key\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"ingestion_enabled\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"name\": \"<string>\",\n      \"public_report_key\": \"<string>\",\n      \"snippet\": \"<string,null>\",\n      \"updated\": \"<dateTime>\",\n      \"public_report_enabled\": \"<boolean>\",\n      \"webvitals_enabled\": \"<boolean>\",\n      \"errors_enabled\": \"<boolean>\",\n      \"filter_localhost\": \"<boolean>\",\n      \"filter_bots\": \"<boolean>\",\n      \"filter_browser_extensions\": \"<boolean>\",\n      \"exclude_internal_referrers\": \"<boolean>\",\n      \"origin_allowlist\": \"<string,null>\",\n      \"ip_denylist\": \"<string,null>\",\n      \"country_code_denylist\": \"<string,null>\",\n      \"path_denylist\": \"<string,null>\",\n      \"sampling\": \"<integer>\"\n    },\n    {\n      \"client_key\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"ingestion_enabled\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"name\": \"<string>\",\n      \"public_report_key\": \"<string>\",\n      \"snippet\": \"<string,null>\",\n      \"updated\": \"<dateTime>\",\n      \"public_report_enabled\": \"<boolean>\",\n      \"webvitals_enabled\": \"<boolean>\",\n      \"errors_enabled\": \"<boolean>\",\n      \"filter_localhost\": \"<boolean>\",\n      \"filter_bots\": \"<boolean>\",\n      \"filter_browser_extensions\": \"<boolean>\",\n      \"exclude_internal_referrers\": \"<boolean>\",\n      \"origin_allowlist\": \"<string,null>\",\n      \"ip_denylist\": \"<string,null>\",\n      \"country_code_denylist\": \"<string,null>\",\n      \"path_denylist\": \"<string,null>\",\n      \"sampling\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-88426d3d-9d6b-4f53-a7d2-eb14d9e8e580"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-9f82de3f-6de0-4ff5-b1ff-f0480958760a"
+            },
+            {
+              "name": "Sites create",
+              "id": "8edef2a5-d3cc-4a44-b27e-dda817d37a77",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/sites",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "sites"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "02d75270-7fe9-4bdc-a522-1d917148cbec",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/sites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "sites"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"client_key\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"ingestion_enabled\": \"<boolean>\",\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public_report_key\": \"<string>\",\n  \"snippet\": \"<string,null>\",\n  \"updated\": \"<dateTime>\",\n  \"public_report_enabled\": \"<boolean>\",\n  \"webvitals_enabled\": \"<boolean>\",\n  \"errors_enabled\": \"<boolean>\",\n  \"filter_localhost\": \"<boolean>\",\n  \"filter_bots\": \"<boolean>\",\n  \"filter_browser_extensions\": \"<boolean>\",\n  \"exclude_internal_referrers\": \"<boolean>\",\n  \"origin_allowlist\": \"<string,null>\",\n  \"ip_denylist\": \"<string,null>\",\n  \"country_code_denylist\": \"<string,null>\",\n  \"path_denylist\": \"<string,null>\",\n  \"sampling\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-02d75270-7fe9-4bdc-a522-1d917148cbec"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-8edef2a5-d3cc-4a44-b27e-dda817d37a77"
+            }
+          ],
+          "id": "28ac7e4a-4508-47d1-80fd-82ad1c276490",
+          "createdAt": "2026-10-21T20:24:04.000Z",
+          "updatedAt": "2026-10-21T20:24:04.000Z",
+          "uid": "35240-28ac7e4a-4508-47d1-80fd-82ad1c276490"
+        }
+      ],
+      "id": "bc84c7cc-9938-4035-b5b6-755f5e76fde2",
+      "createdAt": "2026-10-21T20:24:04.000Z",
+      "updatedAt": "2026-10-21T20:24:04.000Z",
+      "uid": "35240-bc84c7cc-9938-4035-b5b6-755f5e76fde2"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

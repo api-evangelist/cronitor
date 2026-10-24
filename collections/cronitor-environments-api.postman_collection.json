@@ -1,0 +1,462 @@
+{
+  "info": {
+    "_postman_id": "4922f8ad-ac0d-4709-b220-97236dcc0223",
+    "name": "Cronitor Environments API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:07.000Z",
+    "updatedAt": "2026-10-21T20:23:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4922f8ad-ac0d-4709-b220-97236dcc0223"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "environments",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Environments retrieve 2",
+                  "id": "f42be0a1-423b-452c-9176-25f84c087e79",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/environments/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "environments",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "31bd3b45-9837-42aa-b655-92c5ae161bd9",
+                          "key": "key",
+                          "value": "I\u2028W\u2002\u2028-\u2000W\u20286{\u2008B\u2002Y3\u2004QjfYF N%{Hp\u2007\u202f-J65UZ\u20053w\u180e3f\u205fjkg9g\u2007\u2001YoUz\u205f9\u2000\u3000w}.H\u2004\ufeffGLg9\u180eNBJj$\u202fDoHGP\u2001B-\u2001Pj\u2007Dq3imu3Pq3nGtmZb\u2008nlo\u2007iH\u2006fwKi6g}GX{\u180ePLr3dXLwdy\u2005\u2002\u180eAy",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "01362287-9bf5-45b7-ab0e-fbde3bcabcc5",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/environments-api",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/environments/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "environments",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:08.000Z",
+                      "updatedAt": "2026-10-21T20:23:08.000Z",
+                      "uid": "35240-01362287-9bf5-45b7-ab0e-fbde3bcabcc5"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:08.000Z",
+                  "updatedAt": "2026-10-21T20:23:08.000Z",
+                  "uid": "35240-f42be0a1-423b-452c-9176-25f84c087e79"
+                },
+                {
+                  "name": "Environments update",
+                  "id": "a8d5ff71-56c2-4339-b20e-f7f4d112f65a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/environments/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "environments",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "819af72e-c7b5-4d9d-bb82-1c5ecb313ffc",
+                          "key": "key",
+                          "value": "I\u2028W\u2002\u2028-\u2000W\u20286{\u2008B\u2002Y3\u2004QjfYF N%{Hp\u2007\u202f-J65UZ\u20053w\u180e3f\u205fjkg9g\u2007\u2001YoUz\u205f9\u2000\u3000w}.H\u2004\ufeffGLg9\u180eNBJj$\u202fDoHGP\u2001B-\u2001Pj\u2007Dq3imu3Pq3nGtmZb\u2008nlo\u2007iH\u2006fwKi6g}GX{\u180ePLr3dXLwdy\u2005\u2002\u180eAy",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "871cd6a7-d3ec-49b7-bfdd-43c7e24e971a",
+                      "name": "Response schema not yet published. See https://cronitor.io/docs/environments-api",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/environments/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "environments",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:08.000Z",
+                      "updatedAt": "2026-10-21T20:23:08.000Z",
+                      "uid": "35240-871cd6a7-d3ec-49b7-bfdd-43c7e24e971a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:08.000Z",
+                  "updatedAt": "2026-10-21T20:23:08.000Z",
+                  "uid": "35240-a8d5ff71-56c2-4339-b20e-f7f4d112f65a"
+                },
+                {
+                  "name": "Environments destroy",
+                  "id": "5d6943f9-af97-4f74-83fa-725ee5f63bc0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/environments/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "environments",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c0592109-dd77-4d0a-80fd-8f1bd184d097",
+                          "key": "key",
+                          "value": "I\u2028W\u2002\u2028-\u2000W\u20286{\u2008B\u2002Y3\u2004QjfYF N%{Hp\u2007\u202f-J65UZ\u20053w\u180e3f\u205fjkg9g\u2007\u2001YoUz\u205f9\u2000\u3000w}.H\u2004\ufeffGLg9\u180eNBJj$\u202fDoHGP\u2001B-\u2001Pj\u2007Dq3imu3Pq3nGtmZb\u2008nlo\u2007iH\u2006fwKi6g}GX{\u180ePLr3dXLwdy\u2005\u2002\u180eAy",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9bbf6bc2-b7fe-477e-9c96-b0aa0ff7b149",
+                      "name": "No response body",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                            "key": "Cronitor-Version",
+                            "value": "2025-11-28"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/environments/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "environments",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:08.000Z",
+                      "updatedAt": "2026-10-21T20:23:08.000Z",
+                      "uid": "35240-9bbf6bc2-b7fe-477e-9c96-b0aa0ff7b149"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:08.000Z",
+                  "updatedAt": "2026-10-21T20:23:08.000Z",
+                  "uid": "35240-5d6943f9-af97-4f74-83fa-725ee5f63bc0"
+                }
+              ],
+              "id": "4314e5dd-1853-42fd-afdf-542648c49b90",
+              "createdAt": "2026-10-21T20:23:08.000Z",
+              "updatedAt": "2026-10-21T20:23:08.000Z",
+              "uid": "35240-4314e5dd-1853-42fd-afdf-542648c49b90"
+            },
+            {
+              "name": "Environments retrieve",
+              "id": "1ab04340-7c0d-426a-9c7b-5c71eca55896",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "environments"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0e2ee89f-f90f-4f47-aefb-e50cfcfb3825",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/environments-api",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/environments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "environments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:08.000Z",
+                  "updatedAt": "2026-10-21T20:23:08.000Z",
+                  "uid": "35240-0e2ee89f-f90f-4f47-aefb-e50cfcfb3825"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:08.000Z",
+              "updatedAt": "2026-10-21T20:23:08.000Z",
+              "uid": "35240-1ab04340-7c0d-426a-9c7b-5c71eca55896"
+            },
+            {
+              "name": "Environments create",
+              "id": "5924fe84-2303-4c87-9805-2c7607dfb584",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2025-11-28"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "environments"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a7366488-4f88-4463-9a6b-a0a7da60f2b4",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/environments-api",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2025-11-28"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/environments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "environments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:08.000Z",
+                  "updatedAt": "2026-10-21T20:23:08.000Z",
+                  "uid": "35240-a7366488-4f88-4463-9a6b-a0a7da60f2b4"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:08.000Z",
+              "updatedAt": "2026-10-21T20:23:08.000Z",
+              "uid": "35240-5924fe84-2303-4c87-9805-2c7607dfb584"
+            }
+          ],
+          "id": "42234130-010e-4b25-965e-ff180c84ae44",
+          "createdAt": "2026-10-21T20:23:08.000Z",
+          "updatedAt": "2026-10-21T20:23:08.000Z",
+          "uid": "35240-42234130-010e-4b25-965e-ff180c84ae44"
+        }
+      ],
+      "id": "57e80d1d-07bb-4505-bd93-03c0053d507f",
+      "createdAt": "2026-10-21T20:23:08.000Z",
+      "updatedAt": "2026-10-21T20:23:08.000Z",
+      "uid": "35240-57e80d1d-07bb-4505-bd93-03c0053d507f"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
+    }
+  ]
+}

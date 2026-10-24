@@ -1,186 +1,163 @@
 {
+  "info": {
+    "_postman_id": "7647d887-b90f-4ad1-9360-d41d55ee98be",
+    "name": "Cronitor Search API",
+    "description": "Monitor cron jobs, heartbeats, websites, and APIs, and manage alerts, issues, status pages, and Real User Monitoring sites. Reference: https://cronitor.io/docs/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:50.000Z",
+    "updatedAt": "2026-10-21T20:23:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7647d887-b90f-4ad1-9360-d41d55ee98be"
+  },
   "item": [
     {
-      "id": "e8dede7e-0459-4a62-83cb-e30bf4757c9d",
-      "name": "Search",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "fc271582-4ffc-4222-9090-707b28fa250c",
-          "name": "Advanced monitor search",
-          "request": {
-            "name": "Advanced monitor search",
-            "description": {
-              "content": "Search monitors using scoped query syntax.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "search"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "q",
-                  "value": "<string>",
-                  "description": "(Required) Scoped search query."
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "50"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "search",
+          "item": [
             {
-              "id": "fca4b24a-54b1-4bec-ac65-60c331d355a8",
-              "name": "Search results.",
-              "originalRequest": {
+              "name": "Search monitors",
+              "id": "dc1a9605-3cc5-4c1c-b08c-bbc1b50ff382",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                    "key": "Cronitor-Version",
+                    "value": "2020-10-01"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/api/search?query=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "search"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
-                      "key": "q",
+                      "description": "Search text. Supports job:, check:, heartbeat:, group:, and tag: prefixes.",
+                      "key": "query",
                       "value": "<string>"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "50"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "73d5b662-a11c-4817-a2e0-38d7b66c1182",
+                  "name": "Response schema not yet published. See https://cronitor.io/docs/monitors-api",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/search?query=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search text. Supports job:, check:, heartbeat:, group:, and tag: prefixes.",
+                          "key": "query",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"page\": 1,\n  \"page_size\": 50,\n  \"count\": 12,\n  \"monitors\": [\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"site\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"GET\",\n      \"body\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\"\n      },\n      \"timeout_seconds\": 11,\n      \"follow_redirects\": true,\n      \"verify_ssl\": true,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"group\": \"string\",\n      \"env\": \"string\",\n      \"created\": \"2020-02-15T15:15:31.700Z\",\n      \"latest_event\": {\n        \"stamp\": 1789,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    },\n    {\n      \"key\": \"my-daily-backup\",\n      \"type\": \"site\",\n      \"name\": \"Daily Backup Job\",\n      \"schedule\": \"0 2 * * *\",\n      \"schedules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"timezone\": \"America/New_York\",\n      \"assertions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"devops-team\",\n        \"email:oncall@example.com\"\n      ],\n      \"realert_interval\": \"1 hour\",\n      \"grace_seconds\": 60,\n      \"failure_tolerance\": 0,\n      \"consecutive_alert_threshold\": 1,\n      \"paused\": false,\n      \"url\": \"https://example.com/health\",\n      \"method\": \"PATCH\",\n      \"body\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"timeout_seconds\": 8,\n      \"follow_redirects\": true,\n      \"verify_ssl\": true,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"group\": \"string\",\n      \"env\": \"string\",\n      \"created\": \"1974-07-03T12:02:44.342Z\",\n      \"latest_event\": {\n        \"stamp\": 7424,\n        \"state\": \"string\"\n      },\n      \"latest_issue\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ad8827a5-c6df-49b6-ad4d-bd7f0582b844",
-              "name": "Forbidden.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "search"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": []
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:51.000Z",
+                  "updatedAt": "2026-10-21T20:23:51.000Z",
+                  "uid": "35240-73d5b662-a11c-4817-a2e0-38d7b66c1182"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "22248a77-328d-4727-b594-41719298eac3",
+                  "name": "No query given.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "API version. These schemas describe 2025-11-28. Requests without the header get 2020-10-01. https://cronitor.io/docs/api#versioning",
+                        "key": "Cronitor-Version",
+                        "value": "2020-10-01"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/search?query=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search text. Supports job:, check:, heartbeat:, group:, and tag: prefixes.",
+                          "key": "query",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:23:51.000Z",
+                  "updatedAt": "2026-10-21T20:23:51.000Z",
+                  "uid": "35240-22248a77-328d-4727-b594-41719298eac3"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:23:51.000Z",
+              "updatedAt": "2026-10-21T20:23:51.000Z",
+              "uid": "35240-dc1a9605-3cc5-4c1c-b08c-bbc1b50ff382"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "ac6b8e59-eb1d-4c48-a4ce-ddd0322218bc",
+          "createdAt": "2026-10-21T20:23:51.000Z",
+          "updatedAt": "2026-10-21T20:23:51.000Z",
+          "uid": "35240-ac6b8e59-eb1d-4c48-a4ce-ddd0322218bc"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cronitor.io",
-      "key": "baseUrl"
+      "id": "19dcf10c-6f25-47d0-9de8-3c78729c0417",
+      "createdAt": "2026-10-21T20:23:51.000Z",
+      "updatedAt": "2026-10-21T20:23:51.000Z",
+      "uid": "35240-19dcf10c-6f25-47d0-9de8-3c78729c0417"
     }
   ],
   "auth": {
@@ -188,21 +165,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "3b9738a7-dab4-4e63-b21d-2baa6cb136eb",
-    "name": "Cronitor Groups and Notifications Cronitor Telemetry API Search API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Groups API manages logical groupings of monitors for bulk operations and reporting. The Notifications API manages notification lists (alert routing) that specify where alerts are sent when monitors fire. Both APIs use HTTP Basic Auth with a Cronitor API key.\n\nContact Support:\n Name: Cronitor Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cronitor.io"
     }
-  }
+  ]
 }
