@@ -1,4 +1,4 @@
-# Cronitor (cronitor)
+# Cronitor
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,56 +64,169 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Cronitor is a cron job and scheduled task monitoring platform that provides developers with instant alerts when jobs fail, run too long, or don't run at all. The platform exposes a versioned REST API for creating and managing monitors, recording job telemetry events, and configuring alert policies. Cronitor supports job monitoring, heartbeat monitoring, website uptime checks, and Real User Monitoring (RUM), with SDKs available for Python, Node.js, Ruby, PHP, Java, Go, and other languages.
+Cronitor is a cron job and scheduled task monitoring platform that provides developers with instant alerts when jobs fail, run too long, or don't run at all. The platform offers a REST API for creating and managing monitors, recording job telemetry events, and configuring alert policies across teams. Cronitor supports job monitoring, heartbeat monitoring, website uptime checks, and Real User Monitoring (RUM), all accessible via a versioned HTTP API using Basic Auth with scoped API keys. SDKs are available for Python, Node.js, Ruby, PHP, Java, Go, and other languages through the cronitorio GitHub organization.
 
-APIs.json: [https://raw.githubusercontent.com/api-evangelist/cronitor/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cronitor/refs/heads/main/apis.yml)
+**Areas:** Monitoring · Cron Jobs · Scheduled Tasks · Alerting · Uptime · Telemetry · Status Pages · Scheduling
 
-Naftiko: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=cronitor-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=cronitor-api-evangelist&utm_content=repo)
+## Cronitor on APIs.io
 
-## Tags
+Everything profiled for Cronitor is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cronitor/](https://apis.io/providers/cronitor/)** — or go straight to one of the APIs or properties below.
 
-- Monitoring
-- Cron Jobs
-- Scheduled Tasks
-- Alerting
-- Uptime
-- Telemetry
-- Status Pages
+### APIs (4)
 
-## APIs
+- [Cronitor Telemetry API](https://apis.io/apis/cronitor/cronitor-cronitor-telemetry-api-api/) — The Cronitor Telemetry API API from Cronitor — 1 operation(s) for cronitor telemetry api.
+- [Cronitor Groups API](https://apis.io/apis/cronitor/cronitor-groups-api/) — The Groups API from Cronitor — 3 operation(s) for groups.
+- [Cronitor Notifications API](https://apis.io/apis/cronitor/cronitor-notifications-api/) — The Notifications API from Cronitor — 2 operation(s) for notifications.
+- [Cronitor P API](https://apis.io/apis/cronitor/cronitor-p-api/) — The P API from Cronitor — 1 operation(s) for p.
 
-| Name | Description | Docs |
-|------|-------------|------|
-| Cronitor Monitors API | Create, update, retrieve, delete, clone, and pause monitors for cron jobs, heartbeats, uptime checks, and sites. | [Docs](https://cronitor.io/docs/monitors-api) |
-| Cronitor Telemetry API | Record job execution events (run, complete, fail, ok) to monitors via lightweight HTTP pings. | [Docs](https://cronitor.io/docs/telemetry-api) |
-| Cronitor Sites API | Manage Real User Monitoring (RUM) sites for end-user browser session performance tracking. | [Docs](https://cronitor.io/docs/sites-api) |
+### Published properties
 
-## Plans / Rate Limits / FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Resource | File |
-|----------|------|
-| Plans & Pricing | [plans/cronitor-plans-pricing.yml](plans/cronitor-plans-pricing.yml) |
-| Rate Limits | [rate-limits/cronitor-rate-limits.yml](rate-limits/cronitor-rate-limits.yml) |
-| FinOps | [finops/cronitor-finops.yml](finops/cronitor-finops.yml) |
+#### MCP servers (1)
 
-## Timestamps
+Model Context Protocol servers that expose the API to agents.
 
-- **Created:** 2026-06-12
-- **Modified:** 2026-06-12
+- [cronitor](https://apis.io/servers/cronitor/cronitor/)
 
-## Common Properties
+#### Agentic access (1)
 
-| Type | URL |
-|------|-----|
-| Website | https://cronitor.io |
-| Documentation | https://cronitor.io/docs |
-| GitHub Organization | https://github.com/cronitorio |
-| LinkedIn | https://www.linkedin.com/company/cronitor |
-| Blog / Newsletter | https://cronitor.io/cronicle |
-| Pricing | https://cronitor.io/pricing |
-| Status Page | https://status.cronitor.io |
-| X (Twitter) | https://x.com/cronitorio |
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Maintainers
+- [Cronitor Agentic Access](https://apis.io/agentic-access/cronitor/cronitor-agentic-access/)
 
-- **Kin Lane** — kin@apievangelist.com
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Cronitor Monitor](https://apis.io/schemas/cronitor/cronitor-monitor/)
+- [Cronitor Notification List](https://apis.io/schemas/cronitor/cronitor-notification-list/)
+- [Cronitor Telemetry Event](https://apis.io/schemas/cronitor/cronitor-telemetry-event/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Cronitor Context](https://apis.io/jsonld/cronitor/cronitor-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Cronitor Vocabulary](https://apis.io/vocabularies/cronitor/cronitor-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Cronitor Create Monitor Example](https://apis.io/examples/cronitor/cronitor-create-monitor-example/)
+- [Cronitor List Monitors Example](https://apis.io/examples/cronitor/cronitor-list-monitors-example/)
+- [Cronitor Telemetry Event Example](https://apis.io/examples/cronitor/cronitor-telemetry-event-example/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Cronitor Groups and Notifications Cronitor Telemetry API API](https://apis.io/collections/cronitor/open-cronitor-cronitor-telemetry-api-api/)
+- [Cronitor and Notifications Cronitor Telemetry API Groups API](https://apis.io/collections/cronitor/open-cronitor-groups-api/)
+- [Cronitor Groups and Notifications Cronitor Telemetry API Monitors API](https://apis.io/collections/cronitor/open-cronitor-monitors-api/)
+- [Cronitor Groups and Cronitor Telemetry API Notifications API](https://apis.io/collections/cronitor/open-cronitor-notifications-api/)
+- [Cronitor Groups and Notifications Cronitor Telemetry API P API](https://apis.io/collections/cronitor/open-cronitor-p-api/)
+- [Cronitor Groups and Notifications Cronitor Telemetry API Search API](https://apis.io/collections/cronitor/open-cronitor-search-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Cronitor — jsonschema rules](https://apis.io/rules/cronitor/cronitor-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Cronitor Authentication](https://apis.io/security/cronitor/cronitor-authentication/)
+- [Cronitor Domain Security](https://apis.io/security/cronitor/cronitor-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Cronitor Plans Pricing](https://apis.io/plans/cronitor/cronitor-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Cronitor Rate Limits](https://apis.io/rate-limits/cronitor/cronitor-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cronitor Finops](https://apis.io/finops/cronitor/cronitor-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://cronitor.io)
+- [Documentation](https://cronitor.io/docs)
+- [Pricing](https://cronitor.io/pricing)
+- [Blog](https://cronitor.io/cronicle)
+- [GitHub](https://github.com/cronitorio)
+- [Status](https://status.cronitor.io)
+
+## API Evangelist rating
+
+**Kin Score 33.6** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 53.2 |
+| Contract governance | 23.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 25.0 |
+| Access clarity | 18.4 |
+
+**Agent readiness 40.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cronitor/](https://apis.io/providers/cronitor/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cronitor: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cronitor/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
